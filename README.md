@@ -1,3 +1,5 @@
+<image src="https://github.com/im-Michelle/DevMura/blob/main/public/img/img-readme.png?raw=true" alt="Imagen de devmura">
+
 # DevMura - Backend
 
 ¡Bienvenido a DevMura! Este es el repositorio del backend de nuestra red social enfocada en desarrolladores. Aquí encontrarás toda la información necesaria para comprender y trabajar en el backend de DevMura, que ha sido desarrollado utilizando Java y Spring Boot.
