@@ -20,7 +20,7 @@ target/
 *.ipr
 
 ### Sensitive Data ###
-/src/main/resources/application.properties
+application.properties
 
 
 ### NetBeans ###
