@@ -9,13 +9,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table (name = "gander")
+@Table (name = "ganders")
 public class Gender {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "gender_id")
     private Integer id;
 
-    @Column(name = "name")
-    private String gender_name;
+    @Column(name = "gender_name")
+    private String genderName;
 }
