@@ -6,15 +6,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor  
 @Entity
-@Table(name = "users")
-public class User {
-    @Id
+@Table(name = "countries")
+public class Country {
+    @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "country_id")
     private Integer id;
+
+    @Column(name = "country_name")
     private String name;
-    private String email;
-    private String password;
+
+
 }

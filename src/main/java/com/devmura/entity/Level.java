@@ -6,15 +6,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "levels")
+public class Level {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "level_id")
     private Integer id;
+    @Column(name = "name")
     private String name;
-    private String email;
-    private String password;
 }
