@@ -18,7 +18,7 @@ public class Languages {
     private Integer id;
 
     @Column(name="language_name")
-    private String language_name;
+    private String name;
 
    
 }
