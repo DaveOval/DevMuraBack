@@ -11,14 +11,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "languages")
-public class Languages {
+public class Language {
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     @Column(name= "language_id")
     private Integer id;
 
     @Column(name="language_name")
-    private String name;
+    private String languageName;
 
    
 }
