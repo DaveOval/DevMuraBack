@@ -11,7 +11,6 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor  
 @Entity
 @Table(name = "countries")
 public class Country {
@@ -22,6 +21,7 @@ public class Country {
 
     @Column(name = "country_name")
     private String name;
+
 
     @Override
     public boolean equals(Object o) {
