@@ -11,7 +11,6 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "languages")
 public class Language {
