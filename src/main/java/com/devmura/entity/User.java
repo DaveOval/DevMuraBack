@@ -50,6 +50,10 @@ public class User {
     @JoinColumn(name = "gender_id")
     private Gender gender;
 
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private Country country;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
