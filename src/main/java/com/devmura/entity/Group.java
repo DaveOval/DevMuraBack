@@ -1,18 +1,25 @@
 package com.devmura.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.Hibernate;
 
 import java.util.Objects;
+import java.util.Set;
+
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "groups")
 
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "group_id")
-    private Integer id;
+    private Integer id ;
 
     @Column(name = "title")
     private String title;
@@ -25,6 +32,12 @@ public class Group {
 
     @Column(name="user_id")
     private Integer userId;
+
+    @ManyToMany
+    @JoinTable(
+        name = "group_post",
+        joinColumns = @JoinColumn(name = "group_id"),
+        inverseJoinColumns = @JoinColumn(name = "post_id"))
 
     @Override
     public boolean equals(Object o) {
