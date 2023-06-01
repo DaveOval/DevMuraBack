@@ -13,6 +13,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
+// @ Data soluciona para no escribir todos los demás
 @Table(name = "users")
 public class User {
     @Id
@@ -46,6 +47,7 @@ public class User {
     @JoinColumn(name = "auth_id")
     private Auth auth;
 
+    // revisar relacion many to one
     @ManyToOne
     @JoinColumn(name = "gender_id")
     private Gender gender;

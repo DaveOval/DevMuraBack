@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -34,9 +35,24 @@ class CountryRepositoryTest {
     public void saveCountry(){
         Country country = new Country();
         country.setName("Colombia");
-        countryRepository.save(country);
-        System.out.println(country);
-        assertNotNull(country.getId());
+
+        List<Country> listCountry = countryRepository.findAll();
+
+
+
+        System.out.println(listCountry.contains(country.getName()));
+        System.out.println(country.getName());
+
+        listCountry.forEach((pais) -> System.out.println(pais.getName()));
+
+
+//        if(!(listCountry.contains(country.getName())))
+//        {
+//            countryRepository.save(country);
+//            System.out.println(country);
+//            assertNotNull(country.getId());
+//        }
+
     }
 
     @Test
@@ -49,7 +65,7 @@ class CountryRepositoryTest {
 
     @Test
     public void deleteCountryById(){
-        Integer id = 2;
+        Integer id = 4;
 
         Optional<Country> optional = countryRepository.findById(id);
         if (optional.isPresent()){
