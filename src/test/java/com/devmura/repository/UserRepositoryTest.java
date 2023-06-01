@@ -1,6 +1,7 @@
 package com.devmura.repository;
 
 import com.devmura.entity.Auth;
+import com.devmura.entity.Country;
 import com.devmura.entity.Gender;
 import com.devmura.entity.User;
 import org.junit.jupiter.api.Test;
@@ -26,6 +27,9 @@ class UserRepositoryTest {
     @Autowired
     AuthRepository authRepository;
 
+    @Autowired
+    CountryRepository countryRepository;
+
     @Test
     public void saveUser() {
         User userTest = new User();
@@ -49,6 +53,13 @@ class UserRepositoryTest {
         if (genderTest.isPresent()) {
             Gender gender = genderTest.get();
             userTest.setGender(gender);
+        }
+
+        Optional<Country> countryTest = countryRepository.findById(1);
+
+        if (countryTest.isPresent()) {
+            Country country = countryTest.get();
+            userTest.setCountry(country);
         }
 
         userRepository.save(userTest);
