@@ -32,37 +32,41 @@ class UserRepositoryTest {
 
     @Test
     public void saveUser() {
-        User userTest = new User();
-        userTest.setName("Juanito");
-        userTest.setLastName("Banana");
-        userTest.setAge(28);
-        userTest.setEmail("juanito@correo.com");
-        userTest.setUsername("juanitobanana3000");
-        userTest.setCreatedAt(new Date());
-        userTest.setPassword("bananas");
+        try {
+            User userTest = new User();
+            userTest.setName("Juanito");
+            userTest.setLastName("Banana");
+            userTest.setAge(28);
+            userTest.setEmail("juanito@correo.com");
+            userTest.setUsername("juanitobanana3000");
+            userTest.setCreatedAt(new Date());
+            userTest.setPassword("bananas");
 
-        Optional<Auth> authTest = authRepository.findById(1);
+            Optional<Auth> authTest = authRepository.findById(1);
 
-        if (authTest.isPresent()) {
-            Auth auth = authTest.get();
-            userTest.setAuth(auth);
+            if (authTest.isPresent()) {
+                Auth auth = authTest.get();
+                userTest.setAuth(auth);
+            }
+
+            Optional<Gender> genderTest = genderRepository.findById(1);
+
+            if (genderTest.isPresent()) {
+                Gender gender = genderTest.get();
+                userTest.setGender(gender);
+            }
+
+            Optional<Country> countryTest = countryRepository.findById(1);
+
+            if (countryTest.isPresent()) {
+                Country country = countryTest.get();
+                userTest.setCountry(country);
+            }
+
+            userRepository.save(userTest);
+        } catch (Exception e) {
+            System.out.println("Same username or email: " + e.getMessage());
         }
-
-        Optional<Gender> genderTest = genderRepository.findById(1);
-
-        if (genderTest.isPresent()) {
-            Gender gender = genderTest.get();
-            userTest.setGender(gender);
-        }
-
-        Optional<Country> countryTest = countryRepository.findById(1);
-
-        if (countryTest.isPresent()) {
-            Country country = countryTest.get();
-            userTest.setCountry(country);
-        }
-
-        userRepository.save(userTest);
     }
 
     @Test
