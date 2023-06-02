@@ -2,6 +2,7 @@ package com.devmura.model;
 
 
 import com.devmura.entity.Language;
+import com.devmura.entity.Profile;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -23,5 +24,6 @@ public class LanguajeProfile {
     Language language;
 
     @ManyToOne
-    @JoinColumn(name = "")
+    @JoinColumn(name = "profile_id")
+    Profile profile;
 }

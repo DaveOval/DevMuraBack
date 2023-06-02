@@ -1,5 +1,7 @@
 package com.devmura.entity;
 
+import com.devmura.model.GroupPost;
+import com.devmura.model.LanguajeProfile;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -41,6 +43,9 @@ public class Profile {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @OneToMany(mappedBy = "profile")
+    List<LanguajeProfile> languajeProfile = new ArrayList<>();
 
     public void setLikedin(String likedin) {
         this.likedin = likedin;

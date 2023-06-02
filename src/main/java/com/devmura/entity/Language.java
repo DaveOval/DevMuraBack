@@ -1,6 +1,7 @@
 package com.devmura.entity;
 
 import com.devmura.model.GroupPost;
+import com.devmura.model.LanguajeProfile;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -25,8 +26,8 @@ public class Language {
     @Column(name="language_name")
     private String languageName;
 
-    @OneToMany(mappedBy = "post")
-    List<GroupPost> groupPosts = new ArrayList<>();
+    @OneToMany(mappedBy = "language")
+    List<LanguajeProfile> languajeProfile = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
