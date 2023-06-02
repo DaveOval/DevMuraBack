@@ -122,8 +122,10 @@ create table friends(
 
 DROP TABLE IF EXISTS language_profile;
 CREATE TABLE IF NOT EXISTS `devmura`.`language_profile` (
+                                                            id INTEGER NOT NULL AUTO_INCREMENT,
                                                             language_id INTEGER NOT NULL,
                                                             profile_id INTEGER NOT NULL,
+                                                            primary key (id),
                                                             FOREIGN KEY (language_id) REFERENCES languages (language_id),
     FOREIGN KEY (profile_id) REFERENCES profiles (profile_id));
 

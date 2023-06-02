@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @ActiveProfiles("devmura")
-class UserRepositoryTest {
+class UserServiceTest {
     @Autowired
     UserRepository userRepository;
 
