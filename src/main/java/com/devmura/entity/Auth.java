@@ -12,22 +12,22 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table (name = "genders")
-public class Gender {
+@Table(name = "auths")
+public class Auth {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "gender_id")
-    private Integer id;
+    @Column(name = "auth_id")
+    private Integer id ;
 
-    @Column(name = "gender_name")
-    private String genderName;
+    @Column(name = "auth_name")
+    private String name;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Gender gender = (Gender) o;
-        return id != null && Objects.equals(id, gender.id);
+        Auth auth = (Auth) o;
+        return id != null && Objects.equals(id, auth.id);
     }
 
     @Override
