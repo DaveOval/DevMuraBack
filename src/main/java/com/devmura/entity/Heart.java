@@ -17,18 +17,18 @@ import java.time.LocalDate;
 public class Heart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "heart_id", nullable = false)
+    @Column(name = "heart_id")
     private Integer id;
 
-    @Column(name = "create_at")
-    private LocalDate createAt;
+    @Column(name = "created_at")
+    private LocalDate createdAt;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "post_id", nullable = false)
+    @JoinColumn(name = "post_id")
     private Post post;
 
 }
