@@ -6,14 +6,13 @@ import lombok.*;
 import java.time.LocalDate;
 import java.util.Date;
 
-@NoArgsConstructor
+
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
-
 @Table(name = "hearts")
 public class Heart {
     @Id
