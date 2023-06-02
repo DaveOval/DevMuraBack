@@ -1,13 +1,21 @@
 package com.devmura.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.devmura.model.GroupPost;
+import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.Hibernate;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
+@Setter
+@Getter
+@RequiredArgsConstructor
+@AllArgsConstructor
+@ToString
+@Entity
+@Table(name = "groups")
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +33,9 @@ public class Group {
 
     @Column(name="user_id")
     private Integer userId;
+
+    @OneToMany(mappedBy = "group")
+    List<GroupPost> groupPosts = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
