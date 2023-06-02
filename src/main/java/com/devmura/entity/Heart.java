@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @NoArgsConstructor
 @Getter
@@ -21,7 +22,7 @@ public class Heart {
     private Integer id;
 
     @Column(name = "created_at")
-    private LocalDate createdAt;
+    private Date createdAt;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
