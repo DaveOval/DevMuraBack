@@ -1,9 +1,12 @@
 package com.devmura.entity;
 
+import com.devmura.model.GroupPost;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -21,6 +24,9 @@ public class Language {
 
     @Column(name="language_name")
     private String languageName;
+
+    @OneToMany(mappedBy = "post")
+    List<GroupPost> groupPosts = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
