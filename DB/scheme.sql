@@ -98,7 +98,7 @@ DROP TABLE IF EXISTS comments;
 create table comments(
                          comment_id  integer not null,
                          contend varchar (150),
-                         created_at varchar (150),
+                         created_at date not null,
                          user_id integer not null,
                          post_id integer not null,
                          primary key (comment_id),
@@ -145,7 +145,7 @@ DROP TABLE IF EXISTS `groups`;
 create table `devmura`.`groups`(
                                    group_id integer not null,
                                    title varchar (50),
-                                   created_at varchar (50),
+                                   created_at date not null,
                                    description_group varchar(250),
                                    user_id integer not null,
                                    primary key (group_id),
