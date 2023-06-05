@@ -1,6 +1,5 @@
 package com.devmura.entity;
 
-import com.devmura.model.GroupPost;
 import com.devmura.model.LanguajeProfile;
 import jakarta.persistence.*;
 import lombok.*;
