@@ -16,14 +16,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "groups")
-
-@Setter
-@Getter
-@RequiredArgsConstructor
-@AllArgsConstructor
-@ToString
-@Entity
-@Table(name = "groups")
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
