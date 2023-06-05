@@ -1,9 +1,13 @@
 package com.devmura.entity;
 
+import com.devmura.model.GroupPost;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -19,14 +23,23 @@ public class Post {
     @Column(name = "post_id")
     private Integer id;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "post_body")
+    private String postBody;
+
+    @Column(name = "created_at")
+    private Date createdAt;
+
+    @Column (name = "img_source")
+    private String imgSource;
 
     @Column(name = "counter")
     private String counter;
 
     @ManyToOne
     private User user;
+
+    @OneToMany(mappedBy = "post")
+    List<GroupPost> groupPosts = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {

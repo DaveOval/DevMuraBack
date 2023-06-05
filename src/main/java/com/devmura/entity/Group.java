@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -15,6 +17,13 @@ import java.util.Set;
 @Entity
 @Table(name = "groups")
 
+@Setter
+@Getter
+@RequiredArgsConstructor
+@AllArgsConstructor
+@ToString
+@Entity
+@Table(name = "groups")
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
