@@ -1,14 +1,19 @@
 package com.devmura.entity;
 
-import jakarta.persistence.Entity;
+import com.devmura.model.LanguajeProfile;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.Hibernate;
 
-@Data
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "languages")
 public class Language {
@@ -20,5 +25,19 @@ public class Language {
     @Column(name="language_name")
     private String languageName;
 
-   
+    @OneToMany(mappedBy = "language")
+    List<LanguajeProfile> languajeProfile = new ArrayList<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Language language = (Language) o;
+        return id != null && Objects.equals(id, language.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

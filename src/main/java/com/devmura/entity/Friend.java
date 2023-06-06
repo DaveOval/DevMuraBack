@@ -1,11 +1,10 @@
 package com.devmura.entity;
 
-import jakarta.persistence.;
 
-import lombok.;
-import org.hibernate.Hibernate;
+import jakarta.persistence.*;
 
-import java.util.Objects;
+import lombok.*;
+
 
 @Getter
 @Setter
