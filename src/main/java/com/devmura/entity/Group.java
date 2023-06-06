@@ -34,10 +34,10 @@ public class Group {
     @Column(name="user_id")
     private Integer userId;
 
-    @ManyToMany
-    @JoinTable(
-        name = "group_post",
-        joinColumns = @JoinColumn(name = "group_id"),
-        inverseJoinColumns = @JoinColumn(name = "post_id"))
-    private Set<Post> posts;
+//    @ManyToMany
+//    @JoinTable(
+//        name = "group_post",
+//        joinColumns = @JoinColumn(name = "group_id"),
+//        inverseJoinColumns = @JoinColumn(name = "post_id"))
+//    private Set<Post> posts;
 }

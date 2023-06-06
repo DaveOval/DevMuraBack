@@ -38,8 +38,8 @@ public class Post {
     @ManyToOne
     private User user;
 
-    @OneToMany(mappedBy = "post")
-    List<GroupPost> groupPosts = new ArrayList<>();
+//    @OneToMany(mappedBy = "post")
+//    List<GroupPost> groupPosts = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
