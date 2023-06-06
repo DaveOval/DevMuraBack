@@ -3,15 +3,17 @@ package com.devmura.service.impl;
 import com.devmura.entity.Country;
 import com.devmura.repository.CountryRepository;
 import com.devmura.service.CountryService;
+import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CountryServiceImpl implements CountryService {
 
     @Autowired
-    CountryService countryService;
+    CountryRepository countryRepository;
 
 
     @Override
@@ -27,11 +29,14 @@ public class CountryServiceImpl implements CountryService {
 
     @Override
     public Optional<Country> findById(Integer id) {
-        return Optional.findById();
+         return countryRepository.findById(id);
     }
 
     @Override
     public List<Country> getAll() {
-        return coutryRepository.findAll();
+        return countryRepository.findAll();
     }
 }
+
+
+
