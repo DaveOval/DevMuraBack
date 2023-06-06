@@ -43,8 +43,8 @@ public class Profile {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "profile")
-    List<LanguajeProfile> languajeProfile = new ArrayList<>();
+//    @OneToMany(mappedBy = "profile")
+//    List<LanguajeProfile> languajeProfile = new ArrayList<>();
 
     public void setLikedin(String likedin) {
         this.likedin = likedin;

@@ -24,9 +24,9 @@ public class Language {
 
     @Column(name="language_name")
     private String languageName;
-
-    @OneToMany(mappedBy = "language")
-    List<LanguajeProfile> languajeProfile = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "language")
+//    List<LanguajeProfile> languajeProfile = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
