@@ -34,6 +34,6 @@ public class GenderServiceImpl implements GenderService{
 
     @Override
     public Optional <Gender> getAll() {
-        return null;
+        return genderRepository.getAll();
     }
 }
