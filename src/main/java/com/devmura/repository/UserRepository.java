@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User,Integer> {
     List<User> findByNameLike(String pattern);
+    List<User> getByName(String name);
 }

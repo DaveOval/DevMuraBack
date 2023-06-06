@@ -1,9 +1,12 @@
 package com.devmura.entity;
 
+import com.devmura.model.LanguajeProfile;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -21,6 +24,9 @@ public class Language {
 
     @Column(name="language_name")
     private String languageName;
+
+    @OneToMany(mappedBy = "language")
+    List<LanguajeProfile> languajeProfile = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {

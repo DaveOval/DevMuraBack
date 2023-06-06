@@ -58,8 +58,10 @@ CREATE TABLE IF NOT EXISTS `devmura`.`users` (
 DROP TABLE IF EXISTS posts;
 create table posts (
                        post_id		integer not null auto_increment,
-                       description	varchar(250) not null,
+                       post_body	varchar(250) not null,
                        counter		varchar(100),
+                       created_at	Date not null,
+                       img_source	varchar(100),
                        user_id		integer not null,
                        primary key(post_id),
                        foreign key(user_id) references users(user_id)
@@ -97,7 +99,7 @@ DROP TABLE IF EXISTS comments;
 create table comments(
                          comment_id  integer not null,
                          contend varchar (150),
-                         created_at varchar (150),
+                         created_at date not null,
                          user_id integer not null,
                          post_id integer not null,
                          primary key (comment_id),
@@ -120,8 +122,10 @@ create table friends(
 
 DROP TABLE IF EXISTS language_profile;
 CREATE TABLE IF NOT EXISTS `devmura`.`language_profile` (
+                                                            id INTEGER NOT NULL AUTO_INCREMENT,
                                                             language_id INTEGER NOT NULL,
                                                             profile_id INTEGER NOT NULL,
+                                                            primary key (id),
                                                             FOREIGN KEY (language_id) REFERENCES languages (language_id),
     FOREIGN KEY (profile_id) REFERENCES profiles (profile_id));
 
@@ -142,7 +146,7 @@ DROP TABLE IF EXISTS `groups`;
 create table `devmura`.`groups`(
                                    group_id integer not null,
                                    title varchar (50),
-                                   created_at varchar (50),
+                                   created_at date not null,
                                    description_group varchar(250),
                                    user_id integer not null,
                                    primary key (group_id),
@@ -151,7 +155,9 @@ create table `devmura`.`groups`(
 
 DROP TABLE IF EXISTS `group_post`;
 CREATE TABLE IF NOT EXISTS `devmura`.`group_post` (
+                                                      id INTEGER NOT NULL AUTO_INCREMENT,
                                                       group_id INTEGER NOT NULL,
                                                       post_id INTEGER NOT NULL,
-                                                      FOREIGN KEY (group_id) REFERENCES `groups` (group_id),
+                                                      primary key (id),
+    FOREIGN KEY (group_id) REFERENCES `groups` (group_id),
     FOREIGN KEY (post_id) REFERENCES `posts` (post_id));
