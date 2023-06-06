@@ -1,33 +1,50 @@
 package com.devmura.repository;
 
 import com.devmura.entity.Group;
-import com.devmura.repository.GroupRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@ActiveProfiles
 public class GroupRepositoryTest {
+
     @Autowired
     GroupRepository groupRepository;
 
     @Test
-    public void testFindAll(){
+    public void findAllGroups() {
         List<Group> groups = groupRepository.findAll();
-        groups.forEach(System.out::println);
+        if (!groups.isEmpty()) {
+            groups.forEach(System.out::println);
+        } else {
+            System.out.println("No data");
+        }
     }
 
     @Test
-    public void findById(){
-        Integer id = 1;
-        Group group = groupRepository.findById(id).orElse(null);
-        System.out.println(group);
+    public void saveGroup() {
+        try {
+            Group group = new Group();
+            group.setTitle("Sample Group");
+            group.setDescription("This is a sample group");
+            groupRepository.save(group);
+            System.out.println(group);
+            assertNotNull(group.getId());
+        } catch (Exception err) {
+            System.out.println(err);
+        }
+    }
+
+    @Test
+    public void findGroupById() {
+        Group group = groupRepository.findById(1).orElse(null);
         assertNotNull(group);
-        assertEquals(id, group.getId());
+        assertEquals(1, group.getId());
     }
 }
