@@ -1,6 +1,5 @@
 package com.devmura.entity;
 
-import com.devmura.model.GroupPost;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -8,19 +7,20 @@ import org.hibernate.Hibernate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
-@Setter
 @Getter
+@Setter
+@ToString
 @RequiredArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity
 @Table(name = "groups")
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "group_id")
-    private Integer id;
+    private Integer id ;
 
     @Column(name = "title")
     private String title;
@@ -34,19 +34,10 @@ public class Group {
     @Column(name="user_id")
     private Integer userId;
 
-    @OneToMany(mappedBy = "group")
-    List<GroupPost> groupPosts = new ArrayList<>();
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Group group = (Group) o;
-        return id != null && Objects.equals(id, group.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
+    @ManyToMany
+    @JoinTable(
+        name = "group_post",
+        joinColumns = @JoinColumn(name = "group_id"),
+        inverseJoinColumns = @JoinColumn(name = "post_id"))
+    private Set<Post> posts;
 }
