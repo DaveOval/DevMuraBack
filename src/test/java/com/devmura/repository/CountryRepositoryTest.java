@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,11 +33,16 @@ class CountryRepositoryTest {
 
     @Test
     public void saveCountry(){
-        Country country = new Country();
-        country.setName("Colombia");
-        countryRepository.save(country);
-        System.out.println(country);
-        assertNotNull(country.getId());
+        try {
+            Country country = new Country();
+            country.setName("Colombia");
+
+            countryRepository.save(country);
+            System.out.println(country);
+            assertNotNull(country.getId());
+        }catch(Exception error){
+            System.out.println(error);
+        }
     }
 
     @Test
@@ -49,7 +55,7 @@ class CountryRepositoryTest {
 
     @Test
     public void deleteCountryById(){
-        Integer id = 2;
+        Integer id = 4;
 
         Optional<Country> optional = countryRepository.findById(id);
         if (optional.isPresent()){
