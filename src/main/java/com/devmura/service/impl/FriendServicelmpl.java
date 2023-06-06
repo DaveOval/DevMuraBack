@@ -11,17 +11,24 @@ import java.util.Optional;
 
 @Service
 public class FriendServicelmpl implements FriendService {
+
     @Autowired
     FriendRepository friendRepository;
 
     @Override
     public void save(Friend friend) {
         friendRepository.save(friend);
+
     }
 
     @Override
     public void delete(Integer id) {
         friendRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Friend> findAll() {
+        return friendRepository.findAll();
     }
 
     @Override
