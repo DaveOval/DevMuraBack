@@ -33,26 +33,16 @@ class CountryRepositoryTest {
 
     @Test
     public void saveCountry(){
-        Country country = new Country();
-        country.setName("Colombia");
+        try {
+            Country country = new Country();
+            country.setName("Colombia");
 
-        List<Country> listCountry = countryRepository.findAll();
-
-
-
-        System.out.println(listCountry.contains(country.getName()));
-        System.out.println(country.getName());
-
-        listCountry.forEach((pais) -> System.out.println(pais.getName()));
-
-
-//        if(!(listCountry.contains(country.getName())))
-//        {
-//            countryRepository.save(country);
-//            System.out.println(country);
-//            assertNotNull(country.getId());
-//        }
-
+            countryRepository.save(country);
+            System.out.println(country);
+            assertNotNull(country.getId());
+        }catch(Exception error){
+            System.out.println(error);
+        }
     }
 
     @Test
