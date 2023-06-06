@@ -19,7 +19,7 @@ public class CountryController {
 
     @GetMapping("/all")
     public ResponseEntity<List<Country>> getCountry(){
-        List<Country> country = countryService.findAll();
+        List<Country> country = countryService.getAll();
         return ResponseEntity.ok(country);
     }
     @PostMapping("/save")

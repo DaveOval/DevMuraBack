@@ -20,7 +20,7 @@ public class GenderController {
 
     @GetMapping("/all")
     public ResponseEntity<List<Gender>> getGender(){
-        List<Gender> gender = genderService.findAll();
+        List<Gender> gender = genderService.getAll();
         return ResponseEntity.ok(gender);
 
     }
