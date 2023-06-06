@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@ActiveProfiles
+@ActiveProfiles("devmura")
 public class GroupRepositoryTest {
 
     @Autowired

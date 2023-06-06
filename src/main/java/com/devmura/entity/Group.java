@@ -15,7 +15,7 @@ import java.util.Set;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "groups")
+@Table(name = "devmura.groups")
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
