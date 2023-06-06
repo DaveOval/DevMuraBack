@@ -12,6 +12,4 @@ public interface CountryService {
     Optional <Country> findById(Integer id);
     List <Country> getAll();
 
-
-
 }

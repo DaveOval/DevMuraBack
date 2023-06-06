@@ -27,6 +27,7 @@ DROP TABLE IF EXISTS genders;
 create table genders (
                          gender_id integer not null auto_increment,
                          gender_name varchar(25) unique,
+
                          primary key(gender_id)
 );
 
@@ -96,8 +97,8 @@ create table notifications (
 
 DROP TABLE IF EXISTS comments;
 create table comments(
-                         comment_id  integer not null,
-                         content varchar (150),
+                         comment_id  integer not null auto_increment,
+                         contend varchar (150),
                          created_at date not null,
                          user_id integer not null,
                          post_id integer not null,
@@ -125,14 +126,14 @@ CREATE TABLE IF NOT EXISTS `devmura`.`language_profile` (
                                                             language_id INTEGER NOT NULL,
                                                             profile_id INTEGER NOT NULL,
                                                             primary key (id),
-                                                            FOREIGN KEY (language_id) REFERENCES languages (language_id),
+    FOREIGN KEY (language_id) REFERENCES languages (language_id),
     FOREIGN KEY (profile_id) REFERENCES profiles (profile_id));
 
 
 DROP TABLE IF EXISTS hearts;
 create table hearts (
                         heart_id integer not null auto_increment,
-                        create_at date,
+                        created_at date,
                         user_id integer not null,
                         post_id integer not null,
 
@@ -143,7 +144,7 @@ create table hearts (
 
 DROP TABLE IF EXISTS `groups`;
 create table `devmura`.`groups`(
-                                   group_id integer not null,
+                                   group_id integer not null auto_increment,
                                    title varchar (50),
                                    created_at date not null,
                                    description_group varchar(250),
