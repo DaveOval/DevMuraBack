@@ -10,4 +10,5 @@ public interface PostService {
     public void deletePost(Integer id);
     public Optional<Post> findPostById(Integer id);
     public List<Post> findAllPosts();
+
 }
