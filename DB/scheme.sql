@@ -27,7 +27,6 @@ DROP TABLE IF EXISTS genders;
 create table genders (
                          gender_id integer not null auto_increment,
                          gender_name varchar(25) unique,
-
                          primary key(gender_id)
 );
 
