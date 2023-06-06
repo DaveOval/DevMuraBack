@@ -33,7 +33,7 @@ public class GenderServiceImpl implements GenderService{
     }
 
     @Override
-    public Optional <Gender> getAll() {
+    public List <Gender> getAll() {
         return genderRepository.getAll();
     }
 }
