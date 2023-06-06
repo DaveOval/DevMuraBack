@@ -12,6 +12,5 @@ public interface CountryService {
     void delete (Integer id);
     Optional <Country> findById(Integer id);
     List <Country> getAll();
-    List<Country> findAll();
 
 }
