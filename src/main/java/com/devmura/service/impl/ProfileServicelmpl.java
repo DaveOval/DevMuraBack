@@ -26,6 +26,11 @@ public class ProfileServicelmpl implements ProfileService {
     }
 
     @Override
+    public List<Profile> findAll() {
+        return profileRepository.findAll();
+    }
+
+    @Override
     public Optional<Profile> findProfileById(Integer id) {
         return profileRepository.findById(id);
     }
