@@ -29,6 +29,7 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         userService.delete(id);
@@ -46,5 +47,6 @@ public class UserController {
         userService.save(user);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+
 
 }

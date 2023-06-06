@@ -11,5 +11,6 @@ public interface GenderService {
      void delete(Integer id);
      Optional<Gender> findById(Integer id);
      List<Gender> getAll();
-     List<Gender> findAll();
+     
+
 }
