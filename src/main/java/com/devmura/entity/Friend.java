@@ -24,12 +24,12 @@ public class Friend {
   private Boolean accepted;
   
   @OneToOne
-  @JoinColumn(name="receiver_id")
-  private User receiver;
+  @JoinColumn(name="user_id")
+  private User user;
 
   @OneToOne
-  @JoinColumn(name="sender_id")
-  private User sender;
+  @JoinColumn(name="user_id")
+  private User friendUser;
 
 
  
