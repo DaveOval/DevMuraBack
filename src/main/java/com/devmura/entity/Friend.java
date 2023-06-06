@@ -1,11 +1,10 @@
 package com.devmura.entity;
 
+
 import jakarta.persistence.*;
 
 import lombok.*;
-import org.hibernate.Hibernate;
 
-import java.util.Objects;
 
 @Getter
 @Setter
@@ -22,7 +21,7 @@ public class Friend {
 
   @Column(name="accepted")
   private Boolean accepted;
-  
+
   @OneToOne
   @JoinColumn(name="receiver_id")
   private User user;
