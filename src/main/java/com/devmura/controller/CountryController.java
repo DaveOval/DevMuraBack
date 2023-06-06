@@ -31,7 +31,5 @@ public class CountryController {
     public ResponseEntity<Void> delete(@PathVariable Integer id){
         countryService.delete(id);
         return ResponseEntity.status(HttpStatus.OK).build();
-
-
-}
     }
+}
