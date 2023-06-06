@@ -39,17 +39,5 @@ public class Group {
         name = "group_post",
         joinColumns = @JoinColumn(name = "group_id"),
         inverseJoinColumns = @JoinColumn(name = "post_id"))
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Group group = (Group) o;
-        return id != null && Objects.equals(id, group.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
+    private Set<Post> posts;
 }

@@ -34,8 +34,6 @@ public class Notification {
     @Column(name = "sender_id")
     private Integer senderId;
 
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
