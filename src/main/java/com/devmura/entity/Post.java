@@ -36,6 +36,7 @@ public class Post {
     private String counter;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
 //    @OneToMany(mappedBy = "post")
