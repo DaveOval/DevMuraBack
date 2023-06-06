@@ -10,21 +10,21 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class GenderServiceImpl implements GenderService{
-    private final GenderRepository genderRepository;
+public class GenderServiceImpl implements GenderService {
 
-    public GenderServiceImpl(GenderRepository genderRepository) {
-        this.genderRepository = genderRepository;
-    }
+    @Autowired
+    GenderRepository genderRepository;
 
     @Override
     public void save(Gender gender) {
         genderRepository.save(gender);
+
     }
 
     @Override
     public void delete(Integer id) {
-         genderRepository.deleteById(id);
+        genderRepository.deleteById(id);
+
     }
 
     @Override
@@ -33,7 +33,7 @@ public class GenderServiceImpl implements GenderService{
     }
 
     @Override
-    public Optional <Gender> getAll() {
-        return genderRepository.getAll();
+    public List<Gender> getAll() {
+        return genderRepository.findAll();
     }
 }

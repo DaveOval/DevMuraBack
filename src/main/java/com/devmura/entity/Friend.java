@@ -23,11 +23,11 @@ public class Friend {
   private Boolean accepted;
 
   @OneToOne
-  @JoinColumn(name="user_id")
+  @JoinColumn(name="receiver_id")
   private User user;
 
   @OneToOne
-  @JoinColumn(name="user_id")
+  @JoinColumn(name="sender_id")
   private User friendUser;
 
 

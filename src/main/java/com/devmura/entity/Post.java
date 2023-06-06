@@ -36,10 +36,11 @@ public class Post {
     private String counter;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "post")
-    List<GroupPost> groupPosts = new ArrayList<>();
+//    @OneToMany(mappedBy = "post")
+//    List<GroupPost> groupPosts = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
