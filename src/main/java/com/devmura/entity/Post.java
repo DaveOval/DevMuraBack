@@ -39,6 +39,7 @@ public class Post {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
+    //@JsonIgnore
     private User user;
 
 //    @OneToMany(mappedBy = "post")
