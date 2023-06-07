@@ -61,7 +61,7 @@ create table posts (
                        post_body	varchar(250) not null,
                        counter		varchar(100),
                        created_at	Date not null,
-                       img_source	varchar(100),
+                       img_source	varchar(300),
                        user_id		integer not null,
                        primary key(post_id),
                        foreign key(user_id) references users(user_id)

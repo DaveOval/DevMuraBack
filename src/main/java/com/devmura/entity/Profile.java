@@ -38,6 +38,9 @@ public class Profile {
     @Column(name = "background_user")
     private String background;
 
+    @Column(name = "role")
+    private String role;
+
     @ManyToOne
     @JoinColumn(name = "level_id")
     private Level level;
@@ -46,9 +49,11 @@ public class Profile {
     @JoinColumn(name = "user_id")
     @JsonIgnore
     private User user;
+
     
 //    @OneToMany(mappedBy = "profile")
 //    List<LanguajeProfile> languajeProfile = new ArrayList<>();
+
 
     public void setLikedin(String likedin) {
         this.likedin = likedin;
