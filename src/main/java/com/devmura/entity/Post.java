@@ -37,7 +37,7 @@ public class Post {
     @Column(name = "counter")
     private String counter;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 
