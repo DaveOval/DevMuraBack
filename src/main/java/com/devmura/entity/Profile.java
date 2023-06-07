@@ -14,6 +14,7 @@ import java.util.List;
 @Entity
 @Table(name = "profiles")
 public class Profile {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "profile_id")
@@ -49,10 +50,26 @@ public class Profile {
     @JsonIgnore
     private User user;
 
-    @OneToMany(mappedBy = "profile")
-    List<LanguajeProfile> languajeProfile = new ArrayList<>();
+    
+//    @OneToMany(mappedBy = "profile")
+//    List<LanguajeProfile> languajeProfile = new ArrayList<>();
+
 
     public void setLikedin(String likedin) {
         this.likedin = likedin;
+    }
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "id=" + id +
+                ", birthday=" + birthday +
+                ", bio='" + bio + '\'' +
+                ", img='" + img + '\'' +
+                ", github='" + github + '\'' +
+                ", likedin='" + likedin + '\'' +
+                ", background='" + background + '\'' +
+                ", level=" + level +
+                '}';
     }
 }
