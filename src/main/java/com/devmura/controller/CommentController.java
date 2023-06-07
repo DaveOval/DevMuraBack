@@ -17,7 +17,7 @@ public class CommentController {
     @Autowired
     CommentService commentService;
 
-
+    //http://localhost:8080/api/comment/all
     @GetMapping("/all")
     public ResponseEntity<List<Comment>> getAll(){
         List<Comment> comments = commentService.getAll();
