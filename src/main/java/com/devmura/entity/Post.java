@@ -1,6 +1,7 @@
 package com.devmura.entity;
 
 import com.devmura.model.GroupPost;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -36,9 +37,8 @@ public class Post {
     @Column(name = "counter")
     private String counter;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonIgnore
     private User user;
 
 //    @OneToMany(mappedBy = "post")
