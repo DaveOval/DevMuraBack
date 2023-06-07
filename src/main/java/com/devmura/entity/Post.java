@@ -1,6 +1,7 @@
 package com.devmura.entity;
 
 import com.devmura.model.GroupPost;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -37,6 +38,7 @@ public class Post {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 
 //    @OneToMany(mappedBy = "post")
