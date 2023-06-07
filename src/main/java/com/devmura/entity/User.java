@@ -60,7 +60,11 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Post> posts = new ArrayList<>();
-    
+
+    @OneToOne
+    @JoinColumn(name = "profile_id")
+    private Profile profile;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
