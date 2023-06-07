@@ -50,7 +50,6 @@ public class Profile {
     @JsonIgnore
     private User user;
 
-    
 //    @OneToMany(mappedBy = "profile")
 //    List<LanguajeProfile> languajeProfile = new ArrayList<>();
 
