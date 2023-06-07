@@ -47,5 +47,9 @@ public class UserServiceImpl implements UserService {
         return userRepository.getByName(name);
     }
 
-
 }
+
+   // Customer customer = customerRepository.findById(idCustomer)
+   //         .orElseThrow( ()->
+   //                 new IllegalStateException("User does not exist with id: " + idCustomer));
+
