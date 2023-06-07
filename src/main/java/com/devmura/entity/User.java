@@ -1,5 +1,6 @@
 package com.devmura.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -57,8 +58,9 @@ public class User {
     @JoinColumn(name = "country_id")
     private Country country;
 
-    @OneToMany(mappedBy = "user")
-    private List<Post> posts = new ArrayList<>();
+//    @OneToMany(mappedBy = "user")
+//    @JsonBackReference
+//    private List<Post> posts = new ArrayList<>();
 
     @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
     private Profile profile;
