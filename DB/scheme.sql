@@ -76,6 +76,7 @@ create table profiles (
                           github_username	varchar(50),
                           linkedin_username varchar(100),
                           background_user	varchar(150),
+                          role  varchar(100),
                           level_id	integer not null,
                           user_id	integer not null,
                           primary key (profile_id),
