@@ -35,7 +35,7 @@ public class Post {
     @Column(name = "counter")
     private String counter;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
