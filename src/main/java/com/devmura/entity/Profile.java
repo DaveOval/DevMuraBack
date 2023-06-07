@@ -1,6 +1,8 @@
 package com.devmura.entity;
 
 import com.devmura.model.LanguajeProfile;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -35,16 +37,20 @@ public class Profile {
     @Column(name = "background_user")
     private String background;
 
+    @Column(name = "role")
+    private String role;
+
     @ManyToOne
     @JoinColumn(name = "level_id")
     private Level level;
 
     @OneToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 
-//    @OneToMany(mappedBy = "profile")
-//    List<LanguajeProfile> languajeProfile = new ArrayList<>();
+    @OneToMany(mappedBy = "profile")
+    List<LanguajeProfile> languajeProfile = new ArrayList<>();
 
     public void setLikedin(String likedin) {
         this.likedin = likedin;
