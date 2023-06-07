@@ -46,7 +46,7 @@ public class Profile {
     @JoinColumn(name = "user_id")
     @JsonIgnore
     private User user;
-    
+
 //    @OneToMany(mappedBy = "profile")
 //    List<LanguajeProfile> languajeProfile = new ArrayList<>();
 
