@@ -62,7 +62,7 @@ public class User {
 //    @JsonBackReference
 //    private List<Post> posts = new ArrayList<>();
 
-    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "user", fetch = FetchType.EAGER)
     private Profile profile;
 
     @Override

@@ -124,7 +124,7 @@ insert into notifications (is_readed, created_at, receptor_id, sender_id) VALUES
 insert into notifications (is_readed, created_at, receptor_id, sender_id) VALUES (1, "2023-06-14", 5,6);
 insert into notifications (is_readed, created_at, receptor_id, sender_id) VALUES (1, "2023-06-14", 5,6);
 
-insert into comments (contend, created_at, user_id, post_id) VALUES ("Niceee!!!", "2023-06-02", 2, 1);
+insert into comments (content, created_at, user_id, post_id) VALUES ("Niceee!!!", "2023-06-02", 2, 1);
 
 INSERT INTO friends (accepted, receiver_id, sender_id) VALUES (true, 2, 1);
 INSERT INTO friends (accepted, receiver_id, sender_id) VALUES (true, 1, 2);
