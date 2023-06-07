@@ -16,18 +16,20 @@ import java.util.List;
 public class CountryController {
     @Autowired
     CountryService countryService;
-
+    //http://localhost:8080/api/country/all
     @GetMapping("/all")
     public ResponseEntity<List<Country>> getCountry(){
         List<Country> country = countryService.getAll();
         return ResponseEntity.ok(country);
     }
+    //http://localhost:8080/api/country/save
     @PostMapping("/save")
     public ResponseEntity<Void>saveCountry(@RequestBody Country country){
         countryService.save(country);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-    @DeleteMapping("/delete/(id)")
+    //http://localhost:8080/api/country/delete
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id){
         countryService.delete(id);
         return ResponseEntity.status(HttpStatus.OK).build();
