@@ -62,8 +62,13 @@ public class User {
     @JsonBackReference
     private List<Post> posts = new ArrayList<>();
 
-    @OneToOne(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Profile profile;
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+        profile.setUser(this);
+    }
 
     @Override
     public boolean equals(Object o) {

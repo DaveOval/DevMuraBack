@@ -25,7 +25,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public Optional<Auth> findCommentById(Integer id) {
+    public Optional<Auth> findAuthById(Integer id) {
         return authRepository.findById(id);
     }
 
