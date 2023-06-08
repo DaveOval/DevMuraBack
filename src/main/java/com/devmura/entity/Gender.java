@@ -19,7 +19,7 @@ public class Gender {
     @Column(name = "gender_id")
     private Integer id;
 
-    @Column(name = "gender_name")
+    @Column(name = "gender_name", nullable = false, length = 50)
     private String genderName;
 
     @Override

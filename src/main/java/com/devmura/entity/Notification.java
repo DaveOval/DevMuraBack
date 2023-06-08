@@ -22,13 +22,13 @@ public class Notification {
     @Column(name = "notification_id")
     private Integer id ;
 
-    @Column(name = "is_readed")
+    @Column(name = "is_readed", nullable = false, length = 250)
     private boolean isReaded;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at",nullable = false, length = 250)
     private Date createdAt;
 
-    @Column(name = "receptor_id")
+    @Column(name = "receptor_id", nullable = false, length = 250)
     private Integer receptorId;
 
     @Column(name = "sender_id")

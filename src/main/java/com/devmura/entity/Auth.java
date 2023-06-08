@@ -19,7 +19,7 @@ public class Auth {
     @Column(name = "auth_id")
     private Integer id ;
 
-    @Column(name = "auth_name")
+    @Column(name = "auth_name", nullable = false, length = 50)
     private String name;
 
     @Override

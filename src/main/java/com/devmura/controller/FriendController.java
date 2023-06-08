@@ -17,13 +17,21 @@ public class FriendController {
     @Autowired
     FriendService friendService;
 
+
+
     @GetMapping
+
     public ResponseEntity<List<Friend>> getFriends(){
         List<Friend> friends = friendService.findAll();
         return  ResponseEntity.ok(friends);
     }
 
+
+
+
+
     @PostMapping
+
     public ResponseEntity<Void> saveFriend(@RequestBody Friend friend){
         friendService.save(friend);
         return ResponseEntity.status(HttpStatus.CREATED).build();

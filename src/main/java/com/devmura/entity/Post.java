@@ -25,16 +25,16 @@ public class Post {
     @Column(name = "post_id")
     private Integer id;
 
-    @Column(name = "post_body")
+    @Column(name = "post_body",nullable = false, length = 250)
     private String postBody;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at", nullable = false, length = 250)
     private Date createdAt;
 
-    @Column (name = "img_source")
+    @Column (name = "img_source", nullable = false, length = 250)
     private String imgSource;
 
-    @Column(name = "counter")
+    @Column(name = "counter", nullable = false, length = 250)
     private String counter;
 
     @ManyToOne(fetch = FetchType.EAGER)
