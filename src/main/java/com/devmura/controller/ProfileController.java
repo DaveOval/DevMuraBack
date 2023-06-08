@@ -17,19 +17,19 @@ public class ProfileController {
     @Autowired
     ProfileService profileService;
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<List<Profile>> getProfiles(){
         List<Profile> profiles = profileService.findAll();
         return ResponseEntity.ok(profiles);
     }
 
-    @PostMapping("/save")
+    @PostMapping
     public ResponseEntity<Void> saveProfile(@RequestBody Profile profile){
         profileService.save(profile);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id){
         profileService.delete(id);
         return ResponseEntity.status(HttpStatus.OK).build();
