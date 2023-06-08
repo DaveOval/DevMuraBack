@@ -46,5 +46,4 @@ public class UserController {
         userService.save(user);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
-
 }
