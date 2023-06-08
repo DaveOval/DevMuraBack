@@ -58,9 +58,9 @@ public class User {
     @JoinColumn(name = "country_id")
     private Country country;
 
-//    @OneToMany(mappedBy = "user")
-//    @JsonBackReference
-//    private List<Post> posts = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    @JsonBackReference
+    private List<Post> posts = new ArrayList<>();
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Profile profile;

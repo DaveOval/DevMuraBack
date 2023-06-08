@@ -47,6 +47,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.getByName(name);
     }
 
+
     @Override
     public boolean existsByEmail(String email) {
         return userRepository.existsByEmailIgnoringCase(email);
@@ -56,6 +57,9 @@ public class UserServiceImpl implements UserService {
     public boolean existsByUsername(String username) {
         return userRepository.existsByUsernameIgnoringCase(username);
     }
-
-
 }
+
+   // Customer customer = customerRepository.findById(idCustomer)
+   //         .orElseThrow( ()->
+   //                 new IllegalStateException("User does not exist with id: " + idCustomer));
+
