@@ -248,8 +248,8 @@ VALUES ("Patricia", "Matias", 22 , "ale@hotmail.com", "Tenshik0", "2023-06-05", 
 
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Hola mundo", "5", "2023-06-02", "https://images.pexels.com/photos/954599/pexels-photo-954599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 2);
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Adios mundo", "15", "2023-06-03", "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 5);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Sobre Java", "25", "2023-06-03", "img/java.jpg", 4);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Sobre HTML", "35", "2023-06-03", "img/html.png", 1);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Sobre Java", "25", "2023-06-03", "https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=1600", 4);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Sobre HTML", "35", "2023-06-03", "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 1);
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Sumando numeros", "1", "2023-06-05", "", 7);
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Mi primer calculadora", "10", "2023-06-05", "", 10);
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("JAVA", "11", "2023-06-05", "img/java2.png", 2);
@@ -260,7 +260,7 @@ INSERT INTO `profiles` (birthday, bio, img_user, github_username, linkedin_usern
 VALUES("1998-02-04", "Hola", "https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Dave", "David Vazquez" , "https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Backend Developer", 2,1);
 
 INSERT INTO `profiles` (birthday, bio, img_user, github_username, linkedin_username, background_user,role, level_id, user_id)
-VALUES("1998-03-04", "Hi", "https://www.pexels.com/es-es/foto/hombre-en-sueter-de-cuello-alto-marron-3170635/", "Fers", "Fernando Herrera" , "https://www.pexels.com/es-es/foto/hombre-en-sueter-de-cuello-alto-marron-3170635/","Backend Developer", 1,2);
+VALUES("1998-03-04", "Hi", "https://images.pexels.com/photos/3170635/pexels-photo-3170635.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Fers", "Fernando Herrera" , "https://www.pexels.com/es-es/foto/hombre-en-sueter-de-cuello-alto-marron-3170635/","Backend Developer", 1,2);
 
 INSERT INTO `profiles` (birthday, bio, img_user, github_username, linkedin_username, background_user,role, level_id, user_id)
 VALUES("1999-05-04", "Hello", "https://images.pexels.com/photos/428328/pexels-photo-428328.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "jns", "Juanito Banana" , "https://images.pexels.com/photos/428328/pexels-photo-428328.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Backend Developer", 2,3);
