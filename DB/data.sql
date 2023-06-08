@@ -202,6 +202,7 @@ INSERT INTO countries (country_name) VALUES ('Zimbabwe');
 
 insert into genders (gender_name) VALUES ("Femenino");
 insert into genders (gender_name) VALUES ("Masculino");
+insert into genders (gender_name) VALUES ("Otros");
 
 insert into languages (language_name) VALUES ("Java");
 insert into languages (language_name) VALUES ("JavaScript");
