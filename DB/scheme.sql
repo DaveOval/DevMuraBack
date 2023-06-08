@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `devmura`.`users` (
     age INTEGER NOT NULL,
     email VARCHAR(150) NOT NULL unique,
     username VARCHAR(150) NOT NULL unique,
-    created_at DATE NOT NULL,
+    created_at DATETIME NOT NULL,
     gender_id INTEGER NOT NULL,
     password VARCHAR(150),
     auth_id integer not null,
