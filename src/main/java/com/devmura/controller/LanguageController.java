@@ -20,19 +20,19 @@ public class LanguageController {
     @Autowired
     private LanguageRepository languageRepository;
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<List<Language>> getAll(){
         List<Language> languageList = languageRepository.findAll();
         return ResponseEntity.ok(languageList);
     }
 
-    @PostMapping("/save")
+    @PostMapping
     public ResponseEntity<Void> save(@RequestBody Language language) {
         languageService.save(language);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         languageService.delete(id);
         return ResponseEntity.status(HttpStatus.OK).build();

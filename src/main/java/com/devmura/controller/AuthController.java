@@ -16,20 +16,20 @@ import java.util.List;
 public class AuthController {
     @Autowired
     AuthService authService;
-    //http://localhost:8080/api/auth/all
-    @GetMapping("/all")
+
+    @GetMapping
     public ResponseEntity<List<Auth>> getAll(){
         List<Auth> auths = authService.getAll();
         return ResponseEntity.ok(auths);
     } 
-   //http://localhost:8080/api/auth/save
-    @PostMapping("/save")
+
+    @PostMapping
     public ResponseEntity<Void> save(@RequestBody Auth auth) {
         authService.save(auth);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-    //http://localhost:8080/api/auth/delete
-    @DeleteMapping("/delete/{id}")
+
+    @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         authService.delete(id);
         return ResponseEntity.ok().build();
