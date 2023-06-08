@@ -17,19 +17,19 @@ public class FriendController {
     @Autowired
     FriendService friendService;
 
-    @GetMapping ("/all")
+    @GetMapping
     public ResponseEntity<List<Friend>> getFriends(){
         List<Friend> friends = friendService.findAll();
         return  ResponseEntity.ok(friends);
     }
 
-    @PostMapping("/save")
+    @PostMapping
     public ResponseEntity<Void> saveFriend(@RequestBody Friend friend){
         friendService.save(friend);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id){
         friendService.delete(id);
         return ResponseEntity.status(HttpStatus.OK).build();

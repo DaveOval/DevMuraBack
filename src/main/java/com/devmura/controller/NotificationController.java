@@ -18,13 +18,13 @@ public class NotificationController {
     @Autowired
     NotificationService notificationService;
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<List<Notification>> getNotifications(){
         List<Notification> notifications = notificationService.getAll();
         return ResponseEntity.ok(notifications);
     }
 
-    @PostMapping("/save")
+    @PostMapping
     public ResponseEntity<Void> saveNotification(@RequestBody Notification notification){
         notificationService.save(notification);
         return ResponseEntity.status(HttpStatus.CREATED).build();
