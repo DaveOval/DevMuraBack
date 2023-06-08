@@ -16,19 +16,19 @@ public class LevelController {
     @Autowired
     LevelService levelService;
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<List<Level>> getAll(){
         List<Level> levelList = levelService.getAll();
         return ResponseEntity.ok(levelList);
     }
 
-    @PostMapping("/save")
+    @PostMapping
     public ResponseEntity<Void> save(@RequestBody Level level) {
         levelService.save(level);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         levelService.delete(id);
         return ResponseEntity.status(HttpStatus.OK).build();

@@ -18,19 +18,19 @@ public class CommentController {
     CommentService commentService;
 
     //http://localhost:8080/api/comment/all
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<List<Comment>> getAll(){
         List<Comment> comments = commentService.getAll();
         return ResponseEntity.ok(comments);
     } 
 
-    @PostMapping("/save")
+    @PostMapping
     public ResponseEntity<Void> save(@RequestBody Comment comment) {
         commentService.save(comment);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         commentService.delete(id);
         return ResponseEntity.ok().build();
