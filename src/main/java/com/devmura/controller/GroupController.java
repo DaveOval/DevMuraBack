@@ -17,22 +17,22 @@ public class GroupController {
     @Autowired
     GroupService groupService;
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<List<Group>> getGroups(){
         List<Group> groups = groupService.findAllGroups();
         return ResponseEntity.ok(groups);
     }
-    @PostMapping("/save")
+    @PostMapping
     public ResponseEntity<Void> saveGroup(@RequestBody Group group) {
         groupService.saveGroup(group);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteGroup(@PathVariable Integer id) {
         groupService.deleteGroup(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
-    @GetMapping("/find/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<Group> getGroupById(@PathVariable Integer id) {
         Group group = groupService.findGroupById(id).get();
         return ResponseEntity.ok(group);

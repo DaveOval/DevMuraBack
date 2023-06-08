@@ -17,22 +17,22 @@ public class PostController {
     @Autowired
     PostService postService;
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<List<Post>> getAllPosts(){
         List<Post> posts = postService.findAllPosts();
         return ResponseEntity.ok(posts);
     }
-    @PostMapping("/save")
+    @PostMapping
     public ResponseEntity<Void> savePost(@RequestBody Post post){
         postService.savePost(post);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-    @GetMapping("/find/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<Post> getPostById(@PathVariable("id") Integer id){
         Post post = postService.findPostById(id).get();
         return ResponseEntity.ok(post);
     }
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<Void> deletePost(@PathVariable("id") Integer id){
         postService.deletePost(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
