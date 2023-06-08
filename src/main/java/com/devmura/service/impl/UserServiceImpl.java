@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findById(Integer id) {
         Optional<User> op = userRepository.findById(id);
-        return op.get();
+        return op.orElseThrow(() -> new RuntimeException("User not found"));
     }
 
     @Override
@@ -47,6 +47,16 @@ public class UserServiceImpl implements UserService {
         return userRepository.getByName(name);
     }
 
+
+    @Override
+    public boolean existsByEmail(String email) {
+        return userRepository.existsByEmailIgnoringCase(email);
+    }
+
+    @Override
+    public boolean existsByUsername(String username) {
+        return userRepository.existsByUsernameIgnoringCase(username);
+    }
 }
 
    // Customer customer = customerRepository.findById(idCustomer)

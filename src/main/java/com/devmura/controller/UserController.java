@@ -10,41 +10,68 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/user") //ponerlo en plural
+@RequestMapping("/api/users")
 @CrossOrigin(origins = "*")
 public class UserController {
 
     @Autowired
     UserService userService;
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<List<User>> getUsers(){
         List<User> users = userService.findAll();
         return ResponseEntity.ok(users);
     }
 
-    @PostMapping("/save")
-    public ResponseEntity<Void> saveUser(@RequestBody User user) {
-        userService.save(user);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    @PostMapping
+    public String saveUser(@RequestBody User user) {
+        try {
+            if (userService.existsByEmail(user.getEmail())) {
+                return "Email already exists";
+            } else if (userService.existsByUsername(user.getUsername())) {
+                return "Username already exists";
+            } else {
+                userService.save(user);
+                return "User saved";
+            }
+        } catch (Exception e) {
+            return "Error saving user";
+        }
     }
 
-    @DeleteMapping("/delete/{id}")
+
+
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
-        userService.delete(id);
-        return ResponseEntity.status(HttpStatus.OK).build();
+        if (userService.findById(id) == null){
+            return ResponseEntity.notFound().build();
+        } else {
+            userService.delete(id);
+            return ResponseEntity.status(HttpStatus.OK).build();
+        }
     }
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<User> findUser(@PathVariable Integer id) {
-        User user = userService.findById(id);
-        return ResponseEntity.ok(user);
+        try {
+            if (userService.findById(id) == null) {
+                return ResponseEntity.notFound().build();
+            } else {
+                return ResponseEntity.ok(userService.findById(id));
+            }
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    @PutMapping("/update")
+    @PutMapping
     public ResponseEntity<Void> updateUser(@RequestBody User user) {
-        userService.save(user);
-        return ResponseEntity.status(HttpStatus.OK).build();
+        try {
+            userService.save(user);
+            return ResponseEntity.status(HttpStatus.OK).build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
     }
 
 }
