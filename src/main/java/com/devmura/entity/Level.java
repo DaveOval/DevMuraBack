@@ -18,7 +18,7 @@ public class Level {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "level_id")
     private Integer id;
-    @Column(name = "name")
+    @Column(name = "name", nullable = false, length = 50)
     private String name;
 
     @Override

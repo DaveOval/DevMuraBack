@@ -22,13 +22,13 @@ public class Group {
     @Column(name = "group_id")
     private Integer id ;
 
-    @Column(name = "title")
+    @Column(name = "title", nullable = false, length = 50)
     private String title;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at", nullable = false, length = 100)
     private String created;
 
-    @Column(name ="description_group")
+    @Column(name ="description_group", nullable = false, length = 150)
     private String description;
 
     @Column(name="user_id")

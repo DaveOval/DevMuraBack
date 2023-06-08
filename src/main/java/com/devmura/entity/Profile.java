@@ -20,25 +20,25 @@ public class Profile {
     @Column(name = "profile_id")
     private Integer id;
 
-    @Column(name = "birthday")
+    @Column(name = "birthday", nullable = false, length = 100)
     private Date birthday;
 
-    @Column(name = "bio")
+    @Column(name = "bio", nullable = false, length = 100)
     private String bio;
 
-    @Column(name = "img_user")
+    @Column(name = "img_user", nullable = false, length = 250)
     private String img;
 
-    @Column(name = "github_username")
+    @Column(name = "github_username", nullable = false, length = 150)
     private String github;
 
-    @Column(name = "linkedin_username")
+    @Column(name = "linkedin_username", nullable = false, length = 150)
     private String likedin;
 
-    @Column(name = "background_user")
+    @Column(name = "background_user",nullable = false, length = 150)
     private String background;
 
-    @Column(name = "role")
+    @Column(name = "role", nullable = false, length = 50)
     private String role;
 
     @ManyToOne
