@@ -53,7 +53,6 @@ public class UserController {
 
                     userService.save(user);
 
-
                     Profile profile = new Profile();
                     profile.setUser(user);
                     Optional<Level> level = levelService.findLevelById(2);
