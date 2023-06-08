@@ -35,12 +35,7 @@ public class ProfileServicelmpl implements ProfileService {
 
     @Override
     public ResponseEntity<?> save(Profile profile) {
-        try {
-            profileRepository.save(profile);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-        return ResponseEntity.ok(profile);
+        return ResponseEntity.ok(profileRepository.save(profile));
     }
 
     @Override
