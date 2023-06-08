@@ -10,18 +10,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/friend")
+@RequestMapping("/api/friends")
 @CrossOrigin(origins = "*")
 public class FriendController {
 
     @Autowired
     FriendService friendService;
 
+
+
     @GetMapping
     public ResponseEntity<List<?>> getFriends(){
         return friendService.findAll();
-    }
 
+    }
     @PostMapping
     public ResponseEntity<?> saveFriend(@RequestBody Friend friend){
         return friendService.save(friend);

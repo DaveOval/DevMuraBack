@@ -11,7 +11,7 @@ import javax.swing.text.html.parser.Entity;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/country")
+@RequestMapping("/api/countries")
 @CrossOrigin(origins = "*")
 public class CountryController {
     @Autowired

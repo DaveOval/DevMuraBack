@@ -39,8 +39,36 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<?> saveUser(@RequestBody User user) {
-        return userService.save(user);
+
+    public String saveUser(@RequestBody User user) {
+        try {
+            if (userService.existsByEmail(user.getEmail())) {
+                return "Email already exists";
+            } else if (userService.existsByUsername(user.getUsername())) {
+                return "Username already exists";
+            } else {
+                Optional<Auth> auth = authService.findAuthById(2);
+                if (auth.isPresent()) {
+                    user.setAuth(auth.get());
+
+                    userService.save(user);
+
+                    Profile profile = new Profile();
+                    profile.setUser(user);
+                    Optional<Level> level = levelService.findLevelById(2);
+                    if (level.isPresent()) {
+                        profile.setLevel(level.get());
+                    }
+                    profileService.save(profile);
+
+                    return "User saved";
+                } else {
+                    return "Error saving user: Auth not found";
+                }
+            }
+        } catch (Exception e) {
+            return "Error saving user: " + e.getMessage();
+        }
     }
 
 
@@ -58,5 +86,4 @@ public class UserController {
     public ResponseEntity<?> updateUser(@RequestBody User user) {
         return userService.save(user);
     }
-
 }

@@ -20,7 +20,7 @@ public class Heart {
     @Column(name = "heart_id")
     private Integer id;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at", nullable = false, length = 250)
     private Date createdAt;
 
     @ManyToOne

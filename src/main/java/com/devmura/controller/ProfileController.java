@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/profile")
+@RequestMapping("/api/profiles")
 @CrossOrigin(origins = "*")
 public class ProfileController {
 

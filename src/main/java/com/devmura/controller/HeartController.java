@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/heart")
+@RequestMapping("/api/hearts")
 @CrossOrigin(origins = "*")
 public class HeartController {
     @Autowired
