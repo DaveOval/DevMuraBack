@@ -19,15 +19,13 @@ public class NotificationController {
     NotificationService notificationService;
 
     @GetMapping
-    public ResponseEntity<List<Notification>> getNotifications(){
-        List<Notification> notifications = notificationService.getAll();
-        return ResponseEntity.ok(notifications);
+    public ResponseEntity<List<?>> getNotifications(){
+        return notificationService.findAll();
     }
 
     @PostMapping
-    public ResponseEntity<Void> saveNotification(@RequestBody Notification notification){
-        notificationService.save(notification);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<?> saveNotification(@RequestBody Notification notification){
+        return notificationService.save(notification);
     }
 
 }

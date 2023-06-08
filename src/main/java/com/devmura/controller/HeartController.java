@@ -18,21 +18,18 @@ public class HeartController {
 
 
     @GetMapping
-    public ResponseEntity<List<Heart>> getAll(){
-        List<Heart> heartList = heartService.getAll();
-        return ResponseEntity.ok(heartList);
+    public ResponseEntity<List<?>> getAll(){
+        return heartService.findAll();
     }
 
     @PostMapping
-    public ResponseEntity<Void> save(@RequestBody Heart heart) {
-        heartService.save(heart);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<?> save(@RequestBody Heart heart) {
+        return heartService.save(heart);
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id) {
-        heartService.delete(id);
-        return ResponseEntity.status(HttpStatus.OK).build();
+    public ResponseEntity<?> delete(@PathVariable Integer id) {
+        return heartService.delete(id);
     }
 
 

@@ -18,20 +18,17 @@ public class CountryController {
     CountryService countryService;
     //http://localhost:8080/api/country/all
     @GetMapping
-    public ResponseEntity<List<Country>> getCountry(){
-        List<Country> country = countryService.getAll();
-        return ResponseEntity.ok(country);
+    public ResponseEntity<List<?>> getCountry(){
+        return countryService.findAll();
     }
     //http://localhost:8080/api/country/save
     @PostMapping
-    public ResponseEntity<Void>saveCountry(@RequestBody Country country){
-        countryService.save(country);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<?>saveCountry(@RequestBody Country country){
+        return countryService.save(country);
     }
     //http://localhost:8080/api/country/delete
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id){
-        countryService.delete(id);
-        return ResponseEntity.status(HttpStatus.OK).build();
+    public ResponseEntity<?> delete(@PathVariable Integer id){
+        return countryService.delete(id);
     }
 }

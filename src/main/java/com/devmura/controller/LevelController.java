@@ -17,20 +17,17 @@ public class LevelController {
     LevelService levelService;
 
     @GetMapping
-    public ResponseEntity<List<Level>> getAll(){
-        List<Level> levelList = levelService.getAll();
-        return ResponseEntity.ok(levelList);
+    public ResponseEntity<List<?>> getAll(){
+        return levelService.findAll();
     }
 
     @PostMapping
-    public ResponseEntity<Void> save(@RequestBody Level level) {
-        levelService.save(level);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<?> save(@RequestBody Level level) {
+        return levelService.save(level);
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id) {
-        levelService.delete(id);
-        return ResponseEntity.status(HttpStatus.OK).build();
+    public ResponseEntity<?> delete(@PathVariable Integer id) {
+        return levelService.delete(id);
     }
 }

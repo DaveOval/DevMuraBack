@@ -34,80 +34,29 @@ public class UserController {
     LevelService levelService;
 
     @GetMapping
-    public ResponseEntity<List<User>> getUsers(){
-        List<User> users = userService.findAll();
-        return ResponseEntity.ok(users);
+    public ResponseEntity<List<?>> getUsers(){
+        return userService.findAll();
     }
 
     @PostMapping
-    public String saveUser(@RequestBody User user) {
-        try {
-            if (userService.existsByEmail(user.getEmail())) {
-                return "Email already exists";
-            } else if (userService.existsByUsername(user.getUsername())) {
-                return "Username already exists";
-            } else {
-                Optional<Auth> auth = authService.findAuthById(2);
-                if (auth.isPresent()) {
-                    user.setAuth(auth.get());
-
-                    userService.save(user);
-
-
-                    Profile profile = new Profile();
-                    profile.setUser(user);
-                    Optional<Level> level = levelService.findLevelById(2);
-                    if (level.isPresent()) {
-                        profile.setLevel(level.get());
-                    }
-                    profileService.save(profile);
-
-                    return "User saved";
-                } else {
-                    return "Error saving user: Auth not found";
-                }
-            }
-        } catch (Exception e) {
-            return "Error saving user: " + e.getMessage();
-        }
+    public ResponseEntity<?> saveUser(@RequestBody User user) {
+        return userService.save(user);
     }
-
-
-
-
 
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id) {
-        if (userService.findById(id) == null){
-            return ResponseEntity.notFound().build();
-        } else {
-            userService.delete(id);
-            return ResponseEntity.status(HttpStatus.OK).build();
-        }
+    public ResponseEntity<?> delete(@PathVariable Integer id) {
+        return userService.delete(id);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> findUser(@PathVariable Integer id) {
-        try {
-            if (userService.findById(id) == null) {
-                return ResponseEntity.notFound().build();
-            } else {
-                return ResponseEntity.ok(userService.findById(id));
-            }
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<?> findUser(@PathVariable Integer id) {
+        return userService.findById(id);
     }
 
     @PutMapping
-    public ResponseEntity<Void> updateUser(@RequestBody User user) {
-        try {
-            userService.save(user);
-            return ResponseEntity.status(HttpStatus.OK).build();
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
+    public ResponseEntity<?> updateUser(@RequestBody User user) {
+        return userService.save(user);
     }
 
 }

@@ -18,20 +18,17 @@ public class AuthController {
     AuthService authService;
 
     @GetMapping
-    public ResponseEntity<List<Auth>> getAll(){
-        List<Auth> auths = authService.getAll();
-        return ResponseEntity.ok(auths);
-    } 
+    public ResponseEntity<List<?>> getAll(){
+        return authService.findAll();
+    }
 
     @PostMapping
-    public ResponseEntity<Void> save(@RequestBody Auth auth) {
-        authService.save(auth);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<?> save(@RequestBody Auth auth) {
+        return authService.save(auth);
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id) {
-        authService.delete(id);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<?> delete(@PathVariable Integer id) {
+        return authService.delete(id);
     }
 }
