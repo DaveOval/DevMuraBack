@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface AuthService {
     public void save(Auth auth);
     public void delete(Integer id);
-    public Optional<Auth> findCommentById(Integer id);
+    public Optional<Auth> findAuthById(Integer id);
     List<Auth> getAll();
         
 }
