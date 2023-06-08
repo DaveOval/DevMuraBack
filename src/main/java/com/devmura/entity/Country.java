@@ -19,7 +19,7 @@ public class Country {
     @Column(name = "country_id")
     private Integer id;
 
-    @Column(name = "country_name")
+    @Column(name = "country_name", insertable = false)
     private String name;
 
 
