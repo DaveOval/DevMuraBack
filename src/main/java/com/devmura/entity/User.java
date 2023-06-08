@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-// @ Data soluciona para no escribir todos los demás
 @Table(name = "users")
 public class User {
     @Id

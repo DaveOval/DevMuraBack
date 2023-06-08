@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/language")
+@RequestMapping("/api/languages")
 @CrossOrigin(origins = "*")
 public class LanguageController {
 
@@ -21,21 +21,18 @@ public class LanguageController {
     private LanguageRepository languageRepository;
 
     @GetMapping
-    public ResponseEntity<List<Language>> getAll(){
-        List<Language> languageList = languageRepository.findAll();
-        return ResponseEntity.ok(languageList);
+    public ResponseEntity<List<?>> getAll(){
+        return languageService.findAll();
     }
 
     @PostMapping
-    public ResponseEntity<Void> save(@RequestBody Language language) {
-        languageService.save(language);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<?> save(@RequestBody Language language) {
+        return languageService.save(language);
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id) {
-        languageService.delete(id);
-        return ResponseEntity.status(HttpStatus.OK).build();
+    public ResponseEntity<?> delete(@PathVariable Integer id) {
+        return languageService.delete(id);
     }
 
 }

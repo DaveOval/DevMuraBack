@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/profile")
+@RequestMapping("/api/profiles")
 @CrossOrigin(origins = "*")
 public class ProfileController {
 
@@ -18,20 +18,17 @@ public class ProfileController {
     ProfileService profileService;
 
     @GetMapping
-    public ResponseEntity<List<Profile>> getProfiles(){
-        List<Profile> profiles = profileService.findAll();
-        return ResponseEntity.ok(profiles);
+    public ResponseEntity<List<?>> getProfiles(){
+        return profileService.findAll();
     }
 
     @PostMapping
-    public ResponseEntity<Void> saveProfile(@RequestBody Profile profile){
-        profileService.save(profile);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<?> saveProfile(@RequestBody Profile profile){
+        return profileService.save(profile);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id){
-        profileService.delete(id);
-        return ResponseEntity.status(HttpStatus.OK).build();
+    public ResponseEntity<?> delete(@PathVariable Integer id){
+        return profileService.delete(id);
     }
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/group")
+@RequestMapping("/api/groups")
 @CrossOrigin(origins = "*")
 public class GroupController {
 
@@ -18,23 +18,19 @@ public class GroupController {
     GroupService groupService;
 
     @GetMapping
-    public ResponseEntity<List<Group>> getGroups(){
-        List<Group> groups = groupService.findAllGroups();
-        return ResponseEntity.ok(groups);
+    public ResponseEntity<List<?>> getGroups(){
+        return groupService.findAll();
     }
     @PostMapping
-    public ResponseEntity<Void> saveGroup(@RequestBody Group group) {
-        groupService.saveGroup(group);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<?> saveGroup(@RequestBody Group group) {
+        return groupService.save(group);
     }
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> deleteGroup(@PathVariable Integer id) {
-        groupService.deleteGroup(id);
-        return ResponseEntity.status(HttpStatus.OK).build();
+    public ResponseEntity<?> deleteGroup(@PathVariable Integer id) {
+        return groupService.delete(id);
     }
     @GetMapping("{id}")
-    public ResponseEntity<Group> getGroupById(@PathVariable Integer id) {
-        Group group = groupService.findGroupById(id).get();
-        return ResponseEntity.ok(group);
+    public ResponseEntity<?> getGroupById(@PathVariable Integer id) {
+        return groupService.findById(id);
     }
 }

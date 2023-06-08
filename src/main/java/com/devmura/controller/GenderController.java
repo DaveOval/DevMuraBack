@@ -12,27 +12,22 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/gender")
+@RequestMapping("/api/genders")
 @CrossOrigin(origins = "*")
 public class GenderController {
     @Autowired
     GenderService genderService;
 
     @GetMapping
-    public ResponseEntity<List<Gender>> getGender(){
-        List<Gender> gender = genderService.getAll();
-        return ResponseEntity.ok(gender);
-
+    public ResponseEntity<List<?>> getGender(){
+        return genderService.findAll();
     }
     @PostMapping
-    public ResponseEntity<Void> saveGender(@RequestBody Gender gender){
-        genderService.save(gender);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<?> saveGender(@RequestBody Gender gender){
+        return genderService.save(gender);
     }
     @DeleteMapping("(id)")
-    public ResponseEntity<Void> delete(@PathVariable Integer id){
-        genderService.delete(id);
-        return ResponseEntity.status(HttpStatus.OK).build();
-
+    public ResponseEntity<?> delete(@PathVariable Integer id){
+        return genderService.delete(id);
     }
 }

@@ -1,9 +1,12 @@
 package com.devmura.service.impl;
 
+import com.devmura.entity.Auth;
 import com.devmura.entity.Notification;
 import com.devmura.repository.NotificationRepository;
 import com.devmura.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,23 +19,42 @@ public class NotificationServiceImpl implements NotificationService {
 
 
     @Override
-    public void save(Notification notification) { notificationRepository.save(notification);
-
+    public ResponseEntity<List<?>> findAll() {
+        if (notificationRepository.findAll().isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(notificationRepository.findAll());
+        }
     }
 
     @Override
-    public void delete(Integer id) { notificationRepository.deleteById(id);
-
+    public ResponseEntity<?> findById(Integer id) {
+        Optional<Notification> notification = notificationRepository.findById(id);
+        if (notification.isPresent()) {
+            return new ResponseEntity<>(notification, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Notification not found", HttpStatus.NOT_FOUND);
+        }
     }
 
     @Override
-    public Optional<Notification> findById(Integer id) {
-        return notificationRepository.findById(id);
+    public ResponseEntity<?> save(Notification notification) {
+        try {
+            notificationRepository.save(notification);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+        return ResponseEntity.ok(notification);
     }
 
     @Override
-    public List<Notification> getAll() {
-        return notificationRepository.findAll();
+    public ResponseEntity<?> delete(Integer id) {
+        if (notificationRepository.findById(id).isPresent()) {
+            notificationRepository.deleteById(id);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
 
