@@ -18,18 +18,18 @@ public class GenderController {
     @Autowired
     GenderService genderService;
 
-    @GetMapping("/all")
+    @GetMapping
     public ResponseEntity<List<Gender>> getGender(){
         List<Gender> gender = genderService.getAll();
         return ResponseEntity.ok(gender);
 
     }
-    @PostMapping("/save")
+    @PostMapping
     public ResponseEntity<Void> saveGender(@RequestBody Gender gender){
         genderService.save(gender);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-    @DeleteMapping("/delete/(id)")
+    @DeleteMapping("(id)")
     public ResponseEntity<Void> delete(@PathVariable Integer id){
         genderService.delete(id);
         return ResponseEntity.status(HttpStatus.OK).build();

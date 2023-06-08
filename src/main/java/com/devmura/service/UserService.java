@@ -13,4 +13,8 @@ public interface UserService {
     public List<User> findByNameLike(String pattern);
 
     public List<User> findByName(String name);
+
+    public boolean existsByEmail(String email);
+
+    public boolean existsByUsername(String username);
 }
