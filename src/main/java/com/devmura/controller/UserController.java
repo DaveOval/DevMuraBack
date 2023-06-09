@@ -21,15 +21,6 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @Autowired
-    AuthService authService;
-
-    @Autowired
-    ProfileService profileService;
-
-    @Autowired
-    LevelService levelService;
-
     @GetMapping
     public ResponseEntity<List<?>> getUsers(){
         return userService.findAll();
@@ -39,7 +30,6 @@ public class UserController {
     public ResponseEntity<?> savePost(@RequestBody User user){
         return userService.save(user);
     }
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
