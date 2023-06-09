@@ -17,8 +17,6 @@ public class LanguageController {
 
     @Autowired
     LanguageService languageService;
-    @Autowired
-    private LanguageRepository languageRepository;
 
     @GetMapping
     public ResponseEntity<List<?>> getAll(){

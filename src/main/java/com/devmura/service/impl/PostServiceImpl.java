@@ -4,6 +4,7 @@ import com.devmura.entity.Post;
 import com.devmura.repository.PostRepository;
 import com.devmura.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -46,7 +47,7 @@ public class PostServiceImpl implements PostService {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
-        return ResponseEntity.ok(post);
+        return new ResponseEntity<>("Post saved", HttpStatus.CREATED);
     }
 
     @Override
