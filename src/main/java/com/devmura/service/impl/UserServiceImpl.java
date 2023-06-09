@@ -41,38 +41,37 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    @Override
     public ResponseEntity<?> save(User user) {
         try {
-            if (existsByEmail(user.getEmail())) {
-                throw new IllegalStateException("email already exists: " + user.getEmail());
-            }
-            if (existsByUsername(user.getUsername())) {
-                throw new IllegalStateException("username already exists: " + user.getUsername());
+            if (userRepository.existsByEmailIgnoringCase(user.getEmail())) {
+                return new ResponseEntity<>("Email already exists", HttpStatus.BAD_REQUEST);
+            } else if (userRepository.existsByUsernameIgnoringCase(user.getUsername())) {
+                return new ResponseEntity<>("Username already exists", HttpStatus.BAD_REQUEST);
             } else {
                 Optional<Auth> auth = authService.findAuthById(2);
                 if (auth.isPresent()) {
                     user.setAuth(auth.get());
 
-                    userRepository.save(user);
-
-
                     Profile profile = new Profile();
                     profile.setUser(user);
                     Optional<Level> level = levelService.findLevelById(2);
-                    if (level.isPresent()) {
-                        profile.setLevel(level.get());
-                    }
-                    profileService.save(profile);
+                    level.ifPresent(profile::setLevel);
 
-                    return new ResponseEntity<>(userRepository.save(user), HttpStatus.CREATED);
+                    user.setProfile(profile);
+
+                    userRepository.save(user);
+
+                    return new ResponseEntity<>("User saved", HttpStatus.CREATED);
+                } else {
+                    return new ResponseEntity<>("Error saving user: Auth not found", HttpStatus.INTERNAL_SERVER_ERROR);
                 }
             }
         } catch (IllegalStateException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>("Error creating user", HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+
 
 
     @Override

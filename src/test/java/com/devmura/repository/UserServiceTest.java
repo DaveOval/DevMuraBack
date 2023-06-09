@@ -39,7 +39,6 @@ class UserServiceTest {
             userTest.setAge(28);
             userTest.setEmail("juanito@correo.com");
             userTest.setUsername("juanitobanana3000");
-            userTest.setCreatedAt(new Date());
             userTest.setPassword("bananas");
 
             Optional<Auth> authTest = authRepository.findById(1);
