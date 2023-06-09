@@ -30,7 +30,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     AuthService authService;
 
-
     @Override
     public ResponseEntity<?> findById(Integer id) {
         Optional<User> user = userRepository.findById(id);
@@ -70,9 +69,6 @@ public class UserServiceImpl implements UserService {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
-
-
-
 
     @Override
     public ResponseEntity<?> delete(Integer id) {
