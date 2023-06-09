@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/post")
+@RequestMapping("/api/posts")
 @CrossOrigin(origins = "*")
 public class PostController {
 
@@ -18,24 +18,20 @@ public class PostController {
     PostService postService;
 
     @GetMapping
-    public ResponseEntity<List<Post>> getAllPosts(){
-        List<Post> posts = postService.findAllPosts();
-        return ResponseEntity.ok(posts);
+    public ResponseEntity<List<?>> getAllPosts(){
+        return postService.findAll();
     }
     @PostMapping
-    public ResponseEntity<Void> savePost(@RequestBody Post post){
-        postService.savePost(post);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<?> savePost(@RequestBody Post post){
+        return postService.save(post);
     }
     @GetMapping("{id}")
-    public ResponseEntity<Post> getPostById(@PathVariable("id") Integer id){
-        Post post = postService.findPostById(id).get();
-        return ResponseEntity.ok(post);
+    public ResponseEntity<?> getPostById(@PathVariable("id") Integer id){
+        return postService.findById(id);
     }
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> deletePost(@PathVariable("id") Integer id){
-        postService.deletePost(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    public ResponseEntity<?> deletePost(@PathVariable("id") Integer id){
+        return postService.delete(id);
     }
 
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/friend")
+@RequestMapping("/api/friends")
 @CrossOrigin(origins = "*")
 public class FriendController {
 
@@ -20,27 +20,18 @@ public class FriendController {
 
 
     @GetMapping
+    public ResponseEntity<List<?>> getFriends(){
+        return friendService.findAll();
 
-    public ResponseEntity<List<Friend>> getFriends(){
-        List<Friend> friends = friendService.findAll();
-        return  ResponseEntity.ok(friends);
     }
-
-
-
-
-
     @PostMapping
-
-    public ResponseEntity<Void> saveFriend(@RequestBody Friend friend){
-        friendService.save(friend);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<?> saveFriend(@RequestBody Friend friend){
+        return friendService.save(friend);
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable Integer id){
-        friendService.delete(id);
-        return ResponseEntity.status(HttpStatus.OK).build();
+    public ResponseEntity<?> delete(@PathVariable Integer id){
+        return friendService.delete(id);
     }
 
 

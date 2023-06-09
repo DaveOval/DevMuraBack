@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-// @ Data soluciona para no escribir todos los demás
 @Table(name = "users")
 public class User {
     @Id
@@ -30,10 +29,10 @@ public class User {
     @Column(name = "age", nullable = false, length = 30)
     private Integer age;
 
-    @Column(name = "email", nullable = false, length = 30)
+    @Column(name = "email", nullable = false, length = 150, unique = true)
     private String email;
 
-    @Column(name = "username", nullable = false, length = 50)
+    @Column(name = "username", nullable = false, length = 50, unique = true)
     private String username;
 
     @Column(name = "created_at", nullable = false, length = 150)

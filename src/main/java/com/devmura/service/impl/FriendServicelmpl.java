@@ -1,9 +1,12 @@
 package com.devmura.service.impl;
 
+import com.devmura.entity.Auth;
 import com.devmura.entity.Friend;
 import com.devmura.repository.FriendRepository;
 import com.devmura.service.FriendService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,28 +19,41 @@ public class FriendServicelmpl implements FriendService {
     FriendRepository friendRepository;
 
     @Override
-    public void save(Friend friend) {
-        friendRepository.save(friend);
-
+    public ResponseEntity<List<?>> findAll() {
+        if (friendRepository.findAll().isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(friendRepository.findAll());
+        }
     }
 
     @Override
-    public void delete(Integer id) {
-        friendRepository.deleteById(id);
+    public ResponseEntity<?> findById(Integer id) {
+        Optional<Friend> friend = friendRepository.findById(id);
+        if (friend.isPresent()) {
+            return new ResponseEntity<>(friend, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Friend not found", HttpStatus.NOT_FOUND);
+        }
     }
 
     @Override
-    public List<Friend> findAll() {
-        return friendRepository.findAll();
+    public ResponseEntity<?> save(Friend friend) {
+        try {
+            friendRepository.save(friend);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+        return ResponseEntity.ok(friend);
     }
 
     @Override
-    public Optional<Friend> findFriendById(Integer id) {
-        return friendRepository.findById(id);
-    }
-
-    @Override
-    public List<Friend> getAll() {
-        return friendRepository.findAll();
+    public ResponseEntity<?> delete(Integer id) {
+        if (friendRepository.findById(id).isPresent()) {
+            friendRepository.deleteById(id);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
