@@ -12,7 +12,7 @@ public class Comment {
     @Column(name = "comment_id")
     private Integer id;
 
-    @Column(name = "content", nullable = false, length = 150)
+    @Column(name = "content", length = 150)
     private String content;
 
     @ManyToOne

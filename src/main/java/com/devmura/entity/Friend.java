@@ -19,7 +19,7 @@ public class Friend {
   @Column(name = "friend_id")
   private Integer id;
 
-  @Column(name="accepted", nullable = false, length = 50)
+  @Column(name="accepted", length = 50)
   private Boolean accepted;
 
   @OneToOne
