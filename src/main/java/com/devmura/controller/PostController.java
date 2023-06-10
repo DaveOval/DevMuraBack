@@ -1,9 +1,9 @@
 package com.devmura.controller;
 
+import com.devmura.dto.PostDto;
 import com.devmura.entity.Post;
 import com.devmura.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,4 +34,8 @@ public class PostController {
         return postService.delete(id);
     }
 
+    @GetMapping("/dto")
+    public ResponseEntity<List<PostDto>> getAllPostsDto(){
+        return postService.getAllPosts();
+    }
 }

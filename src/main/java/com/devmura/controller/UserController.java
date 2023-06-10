@@ -1,5 +1,6 @@
 package com.devmura.controller;
 
+import com.devmura.dto.UserDto;
 import com.devmura.entity.*;
 import com.devmura.service.AuthService;
 import com.devmura.service.LevelService;
@@ -45,4 +46,10 @@ public class UserController {
     public ResponseEntity<?> updateUser(@RequestBody User user) {
         return userService.save(user);
     }
+
+    @GetMapping("/dto")
+    public ResponseEntity<List<UserDto>> getAllUsers() {
+        return userService.getAllUsers();
+    }
+
 }

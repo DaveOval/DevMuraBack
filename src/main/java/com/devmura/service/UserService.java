@@ -1,5 +1,6 @@
 package com.devmura.service;
 
+import com.devmura.dto.UserDto;
 import com.devmura.entity.User;
 import org.springframework.http.ResponseEntity;
 
@@ -14,4 +15,5 @@ public interface UserService extends CRUDService<User> {
     public boolean existsByEmail(String email);
 
     public boolean existsByUsername(String username);
+    public ResponseEntity<List<UserDto>> getAllUsers();
 }

@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.time.LocalDateTime;
 
 
-@Data
+@Data // lombok
 @Entity
 @Table(name = "users")
 public class User {
@@ -60,10 +60,10 @@ public class User {
     private Country country;
 
     @OneToMany(mappedBy = "user")
-    @JsonBackReference
     private List<Post> posts = new ArrayList<>();
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private Profile profile;
 
     public void setProfile(Profile profile) {
