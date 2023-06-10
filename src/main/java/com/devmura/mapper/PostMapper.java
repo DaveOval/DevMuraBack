@@ -32,6 +32,7 @@ public abstract class PostMapper {
             Profile profile = user.get().getProfile();
             if (profile != null) {
                 postDto.setRole(profile.getRole());
+                postDto.setImg(profile.getImg());
             }
         }
 
