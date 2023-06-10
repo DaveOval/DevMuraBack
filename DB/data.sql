@@ -1,5 +1,6 @@
-insert into  auths(auth_name) VALUES ("Admin");
-insert into  auths(auth_name) VALUES ("User");
+insert into auths (auth_name) values ("admin");
+insert into auths (auth_name) values ("user");
+insert into auths (auth_name) values ("vip");
 
 insert into levels (name) VALUES ("private");
 insert into levels (name) VALUES ("public");
@@ -358,35 +359,35 @@ insert into languages (language_name) VALUES ("NetBeans");
 
 
 
-insert into users (name ,last_name, age, email, username, created_at, gender_id, password, auth_id, country_id )
-VALUES ("David", "Vazquez", 24, "dave@gmail.com", "Dave", "2023-05-01", 2,"Dave123@!",1,20);
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
+VALUES ("David", "Vazquez", 24, "dave@gmail.com", "Dave", "2023-05-01", 2,"Dave123@!",20);
 
-insert into users (name ,last_name, age, email, username, created_at, gender_id, password, auth_id, country_id )
-VALUES ("Fernando", "Herrera", 28, "ferher@gmail.com", "Fers", "2023-06-01", 2,"FerHer2@!",2,19);
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
+VALUES ("Fernando", "Herrera", 28, "ferher@gmail.com", "Fers", "2023-06-01", 2,"FerHer2@!",19);
 
-insert into users (name ,last_name, age, email, username, created_at, gender_id, password, auth_id, country_id )
-VALUES ("Juanito", "Banana", 24, "juanito@hotmail.com", "juanito01", "2023-06-01", 2,"Juans12!!", 2, 23);
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
+VALUES ("Juanito", "Banana", 24, "juanito@hotmail.com", "juanito01", "2023-06-01", 2,"Juans12!!", 23);
 
-insert into users (name ,last_name, age, email, username, created_at, gender_id, password, auth_id, country_id )
-VALUES ("Mariana", "Smith", 33, "mari@gmail.com", "mariana_dev", "2023-06-01", 1,"maRi111!", 2, 23);
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
+VALUES ("Mariana", "Smith", 33, "mari@gmail.com", "mariana_dev", "2023-06-01", 1,"maRi111!", 23);
 
-insert into users (name ,last_name, age, email, username, created_at, gender_id, password, auth_id, country_id )
-VALUES ("Alex", "Turner", 28, "alexTur@hotmail.com", "alex_t", "2023-06-02", 2 ,"AlEx23@-", 2, 20);
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
+VALUES ("Alex", "Turner", 28, "alexTur@hotmail.com", "alex_t", "2023-06-02", 2 ,"AlEx23@-", 20);
 
-insert into users (name ,last_name, age, email, username, created_at, gender_id, password, auth_id, country_id )
-VALUES ("Sophie", "Chen", 27, "chen@gmail.com", "sophie.design", "2023-06-02", 1 ,"22Soph@#", 2, 1);
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
+VALUES ("Sophie", "Chen", 27, "chen@gmail.com", "sophie.design", "2023-06-02", 1 ,"22Soph@#", 1);
 
-insert into users (name ,last_name, age, email, username, created_at, gender_id, password, auth_id, country_id )
-VALUES ("Raj", "Patel", 31, "rajPat@outlook.com", "patel.Raj7", "2023-06-03", 2,"Raj7P777#",2,25);
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
+VALUES ("Raj", "Patel", 31, "rajPat@outlook.com", "patel.Raj7", "2023-06-03", 2,"Raj7P777#",25);
 
-insert into users (name ,last_name, age, email, username, created_at, gender_id, password, auth_id, country_id )
-VALUES ("Emily", "Thompson", 42, "emsly@gmail.com", "emily.Thomp", "2023-06-04", 1,"emithosT02~",2,23);
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
+VALUES ("Emily", "Thompson", 42, "emsly@gmail.com", "emily.Thomp", "2023-06-04", 1,"emithosT02~",23);
 
-insert into users (name ,last_name, age, email, username, created_at, gender_id, password, auth_id, country_id )
-VALUES ("Ana", "Torres", 21 , "antor@gmail.com", "Ana_Dev", "2023-06-04", 1,"AATorr21@", 2, 6);
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
+VALUES ("Ana", "Torres", 21 , "antor@gmail.com", "Ana_Dev", "2023-06-04", 1,"AATorr21@", 6);
 
-insert into users (name ,last_name, age, email, username, created_at, gender_id, password, auth_id, country_id )
-VALUES ("Patricia", "Matias", 22 , "ale@hotmail.com", "Tenshik0", "2023-06-05", 1,"Tensh111!-", 1, 20);
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
+VALUES ("Patricia", "Matias", 22 , "ale@hotmail.com", "Tenshik0", "2023-06-05", 1,"Tensh111!-", 20);
 
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Welcome to my digital space! Here, I'll share my thoughts on web design, coding, sketchnotes, work, life, gaming, food, books, and more. Get ready for some rambling and engaging discussions!", "5", "2023-06-02", "https://images.pexels.com/photos/954599/pexels-photo-954599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 2);
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Java: lenguaje multiplataforma y orientado a objetos, rápido y seguro. Ideal para apps móviles, software empresarial, macrodatos y servidores. Amplio alcance y popular en la industria gracias a su conectividad en red y flexibilidad.", "25", "2023-06-03", "https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=1600", 4);

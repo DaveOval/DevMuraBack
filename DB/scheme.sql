@@ -49,12 +49,20 @@ CREATE TABLE IF NOT EXISTS `devmura`.`users` (
     created_at DATETIME NOT NULL,
     gender_id INTEGER NOT NULL,
     password VARCHAR(150),
-    auth_id integer not null,
     country_id  integer not null,
     PRIMARY KEY (`user_id`),
-    FOREIGN KEY (auth_id) REFERENCES auths(auth_id),
     FOREIGN KEY (gender_id) REFERENCES genders (gender_id),
     FOREIGN KEY (country_id) REFERENCES countries (country_id)  );
+
+drop table if exists user_roles;
+create table user_roles (
+                            user_role_id integer not null auto_increment,
+                            user_id integer not null,
+                            auth_id integer not null,
+                            primary key(user_role_id),
+                            foreign key(user_id) references users(user_id),
+                            foreign key(auth_id) references auths(auth_id)
+);
 
 DROP TABLE IF EXISTS posts;
 create table posts (
