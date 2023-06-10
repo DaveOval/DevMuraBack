@@ -32,7 +32,6 @@ public class UserController {
         return userService.save(user);
     }
 
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
         return userService.delete(id);
