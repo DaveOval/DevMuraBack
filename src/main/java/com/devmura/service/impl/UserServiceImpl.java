@@ -1,11 +1,9 @@
 package com.devmura.service.impl;
 
 import com.devmura.dto.UserDto;
-import com.devmura.entity.Auth;
-import com.devmura.entity.Level;
-import com.devmura.entity.Profile;
-import com.devmura.entity.User;
+import com.devmura.entity.*;
 import com.devmura.mapper.UserMapper;
+import com.devmura.repository.AuthRepository;
 import com.devmura.repository.UserRepository;
 import com.devmura.service.AuthService;
 import com.devmura.service.LevelService;
@@ -15,12 +13,11 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.devmura.mapper.UserMapper.mapToUserDto;
@@ -38,6 +35,11 @@ public class UserServiceImpl implements UserService {
     LevelService levelService;
     @Autowired
     AuthService authService;
+    @Autowired
+    private AuthRepository authRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public ResponseEntity<?> findById(Integer id) {
@@ -50,33 +52,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public ResponseEntity<?> save(User user) {
-        try {
-            if (userRepository.existsByEmailIgnoringCase(user.getEmail())) {
-                return new ResponseEntity<>("Email already exists", HttpStatus.BAD_REQUEST);
-            } else if (userRepository.existsByUsernameIgnoringCase(user.getUsername())) {
-                return new ResponseEntity<>("Username already exists", HttpStatus.BAD_REQUEST);
-            } else {
-                Optional<Auth> auth = authService.findAuthById(2);
-                if (auth.isPresent()) {
-                    user.setAuth(auth.get());
-
-                    Profile profile = new Profile();
-                    profile.setUser(user);
-                    Optional<Level> level = levelService.findLevelById(2);
-                    level.ifPresent(profile::setLevel);
-
-                    user.setProfile(profile);
-
-                    userRepository.save(user);
-
-                    return new ResponseEntity<>("User saved", HttpStatus.CREATED);
-                } else {
-                    return new ResponseEntity<>("Error saving user: Auth not found", HttpStatus.INTERNAL_SERVER_ERROR);
-                }
-            }
-        } catch (IllegalStateException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
+        return null;
     }
 
     @Override
@@ -143,9 +119,47 @@ public class UserServiceImpl implements UserService {
             return new ResponseEntity<>(userDtos, HttpStatus.OK);
         }
     }
-}
 
-   // Customer customer = customerRepository.findById(idCustomer)
-   //         .orElseThrow( ()->
-   //                 new IllegalStateException("User does not exist with id: " + idCustomer));
+    @Override
+    public ResponseEntity<?> saveUser(User user) {
+        try {
+            Set<UserRole> roles = new HashSet<>();
+            User newUser = userRepository.findByUsername(user.getUsername());
+            if (newUser != null) {
+                throw new Exception("Username " + user.getUsername() + " already exists");
+            }
+            if (userRepository.existsByEmailIgnoringCase(user.getEmail())) {
+                throw new Exception("Email " + user.getEmail() + " already exists");
+            } else {
+                user.setPassword(passwordEncoder.encode(user.getPassword()));
+                UserRole userRole = new UserRole();
+                userRole.setUser(user);
+                Optional<Auth> auth = authRepository.findById(2);
+                if (auth.isPresent()) {
+                    userRole.setAuth(auth.get());
+                } else {
+                    throw new Exception("Auth not found");
+                }
+
+                roles.add(userRole);
+
+                for (UserRole ur : roles) {
+                    authRepository.save(ur.getAuth());
+                }
+                user.getUserRoles().addAll(roles);
+                Profile profile = new Profile();
+                profile.setUser(user);
+                Optional<Level> level = levelService.findLevelById(2);
+                level.ifPresent(profile::setLevel);
+
+                user.setProfile(profile);
+                newUser = userRepository.save(user);
+            }
+            return new ResponseEntity<>(newUser, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+}
 
