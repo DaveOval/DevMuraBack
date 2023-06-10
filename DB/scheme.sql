@@ -20,6 +20,7 @@ DROP TABLE IF EXISTS countries;
 create table countries (
                            country_id  integer not null auto_increment,
                            country_name varchar(50) not null unique,
+                           country_code varchar(10) not null unique,
                            primary key (country_id)
 );
 
@@ -27,6 +28,7 @@ DROP TABLE IF EXISTS genders;
 create table genders (
                          gender_id integer not null auto_increment,
                          gender_name varchar(25) unique,
+
                          primary key(gender_id)
 );
 
@@ -44,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `devmura`.`users` (
     age INTEGER NOT NULL,
     email VARCHAR(150) NOT NULL unique,
     username VARCHAR(150) NOT NULL unique,
-    created_at DATE NOT NULL,
+    created_at DATETIME NOT NULL,
     gender_id INTEGER NOT NULL,
     password VARCHAR(150),
     auth_id integer not null,
@@ -60,7 +62,7 @@ create table posts (
                        post_body	varchar(250) not null,
                        counter		varchar(100),
                        created_at	Date not null,
-                       img_source	varchar(100),
+                       img_source	varchar(300),
                        user_id		integer not null,
                        primary key(post_id),
                        foreign key(user_id) references users(user_id)
@@ -75,6 +77,7 @@ create table profiles (
                           github_username	varchar(50),
                           linkedin_username varchar(100),
                           background_user	varchar(150),
+                          role  varchar(100),
                           level_id	integer not null,
                           user_id	integer not null,
                           primary key (profile_id),
@@ -96,7 +99,7 @@ create table notifications (
 
 DROP TABLE IF EXISTS comments;
 create table comments(
-                         comment_id  integer not null,
+                         comment_id  integer not null auto_increment,
                          content varchar (150),
                          created_at date not null,
                          user_id integer not null,
@@ -125,14 +128,14 @@ CREATE TABLE IF NOT EXISTS `devmura`.`language_profile` (
                                                             language_id INTEGER NOT NULL,
                                                             profile_id INTEGER NOT NULL,
                                                             primary key (id),
-                                                            FOREIGN KEY (language_id) REFERENCES languages (language_id),
+    FOREIGN KEY (language_id) REFERENCES languages (language_id),
     FOREIGN KEY (profile_id) REFERENCES profiles (profile_id));
 
 
 DROP TABLE IF EXISTS hearts;
 create table hearts (
                         heart_id integer not null auto_increment,
-                        create_at date,
+                        created_at date,
                         user_id integer not null,
                         post_id integer not null,
 
@@ -143,7 +146,7 @@ create table hearts (
 
 DROP TABLE IF EXISTS `groups`;
 create table `devmura`.`groups`(
-                                   group_id integer not null,
+                                   group_id integer not null auto_increment,
                                    title varchar (50),
                                    created_at date not null,
                                    description_group varchar(250),

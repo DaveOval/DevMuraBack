@@ -20,10 +20,28 @@ class UserServiceTest {
 
     @Test
     void findById() {
-        Optional<User> optional = userRepository.findById(2);
-        if (optional.isPresent()) {
-            System.out.println("si existe");
-        } else
-            System.out.println("no existe");
+        userRepository.findById(1);
+    }
+
+
+    @Test
+    void existsByEmail() {
+        boolean exists = userRepository.existsByEmailIgnoringCase("chfdsfen@gmail.com");
+        if (exists) {
+            System.out.println("Email exists");
+        } else {
+            System.out.println("Email does not exist");
+        }
+
+    }
+
+    @Test
+    void existsByUsername() {
+        boolean exists = userRepository.existsByUsernameIgnoringCase("alex_t");
+        if (exists) {
+            System.out.println("Username exists");
+        } else {
+            System.out.println("Username does not exist");
+        }
     }
 }

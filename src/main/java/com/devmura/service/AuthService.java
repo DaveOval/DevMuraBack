@@ -6,10 +6,6 @@ import java.util.List;
 import java.util.Optional;
 
 
-public interface AuthService {
-    public void save(Auth auth);
-    public void delete(Integer id);
-    public Optional<Auth> findCommentById(Integer id);
-    List<Auth> getAll();
-        
+public interface AuthService extends CRUDService<Auth>{
+    Optional<Auth> findAuthById(Integer id);
 }

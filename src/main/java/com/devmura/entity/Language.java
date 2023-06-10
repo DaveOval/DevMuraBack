@@ -22,11 +22,11 @@ public class Language {
     @Column(name= "language_id")
     private Integer id;
 
-    @Column(name="language_name")
+    @Column(name="language_name", nullable = false, length =50)
     private String languageName;
-
-    @OneToMany(mappedBy = "language")
-    List<LanguajeProfile> languajeProfile = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "language")
+//    List<LanguajeProfile> languajeProfile = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {

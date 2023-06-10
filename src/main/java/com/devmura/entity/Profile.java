@@ -1,6 +1,8 @@
 package com.devmura.entity;
 
 import com.devmura.model.LanguajeProfile;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -12,28 +14,32 @@ import java.util.List;
 @Entity
 @Table(name = "profiles")
 public class Profile {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "profile_id")
     private Integer id;
 
-    @Column(name = "birthday")
+    @Column(name = "birthday", nullable = true, length = 100)
     private Date birthday;
 
-    @Column(name = "bio")
+    @Column(name = "bio", nullable = true, length = 100)
     private String bio;
 
-    @Column(name = "img_user")
+    @Column(name = "img_user", nullable = true, length = 250)
     private String img;
 
-    @Column(name = "github_username")
+    @Column(name = "github_username", nullable = true, length = 150)
     private String github;
 
-    @Column(name = "linkedin_username")
+    @Column(name = "linkedin_username", nullable = true, length = 150)
     private String likedin;
 
-    @Column(name = "background_user")
+    @Column(name = "background_user",nullable = true, length = 150)
     private String background;
+
+    @Column(name = "role", nullable = true, length = 50)
+    private String role;
 
     @ManyToOne
     @JoinColumn(name = "level_id")
@@ -43,10 +49,27 @@ public class Profile {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "profile")
-    List<LanguajeProfile> languajeProfile = new ArrayList<>();
+//    @OneToMany(mappedBy = "profile")
+//    List<LanguajeProfile> languajeProfile = new ArrayList<>();
+
 
     public void setLikedin(String likedin) {
         this.likedin = likedin;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "id=" + id +
+                ", birthday=" + birthday +
+                ", bio='" + bio + '\'' +
+                ", img='" + img + '\'' +
+                ", github='" + github + '\'' +
+                ", likedin='" + likedin + '\'' +
+                ", background='" + background + '\'' +
+                ", level=" + level +
+                '}';
     }
 }
