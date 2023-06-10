@@ -20,6 +20,7 @@ DROP TABLE IF EXISTS countries;
 create table countries (
                            country_id  integer not null auto_increment,
                            country_name varchar(50) not null unique,
+                           country_code varchar(10) not null unique,
                            primary key (country_id)
 );
 
