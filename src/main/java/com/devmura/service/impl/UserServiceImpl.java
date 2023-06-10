@@ -1,28 +1,37 @@
 package com.devmura.service.impl;
 
+import com.devmura.dto.UserDto;
 import com.devmura.entity.Auth;
 import com.devmura.entity.Level;
 import com.devmura.entity.Profile;
 import com.devmura.entity.User;
+import com.devmura.mapper.UserMapper;
 import com.devmura.repository.UserRepository;
 import com.devmura.service.AuthService;
 import com.devmura.service.LevelService;
 import com.devmura.service.ProfileService;
 import com.devmura.service.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import static com.devmura.mapper.UserMapper.mapToUserDto;
+
+// @AllArgsConstructor // Lombok - generates a constructor with 1 parameter for each field in your class in this case UserMapper
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     UserRepository userRepository;
+
     @Autowired
     ProfileService profileService;
     @Autowired
@@ -123,6 +132,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean existsByUsername(String username) {
         return userRepository.existsByUsernameIgnoringCase(username);
+    }
+
+    @Override
+    public ResponseEntity<List<UserDto>> getAllUsers() {
+        if (userRepository.findAll().isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            List<User> users = userRepository.findAll();
+            List<UserDto> userDtos = users
+                    .stream()
+                    .map(user -> UserMapper.mapToUserDto(user))
+                    .collect(Collectors.toList());
+            return new ResponseEntity<>(userDtos, HttpStatus.OK);
+        }
     }
 }
 

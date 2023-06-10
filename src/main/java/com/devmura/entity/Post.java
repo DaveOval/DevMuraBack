@@ -1,15 +1,11 @@
 package com.devmura.entity;
 
-import com.devmura.model.GroupPost;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -39,11 +35,16 @@ public class Post {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
-    //@JsonIgnore
+    @JsonIgnore
     private User user;
 
 //    @OneToMany(mappedBy = "post")
 //    List<GroupPost> groupPosts = new ArrayList<>();
+
+
+    public String getCreatedAt() {
+        return createdAt.toString();
+    }
 
     @Override
     public boolean equals(Object o) {
