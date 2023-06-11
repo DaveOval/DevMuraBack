@@ -22,6 +22,9 @@ public class Country {
     @Column(name = "country_name", nullable = false, length = 50)
     private String name;
 
+    @Column(name = "country_code", nullable = false, length = 50)
+    private String code;
+
 
     @Override
     public boolean equals(Object o) {
