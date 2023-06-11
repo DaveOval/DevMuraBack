@@ -1,5 +1,6 @@
 package com.devmura.security;
 
+import com.devmura.repository.UserRepository;
 import com.devmura.security.filters.JwtAuthenticationFilter;
 import com.devmura.security.filters.JwtValidationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,8 @@ public class SpringSecurityConfig {
 
     @Autowired
     private AuthenticationConfiguration authenticationConfiguration;
+    @Autowired
+    private UserRepository userRepository;
 
     @Bean
     PasswordEncoder passwordEncoder() {
@@ -52,7 +55,7 @@ public class SpringSecurityConfig {
                 // .requestMatchers(HttpMethod.PUT, "/users/{id}").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
-                .addFilter(new JwtAuthenticationFilter(authenticationConfiguration.getAuthenticationManager()))
+                .addFilter(new JwtAuthenticationFilter(authenticationConfiguration.getAuthenticationManager(),userRepository))
                 .addFilter(new JwtValidationFilter(authenticationConfiguration.getAuthenticationManager()))
                 .csrf(config -> config.disable())
                 .sessionManagement(managment -> managment.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
