@@ -31,4 +31,9 @@ public class ProfileController {
     public ResponseEntity<?> delete(@PathVariable Integer id){
         return profileService.delete(id);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getProfileById(@PathVariable Integer id){
+        return profileService.findById(id);
+    }
 }
