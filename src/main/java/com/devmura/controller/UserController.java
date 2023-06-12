@@ -1,5 +1,6 @@
 package com.devmura.controller;
 
+import com.devmura.dto.UserDto;
 import com.devmura.entity.*;
 import com.devmura.service.AuthService;
 import com.devmura.service.LevelService;
@@ -8,10 +9,12 @@ import com.devmura.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
+import javax.management.relation.Role;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/users")
@@ -21,25 +24,15 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @Autowired
-    AuthService authService;
-
-    @Autowired
-    ProfileService profileService;
-
-    @Autowired
-    LevelService levelService;
-
     @GetMapping
     public ResponseEntity<List<?>> getUsers(){
         return userService.findAll();
     }
 
     @PostMapping
-    public ResponseEntity<?> savePost(@RequestBody User user){
-        return userService.save(user);
+    public ResponseEntity<?> saveUser(@RequestBody User user) {
+        return userService.saveUser(user);
     }
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
@@ -55,4 +48,20 @@ public class UserController {
     public ResponseEntity<?> updateUser(@RequestBody User user) {
         return userService.save(user);
     }
+
+    @GetMapping("/dto")
+    public ResponseEntity<List<UserDto>> getAllUsers() {
+        return userService.getAllUsers();
+    }
+
+
+    private ResponseEntity<?> validation(BindingResult result) {
+        Map<String, String> errors = new HashMap<>();
+
+        result.getFieldErrors().forEach(err -> {
+            errors.put(err.getField(), "El campo " + err.getField() + " " + err.getDefaultMessage());
+        });
+        return ResponseEntity.badRequest().body(errors);
+    }
+
 }

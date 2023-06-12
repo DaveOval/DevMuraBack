@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -21,6 +23,9 @@ public class Auth {
 
     @Column(name = "auth_name", nullable = true, length = 50)
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "auth", fetch = FetchType.LAZY)
+    private Set<UserRole> userRoles = new HashSet<>();
 
     @Override
     public boolean equals(Object o) {

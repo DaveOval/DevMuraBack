@@ -1,21 +1,33 @@
 package com.devmura.service.impl;
 
+import com.devmura.dto.PostDto;
+import com.devmura.dto.UserDto;
 import com.devmura.entity.Post;
+import com.devmura.entity.Profile;
+import com.devmura.entity.User;
+import com.devmura.mapper.PostMapper;
+import com.devmura.mapper.UserMapper;
 import com.devmura.repository.PostRepository;
+import com.devmura.repository.UserRepository;
 import com.devmura.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements PostService {
 
     @Autowired
     PostRepository postRepository;
+
+    @Autowired
+    UserRepository userRepository;
 
     @Override
     public ResponseEntity<List<?>> findAll() {
@@ -59,4 +71,21 @@ public class PostServiceImpl implements PostService {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @Override
+    public ResponseEntity<List<PostDto>> getAllPosts() {
+        List<Post> posts = postRepository.findAll();
+
+        if (posts.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        List<PostDto> postDtoList = posts.stream()
+                .map(post -> PostMapper.mapToPostDto(post, userRepository))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(postDtoList);
+    }
+
+
 }

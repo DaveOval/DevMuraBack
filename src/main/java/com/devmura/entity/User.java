@@ -4,14 +4,13 @@ import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
+import org.springframework.security.core.GrantedAuthority;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.time.LocalDateTime;
 
 
-@Data
+@Data // lombok
 @Entity
 @Table(name = "users")
 public class User {
@@ -46,9 +45,8 @@ public class User {
         createdAt = LocalDateTime.now().withNano(0);
     }
 
-    @ManyToOne
-    @JoinColumn(name = "auth_id")
-    private Auth auth;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<UserRole> userRoles = new HashSet<>();
 
     // revisar relacion many to one
     @ManyToOne
@@ -60,10 +58,10 @@ public class User {
     private Country country;
 
     @OneToMany(mappedBy = "user")
-    @JsonBackReference
     private List<Post> posts = new ArrayList<>();
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private Profile profile;
 
     public void setProfile(Profile profile) {
@@ -83,5 +81,4 @@ public class User {
     public int hashCode() {
         return getClass().hashCode();
     }
-
 }
