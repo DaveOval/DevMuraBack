@@ -1,7 +1,12 @@
 package com.devmura.service.impl;
 
+import com.devmura.dto.PostDto;
+import com.devmura.dto.ProfileDto;
 import com.devmura.entity.Profile;
+import com.devmura.mapper.PostMapper;
+import com.devmura.mapper.ProfileMapper;
 import com.devmura.repository.ProfileRepository;
+import com.devmura.repository.UserRepository;
 import com.devmura.service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,11 +14,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ProfileServicelmpl implements ProfileService {
     @Autowired
     ProfileRepository profileRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public ResponseEntity<List<?>> findAll() {
@@ -46,5 +54,29 @@ public class ProfileServicelmpl implements ProfileService {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @Override
+    public ResponseEntity<List<ProfileDto>> getAllProfiles() {
+        List<Profile> profiles = profileRepository.findAll();
+
+        if (profiles.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        List<ProfileDto> profileDtoList = profiles.stream()
+                    .map(profile -> ProfileMapper.mapToProfileDto(profile, userRepository))
+                    .collect(Collectors.toList());
+
+        return ResponseEntity.ok(profileDtoList);
+    }
+
+    @Override
+    public ResponseEntity<?> updateProfile(Integer id, ProfileDto profileDto) {
+        Profile profile = profileRepository.findById(id).orElse(null);
+        if (profile == null) {
+            return ResponseEntity.notFound().build();
+        }
+        profileRepository.save(profile);
+        return ResponseEntity.ok().build();
     }
 }

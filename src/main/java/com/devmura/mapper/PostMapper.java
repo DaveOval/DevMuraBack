@@ -11,9 +11,6 @@ import java.util.Optional;
 
 public abstract class PostMapper {
 
-    @Autowired
-    UserRepository userRepository;
-
     public static PostDto mapToPostDto(Post post, UserRepository userRepository) {
         PostDto postDto = new PostDto();
         postDto.setId(post.getId());
