@@ -71,7 +71,18 @@ public class ProfileServicelmpl implements ProfileService {
     }
 
     @Override
-    public ResponseEntity<?> updateProfile(Integer id, ProfileDto profileDto) {
+    public ResponseEntity<ProfileDto> getProfileDtoById(Integer id) {
+        Optional<Profile> profile = profileRepository.findById(id);
+        if (profile.isPresent()) {
+            return ResponseEntity.ok(ProfileMapper.mapToProfileDto(profile.get(), userRepository));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+    @Override
+    public ResponseEntity<?> updateProfile(Integer id) {
         Profile profile = profileRepository.findById(id).orElse(null);
         if (profile == null) {
             return ResponseEntity.notFound().build();
