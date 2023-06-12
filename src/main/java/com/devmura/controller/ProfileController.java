@@ -1,5 +1,6 @@
 package com.devmura.controller;
 
+import com.devmura.dto.ProfileDto;
 import com.devmura.entity.Profile;
 import com.devmura.service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,10 @@ public class ProfileController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getProfileById(@PathVariable Integer id){
         return profileService.findById(id);
+    }
+
+    @GetMapping("/dto")
+    public ResponseEntity<List<ProfileDto>> getAllProfilesDto(){
+        return profileService.getAllProfiles();
     }
 }
