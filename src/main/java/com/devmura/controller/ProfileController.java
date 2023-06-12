@@ -42,4 +42,14 @@ public class ProfileController {
     public ResponseEntity<List<ProfileDto>> getAllProfilesDto(){
         return profileService.getAllProfiles();
     }
+
+    @GetMapping("/dto/{id}")
+    public ResponseEntity<ProfileDto> getProfileDtoById(@PathVariable Integer id){
+        return profileService.getProfileDtoById(id);
+    }
+
+    @PutMapping("/dto/{id}")
+    public ResponseEntity<?> updateProfile(@PathVariable Integer id){
+        return profileService.updateProfile(id);
+    }
 }
