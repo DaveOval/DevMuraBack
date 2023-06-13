@@ -5,6 +5,7 @@ import com.devmura.dto.ProfileDto;
 import com.devmura.entity.LanguageProfile;
 import com.devmura.entity.Post;
 import com.devmura.entity.Profile;
+import com.devmura.entity.UserRole;
 import com.devmura.repository.UserRepository;
 import lombok.Data;
 
@@ -35,7 +36,18 @@ public abstract class ProfileMapper {
         profileDto.setCountryName(profile.getUser().getCountry().getName());
         profileDto.setUsername(profile.getUser().getUsername());
         profileDto.setCreatedAt(profile.getUser().getCreatedAt().toString());
-        profileDto.setLanguageProfiles(profile.getLanguageProfiles());
+
+        List<String> languageNames = new ArrayList<>();
+        for (LanguageProfile languageProfile : profile.getLanguageProfiles()) {
+            languageNames.add(languageProfile.getLanguage().getLanguageName());
+        }
+        profileDto.setLanguageProfiles(languageNames);
+        List<String> roleNames = new ArrayList<>();
+        for (UserRole userRole : profile.getUser().getUserRoles()) {
+            roleNames.add(userRole.getAuth().getName());
+        }
+        profileDto.setUserRoles(roleNames);
+
 
 
         List<PostDto> postDtos = new ArrayList<>();
