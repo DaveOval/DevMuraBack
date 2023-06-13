@@ -1,6 +1,5 @@
 package com.devmura.mapper;
 
-import com.devmura.dto.LanguageProfileDto;
 import com.devmura.dto.PostDto;
 import com.devmura.dto.ProfileDto;
 import com.devmura.entity.LanguageProfile;
@@ -10,7 +9,10 @@ import com.devmura.repository.UserRepository;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import static com.devmura.mapper.PostMapper.mapToPostDto;
 
 @Data
@@ -32,6 +34,8 @@ public abstract class ProfileMapper {
         profileDto.setCountry(profile.getUser().getCountry().getName());
         profileDto.setUsername(profile.getUser().getUsername());
         profileDto.setCreatedAt(profile.getUser().getCreatedAt().toString());
+        profileDto.setLanguageProfiles(profile.getLanguageProfiles());
+
 
         List<PostDto> postDtos = new ArrayList<>();
         for (Post post : profile.getUser().getPosts()) {
@@ -39,11 +43,6 @@ public abstract class ProfileMapper {
         }
         profileDto.setPosts(postDtos);
 
-        List<String> languages = new ArrayList<>();
-        for (LanguageProfile languageProfile : profile.getLanguageProfiles()) {
-            languages.add(languageProfile.getLanguage().getLanguageName());
-        }
-        profileDto.setLanguages(languages);
 
         return profileDto;
     }

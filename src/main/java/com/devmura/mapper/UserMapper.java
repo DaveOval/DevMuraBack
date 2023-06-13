@@ -2,8 +2,11 @@ package com.devmura.mapper;
 
 import com.devmura.dto.UserDto;
 import com.devmura.entity.User;
+import com.devmura.entity.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 public abstract class UserMapper {
 
@@ -18,6 +21,7 @@ public abstract class UserMapper {
         userDto.setCreatedAt(user.getCreatedAt());
         userDto.setPosts(user.getPosts());
         userDto.setCountry(user.getCountry());
+        userDto.setUserRoles(user.getUserRoles());
         return userDto;
     }
 

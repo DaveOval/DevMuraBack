@@ -46,7 +46,7 @@ public class Profile {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "profile", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "profile", fetch = FetchType.EAGER)
     private Set<LanguageProfile> languageProfiles = new HashSet<>();
 
 
