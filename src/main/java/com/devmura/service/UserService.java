@@ -19,4 +19,6 @@ public interface UserService extends CRUDService<User> {
     public boolean existsByUsername(String username);
     public ResponseEntity<List<UserDto>> getAllUsers();
     public ResponseEntity<?> saveUser(User user);
+
+    public ResponseEntity<UserDto> getUserById(Integer id);
 }
