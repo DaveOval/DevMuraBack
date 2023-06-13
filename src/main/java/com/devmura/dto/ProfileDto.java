@@ -26,6 +26,7 @@ public class ProfileDto {
     private String lastName;
     private String country;
     private String username;
+    private String countryName;
     private List<PostDto> posts;
     private Set<LanguageProfile> languageProfiles = new HashSet<>();
 }

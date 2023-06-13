@@ -31,7 +31,8 @@ public abstract class ProfileMapper {
         profileDto.setRole(profile.getRole());
         profileDto.setName(profile.getUser().getName());
         profileDto.setLastName(profile.getUser().getLastName());
-        profileDto.setCountry(profile.getUser().getCountry().getName());
+        profileDto.setCountry(profile.getUser().getCountry().getCode());
+        profileDto.setCountryName(profile.getUser().getCountry().getName());
         profileDto.setUsername(profile.getUser().getUsername());
         profileDto.setCreatedAt(profile.getUser().getCreatedAt().toString());
         profileDto.setLanguageProfiles(profile.getLanguageProfiles());
