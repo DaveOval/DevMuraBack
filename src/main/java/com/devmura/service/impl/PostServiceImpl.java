@@ -11,6 +11,10 @@ import com.devmura.repository.PostRepository;
 import com.devmura.repository.UserRepository;
 import com.devmura.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -75,6 +79,21 @@ public class PostServiceImpl implements PostService {
     @Override
     public ResponseEntity<List<PostDto>> getAllPosts() {
         List<Post> posts = postRepository.findAll();
+
+        if (posts.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        List<PostDto> postDtoList = posts.stream()
+                .map(post -> PostMapper.mapToPostDto(post, userRepository))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(postDtoList);
+    }
+
+    @Override
+    public ResponseEntity<List<PostDto>> findAll(Pageable pageable) {
+        Page<Post> posts = postRepository.findAll(pageable);
 
         if (posts.isEmpty()) {
             return ResponseEntity.notFound().build();
