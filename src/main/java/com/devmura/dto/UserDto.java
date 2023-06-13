@@ -7,22 +7,26 @@ import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @Component
 public class UserDto {
     private Integer id;
+    private Date birthday;
+    private Integer age;
+    private String bio;
+    private String img;
+    private String github;
+    private String likedin;
+    private String createdAt;
+    private String background;
+    private String role;
     private String name;
     private String lastName;
-    private Integer age;
-    private String email;
+    private String country;
     private String username;
-    private LocalDateTime createdAt;
-    private List<Post> posts = new ArrayList<>();
-    private Country country;
+    private List<PostDto> posts;
+    private List<String> languageProfiles = new ArrayList<>();
     private List<String> userRoles = new ArrayList<>();
 }
