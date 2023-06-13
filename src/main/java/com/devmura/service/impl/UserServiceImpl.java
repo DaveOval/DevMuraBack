@@ -116,7 +116,7 @@ public class UserServiceImpl implements UserService {
             List<User> users = userRepository.findAll();
             List<UserDto> userDtos = users
                     .stream()
-                    .map(user -> UserMapper.mapToUserDto(user))
+                    .map(user -> UserMapper.mapToUserDto(user, userRepository))
                     .collect(Collectors.toList());
             return new ResponseEntity<>(userDtos, HttpStatus.OK);
         }
@@ -168,7 +168,7 @@ public class UserServiceImpl implements UserService {
         Optional<User> user = userRepository.findById(id);
         if (user.isPresent()) {
             User loadedUser = user.get();
-            UserDto userDto = UserMapper.mapToUserDto(loadedUser);
+            UserDto userDto = UserMapper.mapToUserDto(loadedUser, userRepository);
             return ResponseEntity.ok(userDto);
         } else {
             return ResponseEntity.notFound().build();
