@@ -135,7 +135,8 @@ CREATE TABLE IF NOT EXISTS language_profile (
                                                             profile_language_id INTEGER NOT NULL AUTO_INCREMENT,
                                                             language_id INTEGER NOT NULL,
                                                             profile_id INTEGER NOT NULL,
-                                                            primary key (id),
+                                                            primary key (profile_language_id),
+
     FOREIGN KEY (language_id) REFERENCES languages (language_id),
     FOREIGN KEY (profile_id) REFERENCES profiles (profile_id));
 
