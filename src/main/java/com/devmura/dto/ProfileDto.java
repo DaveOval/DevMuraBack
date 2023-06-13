@@ -1,10 +1,11 @@
 package com.devmura.dto;
 
+import com.devmura.entity.LanguageProfile;
 import com.devmura.entity.Profile;
+import com.devmura.entity.UserRole;
 import lombok.Data;
 
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * A DTO for the {@link Profile} entity
@@ -27,5 +28,5 @@ public class ProfileDto {
     private String username;
     private String countryName;
     private List<PostDto> posts;
-    private List<String> languages;
+    private Set<LanguageProfile> languageProfiles = new HashSet<>();
 }
