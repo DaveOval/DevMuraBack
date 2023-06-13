@@ -37,11 +37,12 @@ public abstract class ProfileMapper {
         profileDto.setUsername(profile.getUser().getUsername());
         profileDto.setCreatedAt(profile.getUser().getCreatedAt().toString());
 
-        List<String> languageNames = new ArrayList<>();
+        Set<String> languageNames = new HashSet<>();
         for (LanguageProfile languageProfile : profile.getLanguageProfiles()) {
             languageNames.add(languageProfile.getLanguage().getLanguageName());
         }
-        profileDto.setLanguageProfiles(languageNames);
+        profileDto.setLanguageProfiles(new ArrayList<>(languageNames));
+
         List<String> roleNames = new ArrayList<>();
         for (UserRole userRole : profile.getUser().getUserRoles()) {
             roleNames.add(userRole.getAuth().getName());
