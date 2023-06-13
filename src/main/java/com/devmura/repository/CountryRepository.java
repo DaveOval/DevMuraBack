@@ -8,4 +8,6 @@ import java.util.List;
 public interface CountryRepository extends JpaRepository<Country,Integer>{
     Country findByName(String name);
     List<Country> findByNameLike(String pattern);
+
+    Country findByCode(String code);
 }

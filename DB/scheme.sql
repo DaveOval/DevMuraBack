@@ -81,10 +81,10 @@ create table profiles (
                           profile_id	integer not null auto_increment,
                           birthday	date,
                           bio			varchar(250),
-                          img_user	varchar(150),
+                          img_user	varchar(300),
                           github_username	varchar(50),
                           linkedin_username varchar(100),
-                          background_user	varchar(150),
+                          background_user	varchar(300),
                           role  varchar(100),
                           level_id	integer not null,
                           user_id	integer not null,
@@ -131,11 +131,12 @@ create table friends(
 );
 
 DROP TABLE IF EXISTS language_profile;
-CREATE TABLE IF NOT EXISTS `devmura`.`language_profile` (
-                                                            id INTEGER NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS language_profile (
+                                                            profile_language_id INTEGER NOT NULL AUTO_INCREMENT,
                                                             language_id INTEGER NOT NULL,
                                                             profile_id INTEGER NOT NULL,
-                                                            primary key (id),
+                                                            primary key (profile_language_id),
+
     FOREIGN KEY (language_id) REFERENCES languages (language_id),
     FOREIGN KEY (profile_id) REFERENCES profiles (profile_id));
 

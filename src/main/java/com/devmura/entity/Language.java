@@ -1,19 +1,12 @@
 package com.devmura.entity;
 
-import com.devmura.model.LanguajeProfile;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
-@AllArgsConstructor
+@Data
 @Entity
 @Table(name = "languages")
 public class Language {
@@ -24,9 +17,9 @@ public class Language {
 
     @Column(name="language_name", nullable = false, length =50)
     private String languageName;
-//
-//    @OneToMany(mappedBy = "language")
-//    List<LanguajeProfile> languajeProfile = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "language", fetch = FetchType.LAZY)
+    private List<LanguageProfile> languageProfiles = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {

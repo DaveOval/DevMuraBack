@@ -1,14 +1,9 @@
 package com.devmura.entity;
 
-import com.devmura.model.LanguajeProfile;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Data
 @Entity
@@ -49,8 +44,8 @@ public class Profile {
     @JoinColumn(name = "user_id")
     private User user;
 
-//    @OneToMany(mappedBy = "profile")
-//    List<LanguajeProfile> languajeProfile = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "profile", fetch = FetchType.EAGER)
+    private List<LanguageProfile> languageProfiles = new ArrayList<>();
 
 
     public void setLikedin(String likedin) {
