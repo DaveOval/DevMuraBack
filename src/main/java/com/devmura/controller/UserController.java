@@ -54,6 +54,11 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    @GetMapping("/dto/{id}")
+    public ResponseEntity<UserDto> getUserById(@PathVariable Integer id) {
+        return userService.getUserById(id);
+    }
+
 
     private ResponseEntity<?> validation(BindingResult result) {
         Map<String, String> errors = new HashMap<>();
