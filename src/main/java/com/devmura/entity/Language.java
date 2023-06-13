@@ -4,9 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @Entity
@@ -21,7 +19,7 @@ public class Language {
     private String languageName;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "language", fetch = FetchType.LAZY)
-    private Set<LanguageProfile> languageProfiles = new HashSet<>();
+    private List<LanguageProfile> languageProfiles = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
