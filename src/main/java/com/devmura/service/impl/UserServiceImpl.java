@@ -1,7 +1,9 @@
 package com.devmura.service.impl;
 
+import com.devmura.dto.ProfileDto;
 import com.devmura.dto.UserDto;
 import com.devmura.entity.*;
+import com.devmura.mapper.ProfileMapper;
 import com.devmura.mapper.UserMapper;
 import com.devmura.repository.AuthRepository;
 import com.devmura.repository.UserRepository;
@@ -158,6 +160,18 @@ public class UserServiceImpl implements UserService {
             return new ResponseEntity<>(newUser, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @Override
+    public ResponseEntity<UserDto> getUserById(Integer id) {
+        Optional<User> user = userRepository.findById(id);
+        if (user.isPresent()) {
+            User loadedUser = user.get();
+            UserDto userDto = UserMapper.mapToUserDto(loadedUser);
+            return ResponseEntity.ok(userDto);
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }
 
