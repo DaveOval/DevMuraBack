@@ -36,6 +36,7 @@ public abstract class ProfileMapper {
         profileDto.setCountryName(profile.getUser().getCountry().getName());
         profileDto.setUsername(profile.getUser().getUsername());
         profileDto.setCreatedAt(profile.getUser().getCreatedAt().toString());
+
         List<String> languageNames = new ArrayList<>();
         for (LanguageProfile languageProfile : profile.getLanguageProfiles()) {
             languageNames.add(languageProfile.getLanguage().getLanguageName());
@@ -46,6 +47,7 @@ public abstract class ProfileMapper {
             roleNames.add(userRole.getAuth().getName());
         }
         profileDto.setUserRoles(roleNames);
+
 
 
         List<PostDto> postDtos = new ArrayList<>();
