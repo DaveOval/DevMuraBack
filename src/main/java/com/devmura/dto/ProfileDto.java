@@ -1,10 +1,8 @@
 package com.devmura.dto;
 
 import com.devmura.entity.Profile;
-import com.devmura.entity.UserDto;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -28,4 +26,5 @@ public class ProfileDto {
     private String country;
     private String username;
     private List<PostDto> posts;
+    private List<String> languages;
 }

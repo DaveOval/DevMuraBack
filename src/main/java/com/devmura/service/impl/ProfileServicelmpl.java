@@ -1,17 +1,20 @@
 package com.devmura.service.impl;
 
-import com.devmura.dto.PostDto;
 import com.devmura.dto.ProfileDto;
+import com.devmura.entity.Country;
 import com.devmura.entity.Profile;
-import com.devmura.mapper.PostMapper;
+import com.devmura.entity.User;
 import com.devmura.mapper.ProfileMapper;
+import com.devmura.repository.CountryRepository;
 import com.devmura.repository.ProfileRepository;
 import com.devmura.repository.UserRepository;
 import com.devmura.service.ProfileService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -22,6 +25,9 @@ public class ProfileServicelmpl implements ProfileService {
     ProfileRepository profileRepository;
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    CountryRepository countryRepository;
 
     @Override
     public ResponseEntity<List<?>> findAll() {
@@ -74,20 +80,47 @@ public class ProfileServicelmpl implements ProfileService {
     public ResponseEntity<ProfileDto> getProfileDtoById(Integer id) {
         Optional<Profile> profile = profileRepository.findById(id);
         if (profile.isPresent()) {
-            return ResponseEntity.ok(ProfileMapper.mapToProfileDto(profile.get(), userRepository));
+            Profile loadedProfile = profile.get();
+            loadedProfile.getLanguageProfiles();
+            ProfileDto profileDto = ProfileMapper.mapToProfileDto(loadedProfile, userRepository);
+            return ResponseEntity.ok(profileDto);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @Override
+    public ResponseEntity<?> updateProfile(Integer id, ProfileDto updatedProfileDto) {
+        Optional<Profile> optionalProfile = profileRepository.findById(id);
+        if (optionalProfile.isPresent()) {
+            Profile profile = optionalProfile.get();
+
+            profile.setBirthday(updatedProfileDto.getBirthday());
+            profile.setBio(updatedProfileDto.getBio());
+            profile.setImg(updatedProfileDto.getImg());
+            profile.setGithub(updatedProfileDto.getGithub());
+            profile.setLikedin(updatedProfileDto.getLikedin());
+            profile.setBackground(updatedProfileDto.getBackground());
+            profile.setRole(updatedProfileDto.getRole());
+
+            User user = profile.getUser();
+            user.setName(updatedProfileDto.getName());
+            user.setLastName(updatedProfileDto.getLastName());
+            Country country = countryRepository.findByCode(updatedProfileDto.getCountry());
+            if (country != null) {
+                user.setCountry(country);
+            } else {
+                return ResponseEntity.badRequest().body("Country not found");
+            }
+
+
+            Profile updatedProfile = profileRepository.save(profile);
+
+            return ResponseEntity.ok(updatedProfile);
         } else {
             return ResponseEntity.notFound().build();
         }
     }
 
 
-    @Override
-    public ResponseEntity<?> updateProfile(Integer id) {
-        Profile profile = profileRepository.findById(id).orElse(null);
-        if (profile == null) {
-            return ResponseEntity.notFound().build();
-        }
-        profileRepository.save(profile);
-        return ResponseEntity.ok().build();
-    }
 }
