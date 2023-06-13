@@ -1,15 +1,19 @@
 package com.devmura.mapper;
 
+import com.devmura.dto.LanguageProfileDto;
 import com.devmura.dto.PostDto;
 import com.devmura.dto.ProfileDto;
+import com.devmura.entity.LanguageProfile;
 import com.devmura.entity.Post;
 import com.devmura.entity.Profile;
 import com.devmura.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.List;
 import static com.devmura.mapper.PostMapper.mapToPostDto;
 
+@Data
 public abstract class ProfileMapper {
 
     public static ProfileDto mapToProfileDto(Profile profile, UserRepository userRepository) {
@@ -34,6 +38,12 @@ public abstract class ProfileMapper {
             postDtos.add(mapToPostDto(post, userRepository));
         }
         profileDto.setPosts(postDtos);
+
+        List<String> languages = new ArrayList<>();
+        for (LanguageProfile languageProfile : profile.getLanguageProfiles()) {
+            languages.add(languageProfile.getLanguage().getLanguageName());
+        }
+        profileDto.setLanguages(languages);
 
         return profileDto;
     }

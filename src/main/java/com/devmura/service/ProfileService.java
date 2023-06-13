@@ -12,5 +12,5 @@ import java.util.Optional;
 public interface ProfileService extends CRUDService<Profile>{
     public ResponseEntity<List<ProfileDto>> getAllProfiles();
     public ResponseEntity<ProfileDto> getProfileDtoById(Integer id);
-    public ResponseEntity<?> updateProfile(Integer id);
+    public ResponseEntity<?> updateProfile(Integer id, ProfileDto profileDto);
 }

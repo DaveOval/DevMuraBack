@@ -49,7 +49,7 @@ public class ProfileController {
     }
 
     @PutMapping("/dto/{id}")
-    public ResponseEntity<?> updateProfile(@PathVariable Integer id){
-        return profileService.updateProfile(id);
+    public ResponseEntity<?> updateProfile(@PathVariable Integer id, @RequestBody ProfileDto profileDto){
+        return profileService.updateProfile(id, profileDto);
     }
 }
