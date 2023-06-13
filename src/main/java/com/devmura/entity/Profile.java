@@ -3,9 +3,7 @@ package com.devmura.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @Entity
@@ -47,7 +45,7 @@ public class Profile {
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "profile", fetch = FetchType.EAGER)
-    private Set<LanguageProfile> languageProfiles = new HashSet<>();
+    private List<LanguageProfile> languageProfiles = new ArrayList<>();
 
 
     public void setLikedin(String likedin) {
