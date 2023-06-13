@@ -6,7 +6,10 @@ import com.devmura.entity.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public abstract class UserMapper {
 
@@ -21,7 +24,12 @@ public abstract class UserMapper {
         userDto.setCreatedAt(user.getCreatedAt());
         userDto.setPosts(user.getPosts());
         userDto.setCountry(user.getCountry());
-        userDto.setUserRoles(user.getUserRoles());
+        List<String> roleNames = new ArrayList<>();
+        for (UserRole userRole : user.getUserRoles()) {
+            roleNames.add(userRole.getAuth().getName());
+        }
+        userDto.setUserRoles(roleNames);
+
         return userDto;
     }
 
