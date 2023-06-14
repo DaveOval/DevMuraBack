@@ -19,4 +19,5 @@ public class PostDto {
     private String username;
     private String role;
     private String img;
+    private Integer userId;
 }

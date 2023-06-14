@@ -27,8 +27,8 @@ public class PostController {
         return postService.findAll();
     }
     @PostMapping
-    public ResponseEntity<?> savePost(@RequestBody Post post){
-        return postService.save(post);
+    public ResponseEntity<?> savePost(@RequestBody Post post, @RequestParam("id") Integer id){
+        return postService.savePostById(post, id);
     }
     @GetMapping("{id}")
     public ResponseEntity<?> getPostById(@PathVariable("id") Integer id){

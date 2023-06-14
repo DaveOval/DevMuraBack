@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -24,8 +25,8 @@ public class Post {
     @Column(name = "post_body",nullable = false, length = 250)
     private String postBody;
 
-    @Column(name = "created_at", nullable = false, length = 250)
-    private Date createdAt;
+    @Column(name = "created_at", nullable = false, length = 150)
+    private LocalDateTime createdAt;
 
     @Column (name = "img_source", nullable = false, length = 250)
     private String imgSource;
@@ -37,6 +38,11 @@ public class Post {
     @JoinColumn(name = "user_id")
     @JsonIgnore
     private User user;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now().withNano(0);
+    }
 
 //    @OneToMany(mappedBy = "post")
 //    List<GroupPost> groupPosts = new ArrayList<>();
