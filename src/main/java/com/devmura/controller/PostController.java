@@ -45,8 +45,10 @@ public class PostController {
     }
 
     @GetMapping
-    public ResponseEntity<List<PostDto>> getAllPostsPage(@PageableDefault(size = 7, page = 0) Pageable pageable) {
-        return postService.findAll(pageable);
+    public ResponseEntity<List<PostDto>> getPaginatedPosts(
+            @RequestParam(value = "page", required = true) int page,
+            @RequestParam(value = "size", required = true) int size) {
+            return postService.getPaginatedPosts(page, size);
     }
 
 }

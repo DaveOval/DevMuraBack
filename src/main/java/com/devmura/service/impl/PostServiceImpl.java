@@ -6,6 +6,7 @@ import com.devmura.entity.Post;
 import com.devmura.entity.Profile;
 import com.devmura.entity.User;
 import com.devmura.mapper.PostMapper;
+import com.devmura.mapper.ProfileMapper;
 import com.devmura.mapper.UserMapper;
 import com.devmura.repository.PostRepository;
 import com.devmura.repository.UserRepository;
@@ -92,18 +93,18 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public ResponseEntity<List<PostDto>> findAll(Pageable pageable) {
-        Page<Post> posts = postRepository.findAll(pageable);
+    public ResponseEntity<List<PostDto>> getPaginatedPosts(int page, int size) {
+        try {
+            Pageable pageable = PageRequest.of(page, size);
+            Page<Post> postPage = postRepository.findAll(pageable);
+            List<PostDto> postDtos = postPage.getContent().stream()
+                    .map(post -> PostMapper.mapToPostDto(post, userRepository))
+                    .collect(Collectors.toList());
 
-        if (posts.isEmpty()) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.ok(postDtos);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
-
-        List<PostDto> postDtoList = posts.stream()
-                .map(post -> PostMapper.mapToPostDto(post, userRepository))
-                .collect(Collectors.toList());
-
-        return ResponseEntity.ok(postDtoList);
     }
 
 
