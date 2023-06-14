@@ -1,5 +1,6 @@
 package com.devmura.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -19,6 +20,7 @@ public class Language {
     private String languageName;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "language", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<LanguageProfile> languageProfiles = new ArrayList<>();
 
     @Override

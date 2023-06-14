@@ -6,11 +6,16 @@ import com.devmura.entity.Post;
 import com.devmura.entity.Profile;
 import com.devmura.entity.User;
 import com.devmura.mapper.PostMapper;
+import com.devmura.mapper.ProfileMapper;
 import com.devmura.mapper.UserMapper;
 import com.devmura.repository.PostRepository;
 import com.devmura.repository.UserRepository;
 import com.devmura.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -85,6 +90,21 @@ public class PostServiceImpl implements PostService {
                 .collect(Collectors.toList());
 
         return ResponseEntity.ok(postDtoList);
+    }
+
+    @Override
+    public ResponseEntity<List<PostDto>> getPaginatedPosts(int page, int size) {
+        try {
+            Pageable pageable = PageRequest.of(page, size);
+            Page<Post> postPage = postRepository.findAll(pageable);
+            List<PostDto> postDtos = postPage.getContent().stream()
+                    .map(post -> PostMapper.mapToPostDto(post, userRepository))
+                    .collect(Collectors.toList());
+
+            return ResponseEntity.ok(postDtos);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
 

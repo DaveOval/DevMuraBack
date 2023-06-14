@@ -4,6 +4,11 @@ import com.devmura.dto.PostDto;
 import com.devmura.entity.Post;
 import com.devmura.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +22,7 @@ public class PostController {
     @Autowired
     PostService postService;
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<?>> getAllPosts(){
         return postService.findAll();
     }
@@ -38,4 +43,12 @@ public class PostController {
     public ResponseEntity<List<PostDto>> getAllPostsDto(){
         return postService.getAllPosts();
     }
+
+    @GetMapping
+    public ResponseEntity<List<PostDto>> getPaginatedPosts(
+            @RequestParam(value = "page", required = true) int page,
+            @RequestParam(value = "size", required = true) int size) {
+            return postService.getPaginatedPosts(page, size);
+    }
+
 }
