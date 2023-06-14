@@ -21,6 +21,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -59,7 +60,17 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public ResponseEntity<?> save(Post post) {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<?> savePostById(Post post, Integer id) {
         try {
+            Optional<User> user = userRepository.findById(id);
+            if (user == null) {
+                throw new IllegalArgumentException("User not found");
+            }
+            post.setUser(user.get());
             postRepository.save(post);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -100,6 +111,8 @@ public class PostServiceImpl implements PostService {
             List<PostDto> postDtos = postPage.getContent().stream()
                     .map(post -> PostMapper.mapToPostDto(post, userRepository))
                     .collect(Collectors.toList());
+
+            Collections.reverse(postDtos);
 
             return ResponseEntity.ok(postDtos);
         } catch (Exception e) {
