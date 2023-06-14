@@ -46,9 +46,9 @@ public class PostController {
 
     @GetMapping
     public ResponseEntity<List<PostDto>> getPaginatedPosts(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
-        return postService.getPaginatedPosts(page, size);
+            @RequestParam(value = "page", required = true) int page,
+            @RequestParam(value = "size", required = true) int size) {
+            return postService.getPaginatedPosts(page, size);
     }
 
 }
