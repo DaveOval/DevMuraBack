@@ -360,34 +360,49 @@ insert into languages (language_name) VALUES ("NetBeans");
 
 
 insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
-VALUES ("David", "Vazquez", 24, "dave@gmail.com", "Dave", "2023-05-01", 2,"Dave123@!",20);
+VALUES ("David", "Vazquez", 24, "dave@gmail.com", "dave_u", "2023-05-01", 2,"$2a$12$NFXPYctXO6JefCHi7dYsMOholC5dErCxF/sLIi9LFb6fVgDsAu6cu",161);
 
 insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
-VALUES ("Fernando", "Herrera", 28, "ferher@gmail.com", "Fers", "2023-06-01", 2,"FerHer2@!",19);
+VALUES ("Fernando", "Herrera", 28, "ferher@gmail.com", "Fers", "2023-06-01", 2,"$2a$04$eHZaObiLezRGZ3dvXZnu9Or4c2aZgUb2cK4TQ265//VEvCuy/9DIa",19);
 
 insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
-VALUES ("Juanito", "Banana", 24, "juanito@hotmail.com", "juanito01", "2023-06-01", 2,"Juans12!!", 23);
+VALUES ("Juanito", "Banana", 24, "juanito@hotmail.com", "juanito01", "2023-06-01", 2,"$2a$12$2axzd1.NJ0oRoIqWgHNQA.TbxP9tHtEPe2YqrsK0ozu1FMZpFn/8O", 23);
 
 insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
-VALUES ("Mariana", "Smith", 33, "mari@gmail.com", "mariana_dev", "2023-06-01", 1,"maRi111!", 23);
+VALUES ("Mariana", "Smith", 33, "mari@gmail.com", "mariana_dev", "2023-06-01", 1,"$2a$12$kOuned8TwAsUW681mKk3XO.kTQC4oKL9qgbtbrWsV9aOYB4xFQKc.", 23);
 
 insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
-VALUES ("Alex", "Turner", 28, "alexTur@hotmail.com", "alex_t", "2023-06-02", 2 ,"AlEx23@-", 20);
+VALUES ("Alex", "Turner", 28, "alexTur@hotmail.com", "alex_t", "2023-06-02", 2 ,"$2a$12$KlxBRqPLuJZY3k9.8c8KneHe5quC9E0Iu8exLaoleUaj/ZZOTgHOC", 20);
 
 insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
-VALUES ("Sophie", "Chen", 27, "chen@gmail.com", "sophie.design", "2023-06-02", 1 ,"22Soph@#", 1);
+VALUES ("Sophie", "Chen", 27, "chen@gmail.com", "sophie.design", "2023-06-02", 1 ,"$2a$12$EEYpAdIXiZ1rIPwv1OE2ce5gJ5ykQzynyZIoK3ntHRY9XWLag4FwG", 1);
 
 insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
-VALUES ("Raj", "Patel", 31, "rajPat@outlook.com", "patel.Raj7", "2023-06-03", 2,"Raj7P777#",25);
+VALUES ("Raj", "Patel", 31, "rajPat@outlook.com", "patel.Raj7", "2023-06-03", 2,"$2a$12$isvA9qXjO8i7xhHpD2Yaxewp1IGq2O85wdgKMyebTI/7hyvpAhlfW",25);
 
 insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
-VALUES ("Emily", "Thompson", 42, "emsly@gmail.com", "emily.Thomp", "2023-06-04", 1,"emithosT02~",23);
+VALUES ("Emily", "Thompson", 42, "emsly@gmail.com", "emily.Thomp", "2023-06-04", 1,"$2a$12$k9Aqualxj/2jE5VvjquRw.7G1nYtKlXb6pduGMU6WHJ/H96aOdAsy",23);
 
 insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
-VALUES ("Ana", "Torres", 21 , "antor@gmail.com", "Ana_Dev", "2023-06-04", 1,"AATorr21@", 6);
+VALUES ("Ana", "Torres", 21 , "antor@gmail.com", "Ana_Dev", "2023-06-04", 1,"$2a$12$A6LoOboh1weRbW44Rh84QO7noz3QOvDmX9ROyujyAVEjUb/0eJxK2", 6);
 
 insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
-VALUES ("Patricia", "Matias", 22 , "ale@hotmail.com", "Tenshik0", "2023-06-05", 1,"Tensh111!-", 20);
+VALUES ("Patricia", "Matias", 22 , "ale@hotmail.com", "Tenshik0", "2023-06-05", 1,"$2a$12$/XkkGUHopjHFPoRdLNuzxunXxwiZljy8XDEuuScBZo7vbCY2nfsuK", 161);
+
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
+VALUES ("Fatima", "Moreno", 23 , "faty@hotmail.com", "Faty", "2023-06-05", 1,"$2a$12$r9HvkpewFiyFxIWrnbAnBeNlAFeSYNCI9tnXJmqlpInBBt1IBzyy2", 161);
+
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
+VALUES ("Michelle", "Trejo", 24 , "michelle@hotmail.com", "Error404", "2023-06-05", 2,"$2a$12$lzR0QfWl9g5UdeItjtE6TudquUAmtYML0cPmUGDKTAC7Z32srABZW", 161);
+
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
+VALUES ("Omar", "Michaca", 24 , "omar@hotmail.com", "OmarMV", "2023-06-05", 2,"$2a$12$Z1J/fVtf2oKYxaf7M2wyguoUN0ZHj84qx6WNixpTtHR2dsUJi8536", 161);
+
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
+VALUES ("Alvaro", "Gonzalez", 24 , "alvaro@hotmail.com", "Alv", "2023-06-05", 1,"$2a$12$V1OZT.mkH9NfiILMWjT3peuPWO0GxIW05IA1FD71qxgkJ11s288bK", 161);
+
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
+VALUES ("Sofi", "Gomez", 20 , "sofi@hotmail.com", "Sof_gm", "2023-06-05", 1,"$2a$12$f5Ggc9qCunnQbKkF.V1ERu0WZxvd6G.jVxjvEMGsCBEl8NFaxbsuu", 161);
 
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Welcome to my digital space! Here, I'll share my thoughts on web design, coding, sketchnotes, work, life, gaming, food, books, and more. Get ready for some rambling and engaging discussions!", "5", "2023-06-02", "https://images.pexels.com/photos/954599/pexels-photo-954599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 2);
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Java: lenguaje multiplataforma y orientado a objetos, rápido y seguro. Ideal para apps móviles, software empresarial, macrodatos y servidores. Amplio alcance y popular en la industria gracias a su conectividad en red y flexibilidad.", "25", "2023-06-03", "https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=1600", 4);
@@ -414,6 +429,28 @@ INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES (
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("No es un desarrollador de Js si no conoce estos métodos de matriz.", "25", "2023-06-6", "https://media.licdn.com/dms/image/D5622AQFpJKSrLiBQBg/feedshare-shrink_800/0/1683723315373?e=1689811200&v=beta&t=e1DRsqGOjtfXQu-Irb0Twjss52MQweKCEpyH06J94PU", 1);
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Crea una función request y envuelve la llamada fetch.", "5", "2023-06-14", "https://media.licdn.com/dms/image/D4E22AQEK0Hc3lyrZvA/feedshare-shrink_800/0/1686559184935?e=1689811200&v=beta&t=cCsg9gMc1TCi6E0B1AukWFav6U3c8Qh18LjfLj3QEq4", 7);
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Mis conocimientos eran nulos en programación hasta que logré entrar a un gran curso para principiantes.", "25", "2023-06-13", "https://media.licdn.com/dms/image/D4E22AQEz6Wa2A1NJQg/feedshare-shrink_800/0/1685480317134?e=1689811200&v=beta&t=m9qD9Aj07YNmSl4STdMuHnth3Lt9h4wb2QuYlUOrO4w", 2);
+
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Check out this amazing web design portfolio showcasing stunning UI/UX designs. Truly inspiring work!", "7", "2023-06-07", "https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 3);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Explore the world of game development with Unity Engine. Learn how to create immersive gaming experiences and bring your ideas to life!", "12", "2023-06-08", "https://images.pexels.com/photos/8885140/pexels-photo-8885140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 5);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("A beginner's guide to CSS flexbox. Master the art of flexible layouts and create responsive web designs effortlessly!", "22", "2023-06-08", "https://images.pexels.com/photos/11035386/pexels-photo-11035386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 6);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Discover the power of Python programming language. From data analysis to web development, Python can do it all!", "15", "2023-06-09", "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 9);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Learn the fundamentals of network security and protect your digital assets from cyber threats. Stay safe online!", "8", "2023-06-09", "https://images.pexels.com/photos/159304/network-cable-ethernet-computer-159304.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 11);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Cómo crear una página web desde cero utilizando HTML y CSS. Sigue este tutorial paso a paso para construir tu propio sitio web personal.", "42", "2023-06-09", "https://images.pexels.com/photos/326514/pexels-photo-326514.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 12);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Learn the basics of JavaScript programming language and start building interactive web applications. It's easier than you think!", "18", "2023-06-10", "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 13);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Aprende a programar en C++ y domina el arte de la programación. Descubre cómo crear software eficiente y de alto rendimiento.", "30", "2023-06-10", "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 14);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Are you ready for the future of technology? Explore the world of artificial intelligence and machine learning with this comprehensive guide.", "9", "2023-06-11", "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 15);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Take your design skills to the next level with Adobe Creative Cloud. Unlock your creativity and design visually stunning graphics!", "11", "2023-06-11", "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 1);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Boost your productivity with these essential time management tips. Learn how to effectively manage your tasks and make the most out of your day!", "5", "2023-06-12", "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 2);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Discover the world of virtual reality and step into a whole new dimension of gaming. Get ready for an immersive experience like no other!", "14", "2023-06-12", "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 3);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Learn the art of digital painting and create breathtaking artwork. Unleash your creativity with digital brushes and stunning visual effects!", "3", "2023-06-13", "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 4);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Descubre los secretos del marketing en redes sociales y cómo impulsar tu marca en plataformas como Facebook, Instagram y Twitter.", "20", "2023-06-13", "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 5);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Become a master of data analysis with Python and Pandas. Unlock valuable insights from your data and make informed decisions.", "6", "2023-06-13", "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 6);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Aprende a desarrollar aplicaciones móviles con React Native. Crea aplicaciones rápidas y fluidas para iOS y Android.", "28", "2023-06-14", "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 7);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Take your photography skills to the next level with these expert tips and tricks. Capture stunning images like a professional!", "9", "2023-06-14", "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 8);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Learn the fundamentals of UI/UX design and create user-friendly interfaces. Design intuitive experiences that delight your users!", "15", "2023-06-14", "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 9);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Discover the world of e-commerce and learn how to build your own online store. Start selling products and reach customers worldwide!", "10", "2023-06-14", "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 10);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Master the art of responsive web design and create websites that look great on all devices. Adapt to the mobile-first era!", "17", "2023-06-14", "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 11);
+
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("1", "15", "2023-06-03", "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 5);
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("2", "15", "2023-06-03", "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 5);
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("3", "15", "2023-06-03", "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 5);

@@ -18,6 +18,7 @@ public abstract class PostMapper {
         postDto.setCreatedAt(post.getCreatedAt());
         postDto.setImgSource(post.getImgSource());
         postDto.setCounter(post.getCounter());
+        postDto.setUserId(post.getUser().getId());
 
         Optional<User> user = userRepository.findById(post.getUser().getId());
 

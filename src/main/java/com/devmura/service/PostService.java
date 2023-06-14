@@ -13,4 +13,5 @@ import java.util.Optional;
 public interface PostService extends CRUDService<Post>{
     public ResponseEntity<List<PostDto>> getAllPosts();
     public ResponseEntity<List<PostDto>> getPaginatedPosts(int page, int size);
+    public ResponseEntity<?> savePostById(Post post, Integer id);
 }
