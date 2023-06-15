@@ -2,6 +2,7 @@ package com.devmura.service.impl;
 
 import com.devmura.dto.PostDto;
 import com.devmura.dto.UserDto;
+import com.devmura.entity.Heart;
 import com.devmura.entity.Post;
 import com.devmura.entity.Profile;
 import com.devmura.entity.User;
@@ -111,8 +112,13 @@ public class PostServiceImpl implements PostService {
             List<PostDto> postDtos = postPage.getContent().stream()
                     .map(post -> {
                         PostDto postDto = PostMapper.mapToPostDto(post, userRepository);
-                        int heartsCount = post.getHearts().size();
-                        postDto.setCounter(heartsCount + "");
+
+                        List<Heart> activeHearts = post.getHearts().stream()
+                                .filter(heart -> heart.getStatus() == 1)
+                                .collect(Collectors.toList());
+
+                        int heartsCount = activeHearts.size();
+                        postDto.setCounter(String.valueOf(heartsCount));
                         return postDto;
                     })
                     .collect(Collectors.toList());

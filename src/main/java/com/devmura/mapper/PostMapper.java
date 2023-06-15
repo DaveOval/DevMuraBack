@@ -9,9 +9,7 @@ import com.devmura.entity.User;
 import com.devmura.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public abstract class PostMapper {
 
@@ -38,7 +36,7 @@ public abstract class PostMapper {
             }
         }
 
-        List<HeartDto> heartDtos = new ArrayList<>();
+        Set<HeartDto> heartDtos = new HashSet<>();
         for (Heart heart : post.getHearts()) {
             HeartDto heartDto = HeartMapper.mapToHeartDto(heart);
             heartDtos.add(heartDto);
