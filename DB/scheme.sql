@@ -68,7 +68,7 @@ DROP TABLE IF EXISTS posts;
 create table posts (
                        post_id		integer not null auto_increment,
                        post_body	varchar(250) not null,
-                       counter		varchar(100),
+                       counter		integer,
                        created_at DATETIME NOT NULL,
                        img_source	varchar(300),
                        user_id		integer not null,
@@ -132,10 +132,10 @@ create table friends(
 
 DROP TABLE IF EXISTS language_profile;
 CREATE TABLE IF NOT EXISTS language_profile (
-                                                            profile_language_id INTEGER NOT NULL AUTO_INCREMENT,
-                                                            language_id INTEGER NOT NULL,
-                                                            profile_id INTEGER NOT NULL,
-                                                            primary key (profile_language_id),
+                                                profile_language_id INTEGER NOT NULL AUTO_INCREMENT,
+                                                language_id INTEGER NOT NULL,
+                                                profile_id INTEGER NOT NULL,
+                                                primary key (profile_language_id),
 
     FOREIGN KEY (language_id) REFERENCES languages (language_id),
     FOREIGN KEY (profile_id) REFERENCES profiles (profile_id));
