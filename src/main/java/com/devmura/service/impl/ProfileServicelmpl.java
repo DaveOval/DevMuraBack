@@ -1,12 +1,10 @@
 package com.devmura.service.impl;
 
 import com.devmura.dto.ProfileDto;
-import com.devmura.entity.Country;
-import com.devmura.entity.LanguageProfile;
-import com.devmura.entity.Profile;
-import com.devmura.entity.User;
+import com.devmura.entity.*;
 import com.devmura.mapper.ProfileMapper;
 import com.devmura.repository.CountryRepository;
+import com.devmura.repository.LanguageProfileRepository;
 import com.devmura.repository.ProfileRepository;
 import com.devmura.repository.UserRepository;
 import com.devmura.service.ProfileService;
@@ -15,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -26,9 +25,10 @@ public class ProfileServicelmpl implements ProfileService {
     ProfileRepository profileRepository;
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     CountryRepository countryRepository;
+    @Autowired
+    LanguageProfileRepository languageProfileRepository;
 
     @Override
     public ResponseEntity<List<?>> findAll() {
@@ -114,8 +114,23 @@ public class ProfileServicelmpl implements ProfileService {
                 return ResponseEntity.badRequest().body("Country not found");
             }
 
-
             Profile updatedProfile = profileRepository.save(profile);
+
+            ArrayList<LanguageProfileWR> languages = (ArrayList<LanguageProfileWR>) this.languageProfileRepository.findAll();
+            for (LanguageProfileWR lan: languages) {
+                if(lan.getIdProfile() == profile.getId()){
+                    languageProfileRepository.delete(lan);
+                }
+            }
+
+            for (Integer languageP: updatedProfileDto.getIdsLanguages()) {
+                LanguageProfileWR languageProfileWR  = new LanguageProfileWR();
+                languageProfileWR.setIdProfile(profile.getId());
+                languageProfileWR.setIdLanguage(languageP);
+                languageProfileRepository.save(languageProfileWR);
+            }
+
+            updatedProfile = profileRepository.getById(updatedProfile.getId());
 
             return ResponseEntity.ok(updatedProfile);
         } else {
