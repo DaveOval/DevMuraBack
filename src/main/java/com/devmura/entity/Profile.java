@@ -15,13 +15,13 @@ public class Profile {
     @Column(name = "profile_id")
     private Integer id;
 
-    @Column(name = "birthday", nullable = true, length = 100)
+    @Column(name = "birthday", nullable = true)
     private Date birthday;
 
-    @Column(name = "bio", nullable = true, length = 100)
+    @Column(name = "bio", nullable = true, length = 250)
     private String bio;
 
-    @Column(name = "img_user", nullable = true, length = 250)
+    @Column(name = "img_user", nullable = true, length = 300)
     private String img;
 
     @Column(name = "github_username", nullable = true, length = 150)
@@ -30,10 +30,10 @@ public class Profile {
     @Column(name = "linkedin_username", nullable = true, length = 150)
     private String likedin;
 
-    @Column(name = "background_user",nullable = true, length = 150)
+    @Column(name = "background_user",nullable = true, length = 300)
     private String background;
 
-    @Column(name = "role", nullable = true, length = 50)
+    @Column(name = "role", nullable = true, length = 100)
     private String role;
 
     @ManyToOne

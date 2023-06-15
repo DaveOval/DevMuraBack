@@ -27,10 +27,10 @@ public class Post {
     @Column(name = "post_body",nullable = false, length = 250)
     private String postBody;
 
-    @Column(name = "created_at", nullable = false, length = 150)
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    @Column (name = "img_source", nullable = false, length = 250)
+    @Column (name = "img_source", nullable = false, length = 300)
     private String imgSource;
 
     @Column(name = "counter", nullable = false)
