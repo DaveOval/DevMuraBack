@@ -32,7 +32,7 @@ public class FriendController {
 
     @PostMapping
     public ResponseEntity<?> sendFriendRequest(@RequestParam Integer userId, @RequestParam Integer friendId){
-        return friendService.sendFriendRequest(userId, friendId);
+        return friendService.sendFriendRequest(friendId, userId);
     }
 
     @PostMapping("/{friendId}/accept")
@@ -40,5 +40,9 @@ public class FriendController {
         return friendService.acceptFriendRequest(friendId);
     }
 
+    @GetMapping("/user/{userId}/requests")
+    public ResponseEntity<List<Friend>> getFriendRequestsByUser(@PathVariable Integer userId) {
+        return friendService.getFriendRequestsByUser(userId);
+    }
 
 }

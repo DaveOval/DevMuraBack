@@ -106,4 +106,19 @@ public class FriendServicelmpl implements FriendService {
         }
     }
 
+    @Override
+    public ResponseEntity<List<Friend>> getFriendRequestsByUser(Integer userId) {
+        try {
+            Optional<User> user = userRepository.findById(userId);
+            if (user.isPresent()) {
+                List<Friend> friendRequests = friendRepository.findByUser(user.get());
+                return ResponseEntity.ok(friendRequests);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
 }
