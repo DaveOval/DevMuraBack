@@ -8,4 +8,6 @@ public class HeartDto {
     private String userName;
     private String userLastName;
     private String userImg;
+    private Integer userId;
+    private Integer status;
 }
