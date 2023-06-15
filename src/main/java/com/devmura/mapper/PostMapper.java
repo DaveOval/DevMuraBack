@@ -1,12 +1,16 @@
 package com.devmura.mapper;
 
+import com.devmura.dto.HeartDto;
 import com.devmura.dto.PostDto;
+import com.devmura.entity.Heart;
 import com.devmura.entity.Post;
 import com.devmura.entity.Profile;
 import com.devmura.entity.User;
 import com.devmura.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public abstract class PostMapper {
@@ -33,6 +37,13 @@ public abstract class PostMapper {
                 postDto.setImg(profile.getImg());
             }
         }
+
+        List<HeartDto> heartDtos = new ArrayList<>();
+        for (Heart heart : post.getHearts()) {
+            HeartDto heartDto = HeartMapper.mapToHeartDto(heart);
+            heartDtos.add(heartDto);
+        }
+        postDto.setHearts(heartDtos);
 
         return postDto;
     }
