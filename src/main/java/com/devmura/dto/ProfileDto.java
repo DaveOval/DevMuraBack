@@ -29,5 +29,6 @@ public class ProfileDto {
     private String countryName;
     private List<PostDto> posts;
     private List<String> languageProfiles = new ArrayList<>();
+    private List<Integer> idsLanguages = new ArrayList<>();
     private List<String> userRoles = new ArrayList<>();
 }
