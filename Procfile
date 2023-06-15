@@ -1,1 +1,1 @@
-web: java -Dserver.port$PORT -jar out/artifacts/DevMuraREST_jar/DevMuraREST.jar
+web: java -Dfile.encoding=UTF-8 -Dserver.port$PORT -jar out/artifacts/DevMuraREST_jar/DevMuraREST.jar
