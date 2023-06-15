@@ -23,8 +23,8 @@ public class HeartController {
     }
 
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody Heart heart) {
-        return heartService.save(heart);
+    public ResponseEntity<?> save(@RequestBody Heart heart, @RequestParam Integer postId, @RequestParam Integer userId) {
+        return heartService.saveHeart(heart, postId, userId);
     }
 
     @DeleteMapping("{id}")

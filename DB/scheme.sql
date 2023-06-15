@@ -144,7 +144,8 @@ CREATE TABLE IF NOT EXISTS language_profile (
 DROP TABLE IF EXISTS hearts;
 create table hearts (
                         heart_id integer not null auto_increment,
-                        created_at date,
+                        created_at DATETIME NOT NULL,
+                        status boolean not null,
                         user_id integer not null,
                         post_id integer not null,
 

@@ -24,14 +24,20 @@ public class FriendController {
         return friendService.findAll();
 
     }
-    @PostMapping
-    public ResponseEntity<?> saveFriend(@RequestBody Friend friend){
-        return friendService.save(friend);
-    }
 
     @DeleteMapping("{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id){
         return friendService.delete(id);
+    }
+
+    @PostMapping
+    public ResponseEntity<?> sendFriendRequest(@RequestParam Integer userId, @RequestParam Integer friendId){
+        return friendService.sendFriendRequest(userId, friendId);
+    }
+
+    @PostMapping("/{friendId}/accept")
+    public ResponseEntity<Friend> acceptFriendRequest(@PathVariable("friendId") Integer friendId) {
+        return friendService.acceptFriendRequest(friendId);
     }
 
 
