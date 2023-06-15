@@ -363,7 +363,7 @@ insert into users (name ,last_name, age, email, username, created_at, gender_id,
 VALUES ("David", "Vazquez", 24, "dave@gmail.com", "dave_u", "2023-05-01", 2,"$2a$12$NFXPYctXO6JefCHi7dYsMOholC5dErCxF/sLIi9LFb6fVgDsAu6cu",161);
 
 insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
-VALUES ("Fernando", "Herrera", 28, "ferher@gmail.com", "Fers", "2023-06-01", 2,"$2a$04$eHZaObiLezRGZ3dvXZnu9Or4c2aZgUb2cK4TQ265//VEvCuy/9DIa",19);
+VALUES ("Fernando", "Herrera", 28, "ferher@gmail.com", "Fers", "2023-06-01", 3,"$2a$04$eHZaObiLezRGZ3dvXZnu9Or4c2aZgUb2cK4TQ265//VEvCuy/9DIa",19);
 
 insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
 VALUES ("Juanito", "Banana", 24, "juanito@hotmail.com", "juanito01", "2023-06-01", 2,"$2a$12$2axzd1.NJ0oRoIqWgHNQA.TbxP9tHtEPe2YqrsK0ozu1FMZpFn/8O", 23);
@@ -372,7 +372,7 @@ insert into users (name ,last_name, age, email, username, created_at, gender_id,
 VALUES ("Mariana", "Smith", 33, "mari@gmail.com", "mariana_dev", "2023-06-01", 1,"$2a$12$kOuned8TwAsUW681mKk3XO.kTQC4oKL9qgbtbrWsV9aOYB4xFQKc.", 23);
 
 insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
-VALUES ("Alex", "Turner", 28, "alexTur@hotmail.com", "alex_t", "2023-06-02", 2 ,"$2a$12$KlxBRqPLuJZY3k9.8c8KneHe5quC9E0Iu8exLaoleUaj/ZZOTgHOC", 20);
+VALUES ("Alex", "Turner", 28, "alexTur@hotmail.com", "alex_t", "2023-06-02", 3 ,"$2a$12$KlxBRqPLuJZY3k9.8c8KneHe5quC9E0Iu8exLaoleUaj/ZZOTgHOC", 20);
 
 insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
 VALUES ("Sophie", "Chen", 27, "chen@gmail.com", "sophie.design", "2023-06-02", 1 ,"$2a$12$EEYpAdIXiZ1rIPwv1OE2ce5gJ5ykQzynyZIoK3ntHRY9XWLag4FwG", 1);
@@ -399,7 +399,7 @@ insert into users (name ,last_name, age, email, username, created_at, gender_id,
 VALUES ("Omar", "Michaca", 24 , "omar@hotmail.com", "OmarMV", "2023-06-05", 2,"$2a$12$Z1J/fVtf2oKYxaf7M2wyguoUN0ZHj84qx6WNixpTtHR2dsUJi8536", 161);
 
 insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
-VALUES ("Alvaro", "Gonzalez", 24 , "alvaro@hotmail.com", "Alv", "2023-06-05", 1,"$2a$12$V1OZT.mkH9NfiILMWjT3peuPWO0GxIW05IA1FD71qxgkJ11s288bK", 161);
+VALUES ("Alvaro", "Gonzalez", 24 , "alvaro@hotmail.com", "Alv", "2023-06-05", 2,"$2a$12$V1OZT.mkH9NfiILMWjT3peuPWO0GxIW05IA1FD71qxgkJ11s288bK", 161);
 
 insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id )
 VALUES ("Sofi", "Gomez", 20 , "sofi@hotmail.com", "Sof_gm", "2023-06-05", 1,"$2a$12$f5Ggc9qCunnQbKkF.V1ERu0WZxvd6G.jVxjvEMGsCBEl8NFaxbsuu", 161);
@@ -430,8 +430,23 @@ INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES (
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Descubre los secretos del marketing en redes sociales y cómo impulsar tu marca en plataformas como Facebook, Instagram y Twitter.", "20", "2023-06-13", "https://images.pexels.com/photos/5324936/pexels-photo-5324936.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 5);
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Become a master of data analysis with Python and Pandas. Unlock valuable insights from your data and make informed decisions.", "6", "2023-06-13", "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 6);
 
-
-
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("1", "15", "2023-06-03", "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 5);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("La IA se basa en el concepto de simular la inteligencia humana en máquinas y sistemas informáticos.", "50", "2023-06-14", "https://media.licdn.com/dms/image/D5612AQETl5SOSWKYIg/article-cover_image-shrink_423_752/0/1678379990261?e=1692230400&v=beta&t=jULXoN4QjwK5Q5hQE60ISDhtDC-8iV5NwVpblmpYENo", 5);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Python encabeza la lista de los lenguajes de programación más demandados Python es el lenguaje de programación que está más de moda y es más demandado en 2023 dada su utilidad.", "50", "2023-06-14", "https://media.licdn.com/dms/image/sync/D5627AQG6ZZqml8tzlw/articleshare-shrink_800/0/1686384381708?e=1687370400&v=beta&t=YXdSNX84zjJWs4pRR2R5DYgTovz6E54apeO-wPEZq_M", 2);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("¡No te pierdas esta extensión de Visual Studio Code!", "20", "2023-06-10", "https://media.licdn.com/dms/image/D4E22AQGUYijExAcAMQ/feedshare-shrink_800/0/1686041965955?e=1689811200&v=beta&t=BV6WyNqeSsYQF-e9EeQU8gmR_4tu7xPxw-fXHbd0TSw", 4);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Que apasionante es poder trabajar con jóvenes talentosos con un fuerte deseo de crecer y formar parte de una gran Empresa Accenture México.", "12", "2023-06-9", "https://media.licdn.com/dms/image/C5622AQHUDmGQVjwnIw/feedshare-shrink_800/0/1671492608001?e=1689811200&v=beta&t=v5yXm3ew2RRZYXPsJ2ubTe9Up3AJTuV0O-qmG0LW7h4", 3);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("¡Mejora tu LÓGICA de PROGRAMACIÓN en cualquier lenguaje!", "6", "2023-06-13", "https://media.licdn.com/dms/image/D4E22AQG-27DozhkoJA/feedshare-shrink_800/0/1685455867785?e=1689811200&v=beta&t=NJ2yKVFJ5GISqlsV6x0ubbDjLAYEteuOg6kRe9jK_aA", 9);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Explorando el universo Java: una cautivadora guía para principiantes.", "13", "2023-06-9", "https://media.licdn.com/dms/image/D4D12AQFI2Rwk4BmuKg/article-cover_image-shrink_600_2000/0/1686743080521?e=1692230400&v=beta&t=ey8pKbAKxkhO1WZJE--3MDYB7Bapu4rYW1nGbT_rZ2o", 3);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("¡React + Python es una realidad! Crea aplicaciones web con ReactPy y sin JavaScript.", "5", "2023-06-11", "https://media.licdn.com/dms/image/D4E22AQH89GZVFBAmRg/feedshare-shrink_800/0/1686653178091?e=1689811200&v=beta&t=u6J_zeN7EW6E4TOZLvFnA6xu30Wx0bYNaKLyDTHibis", 1);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Comparto contigo como puedes insertar un video en HTML, así como las opciones que puedes usar para hospedarlo y compartirlo.", "15", "2023-06-10", "https://media.licdn.com/dms/image/sync/D4E27AQFWItx0zl7gkA/articleshare-shrink_800/0/1686711640273?e=1687374000&v=beta&t=yizAfcmWSFujJTkUYxuE2VWh0ePm-WA_hsVxaJcj96s", 7);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Comparto mi proyecto en React de una sola página que permite agregar colaboradores, equipos para colaboradores, agregar a favoritos y eliminarlos.", "5", "2023-06-8", "https://media.licdn.com/dms/image/D5622AQH9izQldRFCvg/feedshare-shrink_800/0/1681870608420?e=1689811200&v=beta&t=gxIC_p8teEVeFFRrJ1s7GEmKqdTYANM69stRrLEMe20", 1);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Les cuento que estoy trabajando en mi startup de una app para búsqueda de roomies.", "4", "2023-06-10", "https://media.licdn.com/dms/image/D5622AQHoRz-6UO7T_g/feedshare-shrink_800/0/1686694104925?e=1689811200&v=beta&t=6GwC0t62Wx3PBtVJbOb7vFuhFucAuiE4YlUDHaoVEic", 5);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Redux vs. Zustand vs. React Context. Ventajas, desventajas y cuándo usaría cada uno.", "10", "2023-06-8", "https://media.licdn.com/dms/image/D4E22AQGdFRahRg84tA/feedshare-shrink_800/0/1682540849489?e=1689811200&v=beta&t=LY4w3YmN7roqkoIma_RFAjEKNgaRvh3YS6U8ZHc96oA", 9);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Spring es uno de los frameworks más importantes y usados en back end..", "8", "2023-06-10", "https://media.licdn.com/dms/image/C5607AQFPj0zdpKje4g/group-logo_image-shrink_92x92/0/1630998367000?e=1687377600&v=beta&t=-enB-ZEQtAMKRKqztaYqm5WY93mjD-JXUlKDTv6xt1M", 1);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Hola, acabo de programar este drum-pad con JS.", "12", "2023-06-5", "https://media.licdn.com/dms/image/D5622AQFg5dTjUNv9_Q/feedshare-shrink_800/0/1684094477763?e=1689811200&v=beta&t=_iVXP-T8Qj_RtBPPvQBKElKy4RZ6ZPypjqQdcmJctwM", 8);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("No es un desarrollador de Js si no conoce estos métodos de matriz.", "25", "2023-06-6", "https://media.licdn.com/dms/image/D5622AQFpJKSrLiBQBg/feedshare-shrink_800/0/1683723315373?e=1689811200&v=beta&t=e1DRsqGOjtfXQu-Irb0Twjss52MQweKCEpyH06J94PU", 1);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Crea una función request y envuelve la llamada fetch.", "5", "2023-06-14", "https://media.licdn.com/dms/image/D4E22AQEK0Hc3lyrZvA/feedshare-shrink_800/0/1686559184935?e=1689811200&v=beta&t=cCsg9gMc1TCi6E0B1AukWFav6U3c8Qh18LjfLj3QEq4", 7);
+INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Mis conocimientos eran nulos en programación hasta que logré entrar a un gran curso para principiantes.", "25", "2023-06-13", "https://media.licdn.com/dms/image/D4E22AQEz6Wa2A1NJQg/feedshare-shrink_800/0/1685480317134?e=1689811200&v=beta&t=m9qD9Aj07YNmSl4STdMuHnth3Lt9h4wb2QuYlUOrO4w", 2);
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("1", "15", "2023-06-03", "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 5);
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("2", "15", "2023-06-03", "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 5);
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("3", "15", "2023-06-03", "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 5);
@@ -467,25 +482,6 @@ INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES (
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("1wdadw", "15", "2023-06-03", "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 5);
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("123123123123", "15", "2023-06-03", "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 5);
 INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("1", "15", "2023-06-03", "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 5);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("1", "15", "2023-06-03", "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 5);
-
-
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("La IA se basa en el concepto de simular la inteligencia humana en máquinas y sistemas informáticos.", "50", "2023-06-14", "https://media.licdn.com/dms/image/D5612AQETl5SOSWKYIg/article-cover_image-shrink_423_752/0/1678379990261?e=1692230400&v=beta&t=jULXoN4QjwK5Q5hQE60ISDhtDC-8iV5NwVpblmpYENo", 5);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Python encabeza la lista de los lenguajes de programación más demandados Python es el lenguaje de programación que está más de moda y es más demandado en 2023 dada su utilidad.", "50", "2023-06-14", "https://media.licdn.com/dms/image/sync/D5627AQG6ZZqml8tzlw/articleshare-shrink_800/0/1686384381708?e=1687370400&v=beta&t=YXdSNX84zjJWs4pRR2R5DYgTovz6E54apeO-wPEZq_M", 2);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("¡No te pierdas esta extensión de Visual Studio Code!", "20", "2023-06-10", "https://media.licdn.com/dms/image/D4E22AQGUYijExAcAMQ/feedshare-shrink_800/0/1686041965955?e=1689811200&v=beta&t=BV6WyNqeSsYQF-e9EeQU8gmR_4tu7xPxw-fXHbd0TSw", 4);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Que apasionante es poder trabajar con jóvenes talentosos con un fuerte deseo de crecer y formar parte de una gran Empresa Accenture México.", "12", "2023-06-9", "https://media.licdn.com/dms/image/C5622AQHUDmGQVjwnIw/feedshare-shrink_800/0/1671492608001?e=1689811200&v=beta&t=v5yXm3ew2RRZYXPsJ2ubTe9Up3AJTuV0O-qmG0LW7h4", 3);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("¡Mejora tu LÓGICA de PROGRAMACIÓN en cualquier lenguaje!", "6", "2023-06-13", "https://media.licdn.com/dms/image/D4E22AQG-27DozhkoJA/feedshare-shrink_800/0/1685455867785?e=1689811200&v=beta&t=NJ2yKVFJ5GISqlsV6x0ubbDjLAYEteuOg6kRe9jK_aA", 9);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Explorando el universo Java: una cautivadora guía para principiantes.", "13", "2023-06-9", "https://media.licdn.com/dms/image/D4D12AQFI2Rwk4BmuKg/article-cover_image-shrink_600_2000/0/1686743080521?e=1692230400&v=beta&t=ey8pKbAKxkhO1WZJE--3MDYB7Bapu4rYW1nGbT_rZ2o", 3);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("¡React + Python es una realidad! Crea aplicaciones web con ReactPy y sin JavaScript.", "5", "2023-06-11", "https://media.licdn.com/dms/image/D4E22AQH89GZVFBAmRg/feedshare-shrink_800/0/1686653178091?e=1689811200&v=beta&t=u6J_zeN7EW6E4TOZLvFnA6xu30Wx0bYNaKLyDTHibis", 1);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Comparto contigo como puedes insertar un video en HTML, así como las opciones que puedes usar para hospedarlo y compartirlo.", "15", "2023-06-10", "https://media.licdn.com/dms/image/sync/D4E27AQFWItx0zl7gkA/articleshare-shrink_800/0/1686711640273?e=1687374000&v=beta&t=yizAfcmWSFujJTkUYxuE2VWh0ePm-WA_hsVxaJcj96s", 7);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Comparto mi proyecto en React de una sola página que permite agregar colaboradores, equipos para colaboradores, agregar a favoritos y eliminarlos.", "5", "2023-06-8", "https://media.licdn.com/dms/image/D5622AQH9izQldRFCvg/feedshare-shrink_800/0/1681870608420?e=1689811200&v=beta&t=gxIC_p8teEVeFFRrJ1s7GEmKqdTYANM69stRrLEMe20", 1);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Les cuento que estoy trabajando en mi startup de una app para búsqueda de roomies.", "4", "2023-06-10", "https://media.licdn.com/dms/image/D5622AQHoRz-6UO7T_g/feedshare-shrink_800/0/1686694104925?e=1689811200&v=beta&t=6GwC0t62Wx3PBtVJbOb7vFuhFucAuiE4YlUDHaoVEic", 5);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Redux vs. Zustand vs. React Context. Ventajas, desventajas y cuándo usaría cada uno.", "10", "2023-06-8", "https://media.licdn.com/dms/image/D4E22AQGdFRahRg84tA/feedshare-shrink_800/0/1682540849489?e=1689811200&v=beta&t=LY4w3YmN7roqkoIma_RFAjEKNgaRvh3YS6U8ZHc96oA", 9);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Spring es uno de los frameworks más importantes y usados en back end..", "8", "2023-06-10", "https://media.licdn.com/dms/image/C5607AQFPj0zdpKje4g/group-logo_image-shrink_92x92/0/1630998367000?e=1687377600&v=beta&t=-enB-ZEQtAMKRKqztaYqm5WY93mjD-JXUlKDTv6xt1M", 1);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Hola, acabo de programar este drum-pad con JS.", "12", "2023-06-5", "https://media.licdn.com/dms/image/D5622AQFg5dTjUNv9_Q/feedshare-shrink_800/0/1684094477763?e=1689811200&v=beta&t=_iVXP-T8Qj_RtBPPvQBKElKy4RZ6ZPypjqQdcmJctwM", 8);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("No es un desarrollador de Js si no conoce estos métodos de matriz.", "25", "2023-06-6", "https://media.licdn.com/dms/image/D5622AQFpJKSrLiBQBg/feedshare-shrink_800/0/1683723315373?e=1689811200&v=beta&t=e1DRsqGOjtfXQu-Irb0Twjss52MQweKCEpyH06J94PU", 1);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Crea una función request y envuelve la llamada fetch.", "5", "2023-06-14", "https://media.licdn.com/dms/image/D4E22AQEK0Hc3lyrZvA/feedshare-shrink_800/0/1686559184935?e=1689811200&v=beta&t=cCsg9gMc1TCi6E0B1AukWFav6U3c8Qh18LjfLj3QEq4", 7);
-INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES ("Mis conocimientos eran nulos en programación hasta que logré entrar a un gran curso para principiantes.", "25", "2023-06-13", "https://media.licdn.com/dms/image/D4E22AQEz6Wa2A1NJQg/feedshare-shrink_800/0/1685480317134?e=1689811200&v=beta&t=m9qD9Aj07YNmSl4STdMuHnth3Lt9h4wb2QuYlUOrO4w", 2);
 
 
 
@@ -569,3 +565,9 @@ INSERT INTO group_post(group_id, post_id) VALUES(4,5);
 INSERT INTO group_post(group_id, post_id) VALUES(4,9);
 
 INSERT INTO user_roles (user_id, auth_id) VALUES (1,1);
+INSERT INTO user_roles (user_id, auth_id) VALUES (10,1);
+INSERT INTO user_roles (user_id, auth_id) VALUES (11,1);
+INSERT INTO user_roles (user_id, auth_id) VALUES (12,1);
+INSERT INTO user_roles (user_id, auth_id) VALUES (13,1);
+INSERT INTO user_roles (user_id, auth_id) VALUES (14,1);
+INSERT INTO user_roles (user_id, auth_id) VALUES (15,1);
