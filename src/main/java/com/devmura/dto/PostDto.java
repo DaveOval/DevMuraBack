@@ -5,6 +5,7 @@ import com.devmura.entity.User;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -20,4 +21,5 @@ public class PostDto {
     private String role;
     private String img;
     private Integer userId;
+    private List<HeartDto> hearts = new ArrayList<>();
 }

@@ -106,13 +106,16 @@ public class PostServiceImpl implements PostService {
     @Override
     public ResponseEntity<List<PostDto>> getPaginatedPosts(int page, int size) {
         try {
-            Pageable pageable = PageRequest.of(page, size);
+            Pageable pageable = PageRequest.of(page, size, Sort.by("createdAt").descending());
             Page<Post> postPage = postRepository.findAll(pageable);
             List<PostDto> postDtos = postPage.getContent().stream()
-                    .map(post -> PostMapper.mapToPostDto(post, userRepository))
+                    .map(post -> {
+                        PostDto postDto = PostMapper.mapToPostDto(post, userRepository);
+                        int heartsCount = post.getHearts().size();
+                        postDto.setCounter(heartsCount + "");
+                        return postDto;
+                    })
                     .collect(Collectors.toList());
-
-            Collections.reverse(postDtos);
 
             return ResponseEntity.ok(postDtos);
         } catch (Exception e) {
