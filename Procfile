@@ -1,1 +1,1 @@
-web: java -Dserver.port$PORT -jar build/libs/devmurarest-0.0.1-SNAPSHOT.jar
+web: java -Dfile.encoding=UTF-8 -Dserver.port$PORT -jar out/artifacts/DevMuraREST_jar/DevMuraREST.jar
