@@ -565,6 +565,8 @@ INSERT INTO group_post(group_id, post_id) VALUES(4,5);
 INSERT INTO group_post(group_id, post_id) VALUES(4,9);
 
 INSERT INTO user_roles (user_id, auth_id) VALUES (1,1);
+INSERT INTO user_roles (user_id, auth_id) VALUES (1, 2);
+INSERT INTO user_roles (user_id, auth_id) VALUES (1, 3);
 INSERT INTO user_roles (user_id, auth_id) VALUES (10,1);
 INSERT INTO user_roles (user_id, auth_id) VALUES (11,1);
 INSERT INTO user_roles (user_id, auth_id) VALUES (12,1);
