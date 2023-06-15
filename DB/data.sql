@@ -474,7 +474,7 @@ INSERT INTO posts (post_body, counter, created_at, img_source, user_id) VALUES (
 
 
 INSERT INTO `profiles` (birthday, bio, img_user, github_username, linkedin_username, background_user,role, level_id, user_id)
-VALUES("1998-02-04", "Hola", "https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Dave", "David Vazquez" , "https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Fullstack Developer", 2,1);
+VALUES("1999-01-08", "Hello there", "https://avatars.githubusercontent.com/u/112228738?s=400&u=cb45f8d1845468aa78303654a5d70703f372e7fe&v=4", "Dave", "David Vazquez" , "https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Fullstack Developer Java & React", 2,1);
 
 INSERT INTO `profiles` (birthday, bio, img_user, github_username, linkedin_username, background_user,role, level_id, user_id)
 VALUES("1998-03-04", "New here", "https://pbs.twimg.com/profile_images/796737477759221760/1s-3xb4V_400x400.jpg", "Fers", "Fernando Herrera" , "https://pbs.twimg.com/profile_images/796737477759221760/1s-3xb4V_400x400.jpg","Jr Developer",  1,2);
@@ -514,22 +514,30 @@ insert into comments (content, created_at, user_id, post_id) VALUES ("Niceee!!!"
 INSERT INTO friends (accepted, receiver_id, sender_id) VALUES (true, 2, 1);
 INSERT INTO friends (accepted, receiver_id, sender_id) VALUES (true, 1, 2);
 
-INSERT INTO language_profile(language_id, profile_id) VALUES(1,1);
 INSERT INTO language_profile(language_id, profile_id) VALUES(2,1);
+INSERT INTO language_profile(language_id, profile_id) VALUES(4,1);
 INSERT INTO language_profile(language_id, profile_id) VALUES(3,1);
+INSERT INTO language_profile(language_id, profile_id) VALUES(8,1);
+INSERT INTO language_profile(language_id, profile_id) VALUES(10,1);
+INSERT INTO language_profile(language_id, profile_id) VALUES(11,1);
+INSERT INTO language_profile(language_id, profile_id) VALUES(15,1);
+INSERT INTO language_profile(language_id, profile_id) VALUES(30,1);
+INSERT INTO language_profile(language_id, profile_id) VALUES(40,1);
+INSERT INTO language_profile(language_id, profile_id) VALUES(42,1);
+INSERT INTO language_profile(language_id, profile_id) VALUES(86,1);
+INSERT INTO language_profile(language_id, profile_id) VALUES(84,1);
+INSERT INTO language_profile(language_id, profile_id) VALUES(83,1);
 INSERT INTO language_profile(language_id, profile_id) VALUES(1,2);
 INSERT INTO language_profile(language_id, profile_id) VALUES(2,2);
 INSERT INTO language_profile(language_id, profile_id) VALUES(1,3);
 INSERT INTO language_profile(language_id, profile_id) VALUES(2,3);
 
-INSERT INTO hearts (created_at, status, user_id, post_id) VALUES("2023-06-02",1,2,1);
-INSERT INTO hearts (created_at, status, user_id, post_id) VALUES("2023-06-02",1,2,1);
-INSERT INTO hearts (created_at, status, user_id, post_id) VALUES("2023-06-02",1,2,1);
-INSERT INTO hearts (created_at, status, user_id, post_id) VALUES("2023-06-02",1,2,1);
-INSERT INTO hearts (created_at, status, user_id, post_id) VALUES("2023-06-03",1,5,2);
-INSERT INTO hearts (created_at, status, user_id, post_id) VALUES("2023-06-03",1,2,1);
-INSERT INTO hearts (created_at, status, user_id, post_id) VALUES("2023-06-03",1,5,2);
-INSERT INTO hearts (created_at, status, user_id, post_id) VALUES("2023-06-03",1,5,2);
+INSERT INTO hearts ( created_at ,status, user_id, post_id) VALUES( "2023-05-05" , 1 , 2 , 1 );
+INSERT INTO hearts ( created_at ,status, user_id, post_id) VALUES( "2023-05-05" , 1 , 3 , 1 );
+INSERT INTO hearts ( created_at ,status, user_id, post_id) VALUES( "2023-05-05" , 1 , 4 , 1 );
+INSERT INTO hearts ( created_at ,status, user_id, post_id) VALUES( "2023-05-05" , 1 , 5 , 1 );
+INSERT INTO hearts ( created_at ,status, user_id, post_id) VALUES( "2023-05-05" , 1 , 6 , 1 );
+INSERT INTO hearts ( created_at ,status, user_id, post_id) VALUES( "2023-05-05" , 1 , 7 , 1 );
 
 INSERT INTO `groups` (title, created_at, description_group, user_id) VALUES ("JAVA", "2023/06/06" , "Personas con interes en aprender sobre JAVA", 5);
 INSERT INTO `groups` (title, created_at, description_group, user_id) VALUES ("HTML", "2023/06/06" , "Personas con interes en aprender sobre HTML", 8);
@@ -542,3 +550,5 @@ INSERT INTO group_post(group_id, post_id) VALUES(2,4);
 INSERT INTO group_post(group_id, post_id) VALUES(3,2);
 INSERT INTO group_post(group_id, post_id) VALUES(4,5);
 INSERT INTO group_post(group_id, post_id) VALUES(4,9);
+
+INSERT INTO user_roles (user_id, auth_id) VALUES (1,1);
