@@ -6,7 +6,9 @@ import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 public class PostDto {
@@ -14,12 +16,12 @@ public class PostDto {
     private String postBody;
     private String createdAt;
     private String imgSource;
-    private String counter;
+    private Integer counter;
     private String name;
     private String lastName;
     private String username;
     private String role;
     private String img;
     private Integer userId;
-    private List<HeartDto> hearts = new ArrayList<>();
+    private Set<HeartDto> hearts = new HashSet<>();
 }

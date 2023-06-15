@@ -33,8 +33,8 @@ public class Post {
     @Column (name = "img_source", nullable = false, length = 250)
     private String imgSource;
 
-    @Column(name = "counter", nullable = false, length = 250)
-    private String counter;
+    @Column(name = "counter", nullable = false)
+    private Integer counter;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
