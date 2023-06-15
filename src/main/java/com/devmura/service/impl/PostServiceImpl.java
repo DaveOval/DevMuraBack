@@ -118,7 +118,11 @@ public class PostServiceImpl implements PostService {
                                 .collect(Collectors.toList());
 
                         int heartsCount = activeHearts.size();
-                        postDto.setCounter(String.valueOf(heartsCount));
+                        post.setCounter(heartsCount);
+                        postRepository.save(post);
+
+                        postDto.setCounter(heartsCount);
+
                         return postDto;
                     })
                     .collect(Collectors.toList());
@@ -128,6 +132,9 @@ public class PostServiceImpl implements PostService {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
+
+
 
 
 }

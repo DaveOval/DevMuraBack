@@ -16,7 +16,7 @@ public class PostDto {
     private String postBody;
     private String createdAt;
     private String imgSource;
-    private String counter;
+    private Integer counter;
     private String name;
     private String lastName;
     private String username;
