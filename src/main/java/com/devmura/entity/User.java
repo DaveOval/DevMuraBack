@@ -19,25 +19,25 @@ public class User {
     @Column(name = "user_id")
     private Integer id;
 
-    @Column(name = "name",nullable = false, length = 30)
+    @Column(name = "name",nullable = false, length = 150)
     private String name;
 
-    @Column(name = "last_name", nullable = false, length = 30)
+    @Column(name = "last_name", nullable = false, length =150)
     private String lastName;
 
-    @Column(name = "age", nullable = false, length = 30)
+    @Column(name = "age", nullable = false)
     private Integer age;
 
     @Column(name = "email", nullable = false, length = 150, unique = true)
     private String email;
 
-    @Column(name = "username", nullable = false, length = 50, unique = true)
+    @Column(name = "username", nullable = false, length = 150, unique = true)
     private String username;
 
-    @Column(name = "created_at", nullable = false, length = 150)
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "password",nullable = false, length = 20)
+    @Column(name = "password",nullable = false, length = 150)
     private String password;
 
     @PrePersist

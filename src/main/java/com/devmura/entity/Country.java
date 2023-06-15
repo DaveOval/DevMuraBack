@@ -19,10 +19,10 @@ public class Country {
     @Column(name = "country_id")
     private Integer id;
 
-    @Column(name = "country_name", nullable = false, length = 50)
+    @Column(name = "country_name", nullable = false, length = 50, unique = true)
     private String name;
 
-    @Column(name = "country_code", nullable = false, length = 50)
+    @Column(name = "country_code", nullable = false, length = 10, unique = true)
     private String code;
 
 
