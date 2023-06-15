@@ -522,14 +522,14 @@ INSERT INTO language_profile(language_id, profile_id) VALUES(2,2);
 INSERT INTO language_profile(language_id, profile_id) VALUES(1,3);
 INSERT INTO language_profile(language_id, profile_id) VALUES(2,3);
 
-INSERT INTO hearts (created_at, user_id, post_id) VALUES("2023-06-02",2,1);
-INSERT INTO hearts (created_at, user_id, post_id) VALUES("2023-06-02",2,1);
-INSERT INTO hearts (created_at, user_id, post_id) VALUES("2023-06-02",2,1);
-INSERT INTO hearts (created_at, user_id, post_id) VALUES("2023-06-02",2,1);
-INSERT INTO hearts (created_at, user_id, post_id) VALUES("2023-06-03",5,2);
-INSERT INTO hearts (created_at, user_id, post_id) VALUES("2023-06-03",2,1);
-INSERT INTO hearts (created_at, user_id, post_id) VALUES("2023-06-03",5,2);
-INSERT INTO hearts (created_at, user_id, post_id) VALUES("2023-06-03",5,2);
+INSERT INTO hearts (created_at, status, user_id, post_id) VALUES("2023-06-02",1,2,1);
+INSERT INTO hearts (created_at, status, user_id, post_id) VALUES("2023-06-02",1,2,1);
+INSERT INTO hearts (created_at, status, user_id, post_id) VALUES("2023-06-02",1,2,1);
+INSERT INTO hearts (created_at, status, user_id, post_id) VALUES("2023-06-02",1,2,1);
+INSERT INTO hearts (created_at, status, user_id, post_id) VALUES("2023-06-03",1,5,2);
+INSERT INTO hearts (created_at, status, user_id, post_id) VALUES("2023-06-03",1,2,1);
+INSERT INTO hearts (created_at, status, user_id, post_id) VALUES("2023-06-03",1,5,2);
+INSERT INTO hearts (created_at, status, user_id, post_id) VALUES("2023-06-03",1,5,2);
 
 INSERT INTO `groups` (title, created_at, description_group, user_id) VALUES ("JAVA", "2023/06/06" , "Personas con interes en aprender sobre JAVA", 5);
 INSERT INTO `groups` (title, created_at, description_group, user_id) VALUES ("HTML", "2023/06/06" , "Personas con interes en aprender sobre HTML", 8);
