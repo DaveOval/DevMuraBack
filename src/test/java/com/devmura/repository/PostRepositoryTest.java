@@ -14,4 +14,7 @@ class PostRepositoryTest {
     @Autowired
     PostRepository postRepository;
 
+    @Test
+    void countByHearts() {
+    }
 }
