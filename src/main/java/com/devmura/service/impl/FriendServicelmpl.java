@@ -72,14 +72,25 @@ public class FriendServicelmpl implements FriendService {
                 Optional<Friend> existingFriend = friendRepository.findByUserAndFriendUser(user.get(), friendUser.get());
 
                 if (existingFriend.isPresent()) {
-                    return ResponseEntity.ok(existingFriend.get());
+                    Friend friend = existingFriend.get();
+                    int isActivated = friend.getIsActivated();
+
+                    if (isActivated == 1) {
+                        friend.setIsActivated(0);
+                    } else {
+                        friend.setIsActivated(1);
+                    }
+
+                    return ResponseEntity.ok(friendRepository.save(friend));
                 } else {
                     Friend friendRequest = new Friend();
                     friendRequest.setUser(user.get());
                     friendRequest.setFriendUser(friendUser.get());
-                    friendRequest.setAccepted(false);
+                    friendRequest.setAccepted(0);
+                    friendRequest.setIsActivated(1);
 
-                    return ResponseEntity.ok(friendRepository.save(friendRequest));
+                    Friend savedFriend = friendRepository.save(friendRequest);
+                    return ResponseEntity.ok(savedFriend);
                 }
             } else {
                 return ResponseEntity.notFound().build();
@@ -89,13 +100,15 @@ public class FriendServicelmpl implements FriendService {
         }
     }
 
+
+
     @Override
     public ResponseEntity<Friend> acceptFriendRequest(Integer friendId) {
         try {
             Optional<Friend> friend = friendRepository.findById(friendId);
             if (friend.isPresent()) {
                 Friend friendRequest = friend.get();
-                friendRequest.setAccepted(true);
+                friendRequest.setAccepted(1);
                 friendRepository.save(friendRequest);
                 return ResponseEntity.ok(friendRequest);
             } else {
