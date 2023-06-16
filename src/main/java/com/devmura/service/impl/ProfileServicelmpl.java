@@ -130,9 +130,10 @@ public class ProfileServicelmpl implements ProfileService {
                 languageProfileRepository.save(languageProfileWR);
             }
 
-            updatedProfile = profileRepository.getById(updatedProfile.getId());
+            //updatedProfile = profileRepository.getById(updatedProfile.getId());
+            updatedProfileDto = this.getProfileDtoById(id).getBody();
 
-            return ResponseEntity.ok(updatedProfile);
+            return ResponseEntity.ok(updatedProfileDto);
         } else {
             return ResponseEntity.notFound().build();
         }

@@ -155,9 +155,15 @@ public class UserServiceImpl implements UserService {
                 level.ifPresent(profile::setLevel);
 
                 user.setProfile(profile);
-                newUser = userRepository.save(user);
+                if (user.getUsername() != null && user.getEmail() != null && user.getPassword() != null
+                        && user.getName() != null && user.getLastName() != null && user.getAge() != null
+                        && user.getGender() != null && user.getCountry() != null) {
+                    userRepository.save(user);
+                } else {
+                    throw new Exception("Complete all fields");
+                }
             }
-            return new ResponseEntity<>(newUser, HttpStatus.CREATED);
+            return new ResponseEntity<>(user, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
