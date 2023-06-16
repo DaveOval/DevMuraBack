@@ -124,9 +124,25 @@ public class CommentServiceImpl implements CommentService {
         }
     }
 
+
+
     @Override
     public ResponseEntity<List<CommentDto>> getAllCommentsActive() {
         List<Comment> comments = commentRepository.findByIsVisible(1);
+
+        if (comments.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            List<CommentDto> commentDtos = comments
+                    .stream()
+                    .map(comment -> CommentMapper.mapToCommentDto(comment))
+                    .collect(Collectors.toList());
+            return new ResponseEntity<>(commentDtos, HttpStatus.OK);
+        }
+    }
+
+    public ResponseEntity<List<CommentDto>> getAllCommentsActiveByPost(Integer postId) {
+        List<Comment> comments = commentRepository.findByIsVisibleAndPostId(1, postId);
 
         if (comments.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

@@ -29,6 +29,10 @@ public class CommentController {
         return commentService.getAllCommentsActive();
     }
 
+    @GetMapping("/active/id")
+    public ResponseEntity<List<CommentDto>> getAllActiveByPost(@RequestParam Integer postId){
+        return commentService.getAllCommentsActiveByPost(postId);
+    }
 
     @PutMapping("/delete")
     public ResponseEntity<Comment> deleteComment(@RequestParam Integer commentId, @RequestParam Integer userId) {

@@ -12,5 +12,6 @@ public interface CommentService extends CRUDService<Comment>{
     public ResponseEntity<Comment> deleteComment(Integer commentId, Integer userId);
     public ResponseEntity<List<CommentDto>> getAllComments();
     public ResponseEntity<List<CommentDto>> getAllCommentsActive();
+    public ResponseEntity<List<CommentDto>> getAllCommentsActiveByPost(Integer postId);
     public ResponseEntity<Comment> update(Integer commentId, String newContent, Integer userId);
 }
