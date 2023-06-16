@@ -584,3 +584,229 @@ INSERT INTO group_post(group_id, post_id) VALUES(4,5);
 INSERT INTO group_post(group_id, post_id) VALUES(4,9);
 
 INSERT INTO user_roles (user_id, auth_id) VALUES (1,1);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Great post!', '2023-06-15', 1, 1);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I completely agree!', '2023-06-15', 2, 1);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Nice job!', '2023-06-16', 3, 2);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Nice work!', '2023-06-17', 4, 3);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Interesting post!', '2023-06-17', 5, 4);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Thanks for sharing!', '2023-06-18', 6, 4);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have a question...', '2023-06-19', 7, 5);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Amazing insights!', '2023-06-20', 8, 6);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I disagree with your point.', '2023-06-21', 9, 7);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Well written!', '2023-06-22', 10, 8);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I learned something new.', '2023-06-23', 1, 8);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Great insights!', '2023-06-24', 2, 9);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Thanks for the useful information.', '2023-06-25', 3, 10);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I really enjoyed reading this.', '2023-06-26', 4, 11);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Keep up the good work!', '2023-06-27', 5, 12);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Great insights!', '2023-06-28', 2, 5);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I found this very helpful.', '2023-06-29', 3, 6);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Thanks for sharing your thoughts!', '2023-06-30', 4, 7);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have a different perspective.', '2023-07-01', 5, 8);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Well done!', '2023-07-02', 6, 9);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have a question about this.', '2023-07-03', 7, 10);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('This post inspired me.', '2023-07-04', 8, 11);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I appreciate your insights.', '2023-07-05', 9, 12);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have shared this with my friends.', '2023-07-06', 10, 13);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have a different point of view.', '2023-07-07', 1, 14);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('This post made me think.', '2023-07-08', 2, 15);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Great job explaining this!', '2023-07-09', 3, 16);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I can relate to this.', '2023-07-10', 4, 17);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('This post needs more clarification.', '2023-07-11', 5, 18);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Thanks for the helpful tips!', '2023-07-12', 1, 19);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I enjoyed reading this.', '2023-07-13', 2, 20);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have a different opinion.', '2023-07-14', 3, 1);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Well articulated!', '2023-07-15', 4, 2);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have bookmarked this.', '2023-07-16', 5, 3);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Thanks for the valuable insights!', '2023-07-17', 6, 4);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('This post resonated with me.', '2023-07-18', 7, 5);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have a different perspective on this.', '2023-07-19', 8, 6);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Thanks for sharing your thoughts!', '2023-07-20', 9, 7);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have a question about this topic.', '2023-07-21', 10, 8);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Great insights! Keep it up!', '2023-07-22', 1, 9);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I disagree with your viewpoint.', '2023-07-23', 2, 10);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Well written and informative!', '2023-07-24', 3, 11);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I learned something new from this post.', '2023-07-25', 4, 12);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Thanks for sharing valuable insights!', '2023-07-26', 5, 13);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I enjoyed reading this post.', '2023-07-27', 1, 14);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Great work! Keep sharing.', '2023-07-28', 2, 15);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have a different opinion on this matter.', '2023-07-29', 3, 16);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('This post made me think deeper.', '2023-07-30', 4, 17);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Thanks for providing valuable tips!', '2023-07-31', 5, 18);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I found this post very insightful.', '2023-08-01', 6, 19);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have a question regarding this topic.', '2023-08-02', 7, 20);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('This post helped me with my project.', '2023-08-03', 8, 1);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I appreciate the effort put into this post.', '2023-08-04', 9, 2);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Thanks for sharing your knowledge.', '2023-08-05', 10, 3);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have shared this post with my colleagues.', '2023-08-06', 1, 4);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I completely agree with your points.', '2023-08-07', 2, 5);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('This post has inspired me to take action.', '2023-08-08', 3, 6);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Thanks for shedding light on this topic.', '2023-08-09', 4, 7);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have a different viewpoint on this matter.', '2023-08-10', 5, 8);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Well-explained and insightful!', '2023-08-11', 1, 9);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have a question about the implementation.', '2023-08-12', 2, 10);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Great post! It helped me understand better.', '2023-08-13', 3, 11);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I appreciate the effort put into this post.', '2023-08-14', 4, 12);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Thanks for the valuable insights!', '2023-08-15', 5, 13);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I found this post very helpful. Thank you!', '2023-08-16', 6, 14);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have a different perspective on this topic.', '2023-08-17', 7, 15);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('This post made me reconsider my approach.', '2023-08-18', 8, 16);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Thanks for sharing practical tips!', '2023-08-19', 9, 17);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have shared this post with my friends.', '2023-08-20', 10, 18);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have learned a lot from this post.', '2023-08-21', 1, 19);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Great insights! Keep up the good work.', '2023-08-22', 2, 20);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have a question regarding the implementation.', '2023-08-23', 3, 1);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Well-written and thought-provoking!', '2023-08-24', 4, 2);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('Thanks for sharing your expertise!', '2023-08-25', 5, 3);
+
+INSERT INTO comments (content, created_at, user_id, post_id)
+VALUES ('I have bookmarked this post for future reference.', '2023-08-26', 1, 4);
+
