@@ -18,10 +18,10 @@ import java.util.Set;
 public class Auth {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "auth_id")
+    @Column(name = "auth_id", nullable = false)
     private Integer id ;
 
-    @Column(name = "auth_name", nullable = false, length = 50)
+    @Column(name = "auth_name", nullable = false, length = 50, unique = true)
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "auth", fetch = FetchType.LAZY)

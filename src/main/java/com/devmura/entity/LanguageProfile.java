@@ -11,16 +11,16 @@ import lombok.*;
 public class LanguageProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "profile_language_id")
+    @Column(name = "profile_language_id", nullable = false)
     private Integer id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "profile_id")
+    @JoinColumn(name = "profile_id", nullable = false)
     @JsonIgnore
     private Profile profile;
 
     @ManyToOne
-    @JoinColumn(name = "language_id")
+    @JoinColumn(name = "language_id", nullable = false)
     @JsonIgnore
     private Language language;
 }

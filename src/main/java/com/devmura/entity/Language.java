@@ -13,10 +13,10 @@ import java.util.*;
 public class Language {
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    @Column(name= "language_id")
+    @Column(name= "language_id", nullable = false)
     private Integer id;
 
-    @Column(name="language_name", nullable = false, length =50)
+    @Column(name="language_name", nullable = false, length =100, unique = true)
     private String languageName;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "language", fetch = FetchType.LAZY)

@@ -16,9 +16,9 @@ import java.util.Objects;
 public class Level {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "level_id")
+    @Column(name = "level_id", nullable = false)
     private Integer id;
-    @Column(name = "name", nullable = false, length = 50)
+    @Column(name = "name", nullable = false, length = 100, unique = true)
     private String name;
 
     @Override

@@ -19,19 +19,19 @@ import java.util.Set;
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "group_id")
+    @Column(name = "group_id", nullable = false)
     private Integer id ;
 
-    @Column(name = "title", nullable = false, length = 50)
+    @Column(name = "title", length = 50)
     private String title;
 
-    @Column(name = "created_at", nullable = false, length = 100)
+    @Column(name = "created_at", nullable = false)
     private String created;
 
-    @Column(name ="description_group", nullable = false, length = 150)
+    @Column(name ="description_group", nullable = false, length = 250)
     private String description;
 
-    @Column(name="user_id")
+    @Column(name="user_id", nullable = false)
     private Integer userId;
 
 //    @ManyToMany

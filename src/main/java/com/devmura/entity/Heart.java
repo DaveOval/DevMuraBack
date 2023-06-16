@@ -12,22 +12,22 @@ import java.time.LocalDateTime;
 public class Heart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "heart_id")
+    @Column(name = "heart_id", nullable = false)
     private Integer id;
 
-    @Column(name = "created_at", nullable = false, length = 150)
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "status", nullable = false)
     private Integer status;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     @JsonIgnore
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "post_id")
+    @JoinColumn(name = "post_id", nullable = false)
     @JsonIgnore
     private Post post;
 

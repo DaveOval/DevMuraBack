@@ -16,10 +16,10 @@ import java.util.Objects;
 public class Gender {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "gender_id")
+    @Column(name = "gender_id", nullable = false)
     private Integer id;
 
-    @Column(name = "gender_name", nullable = false, length = 50)
+    @Column(name = "gender_name", length = 25, unique = true)
     private String genderName;
 
     @Override

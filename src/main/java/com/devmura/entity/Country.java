@@ -16,13 +16,13 @@ import java.util.Objects;
 public class Country {
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "country_id")
+    @Column(name = "country_id", nullable = false)
     private Integer id;
 
-    @Column(name = "country_name", nullable = false, length = 50)
+    @Column(name = "country_name", nullable = false, length = 50, unique = true)
     private String name;
 
-    @Column(name = "country_code", nullable = false, length = 50)
+    @Column(name = "country_code", nullable = false, length = 10, unique = true)
     private String code;
 
 

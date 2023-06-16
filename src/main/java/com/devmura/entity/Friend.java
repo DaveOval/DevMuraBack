@@ -16,20 +16,18 @@ import lombok.*;
 public class Friend {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "friend_id")
+  @Column(name = "friend_id", nullable = false)
   private Integer id;
 
-  @Column(name="accepted", nullable = false, length = 50)
+  @Column(name="accepted", nullable = false)
   private Boolean accepted;
 
   @OneToOne
-  @JoinColumn(name="receiver_id")
+  @JoinColumn(name="receiver_id", nullable = false)
   private User user;
 
   @OneToOne
-  @JoinColumn(name="sender_id")
+  @JoinColumn(name="sender_id", nullable = false)
   private User friendUser;
-
-
  
 }

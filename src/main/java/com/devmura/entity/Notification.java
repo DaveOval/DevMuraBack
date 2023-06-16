@@ -19,20 +19,22 @@ import java.util.Objects;
 public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "notification_id")
+    @Column(name = "notification_id", nullable = false)
     private Integer id ;
 
-    @Column(name = "is_readed", nullable = false, length = 250)
+    @Column(name = "is_readed", nullable = false)
     private boolean isReaded;
 
-    @Column(name = "created_at",nullable = false, length = 250)
+    @Column(name = "created_at",nullable = false)
     private Date createdAt;
 
-    @Column(name = "receptor_id", nullable = false, length = 250)
+    @Column(name = "receptor_id", nullable = false)
     private Integer receptorId;
 
-    @Column(name = "sender_id")
+    @Column(name = "sender_id", nullable = false)
     private Integer senderId;
+
+    // faltan las foreign keys
 
     @Override
     public boolean equals(Object o) {

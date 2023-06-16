@@ -68,7 +68,7 @@ DROP TABLE IF EXISTS posts;
 create table posts (
                        post_id		integer not null auto_increment,
                        post_body	varchar(250) not null,
-                       counter		integer,
+                       counter		varchar(100),
                        created_at DATETIME NOT NULL,
                        img_source	varchar(300),
                        user_id		integer not null,
