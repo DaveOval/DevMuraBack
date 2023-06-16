@@ -16,13 +16,13 @@ import java.time.LocalDateTime;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id", nullable = false)
+    @Column(name = "user_id")
     private Integer id;
 
     @Column(name = "name",nullable = false, length = 150)
     private String name;
 
-    @Column(name = "last_name", nullable = false, length = 150)
+    @Column(name = "last_name", nullable = false, length =150)
     private String lastName;
 
     @Column(name = "age", nullable = false)
@@ -37,7 +37,7 @@ public class User {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    @Column(name = "password", nullable = false, length = 150)
+    @Column(name = "password",nullable = false, length = 150)
     private String password;
 
     @PrePersist
@@ -59,6 +59,9 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Post> posts = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Group> groups = new ArrayList<>();
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore

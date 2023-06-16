@@ -21,7 +21,7 @@ import java.util.Objects;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "post_id", nullable = false)
+    @Column(name = "post_id")
     private Integer id;
 
     @Column(name = "post_body",nullable = false, length = 250)
@@ -30,7 +30,7 @@ public class Post {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    @Column (name = "img_source", length = 300)
+    @Column (name = "img_source", nullable = false, length = 300)
     private String imgSource;
 
     @Column(name = "counter", nullable = false)
@@ -44,14 +44,17 @@ public class Post {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post", fetch = FetchType.EAGER)
     private List<Heart> hearts = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post", fetch = FetchType.EAGER)
+    private List<Comment> comments = new ArrayList<>();
+
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now().withNano(0);
     }
 
-//    @OneToMany(mappedBy = "post")
-//    List<GroupPost> groupPosts = new ArrayList<>();
-
+    @ManyToOne
+    @JoinColumn(name = "group_id")
+    private Group group;
 
     public String getCreatedAt() {
         return createdAt.toString();

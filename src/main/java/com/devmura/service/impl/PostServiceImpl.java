@@ -67,17 +67,22 @@ public class PostServiceImpl implements PostService {
     @Override
     public ResponseEntity<?> savePostById(Post post, Integer id) {
         try {
-            Optional<User> user = userRepository.findById(id);
-            if (user == null) {
+            Optional<User> userOptional = userRepository.findById(id);
+            if (!userOptional.isPresent()) {
                 throw new IllegalArgumentException("User not found");
             }
-            post.setUser(user.get());
+
+            User user = userOptional.get();
+            post.setUser(user);
             postRepository.save(post);
+
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+
         return new ResponseEntity<>("Post saved", HttpStatus.CREATED);
     }
+
 
     @Override
     public ResponseEntity<?> delete(Integer id) {
