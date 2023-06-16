@@ -1,5 +1,6 @@
 package com.devmura.controller;
 
+import com.devmura.dto.CommentDto;
 import com.devmura.entity.Comment;
 import com.devmura.repository.CommentRepository;
 import com.devmura.service.CommentService;
@@ -19,17 +20,28 @@ public class CommentController {
 
     //http://localhost:8080/api/comment/all
     @GetMapping
-    public ResponseEntity<List<?>> getAll(){
-        return commentService.findAll();
+    public ResponseEntity<List<CommentDto>> getAll(){
+        return commentService.getAllComments();
+    }
+
+    @GetMapping("/active")
+    public ResponseEntity<List<CommentDto>> getAllActive(){
+        return commentService.getAllCommentsActive();
+    }
+
+
+    @PutMapping("/delete")
+    public ResponseEntity<Comment> deleteComment(@RequestParam Integer commentId, @RequestParam Integer userId) {
+        return commentService.deleteComment(commentId, userId);
     }
 
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody Comment comment) {
-        return commentService.save(comment);
+    public ResponseEntity<?> save(@RequestBody Comment comment, @RequestParam Integer postId, @RequestParam Integer userId) {
+        return commentService.saveComment(comment, postId, userId);
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<?> delete(@PathVariable Integer id) {
-        return commentService.delete(id);
+    @PutMapping("/update")
+    public ResponseEntity<Comment> update(@RequestParam Integer commentId, @RequestBody String content, @RequestParam Integer userId) {
+        return commentService.update(commentId, content, userId);
     }
 }
