@@ -45,6 +45,7 @@ public class Profile {
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "profile", fetch = FetchType.EAGER)
+    //@OneToMany( fetch = FetchType.EAGER)
     private List<LanguageProfile> languageProfiles = new ArrayList<>();
 
 
