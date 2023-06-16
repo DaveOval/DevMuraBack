@@ -17,8 +17,6 @@ public class FriendController {
     @Autowired
     FriendService friendService;
 
-
-
     @GetMapping
     public ResponseEntity<List<?>> getFriends(){
         return friendService.findAll();
