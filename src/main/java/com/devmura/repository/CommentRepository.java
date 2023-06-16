@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Integer> {
     public List<Comment> findByIsVisible(Integer isVisible);
+
+    public List<Comment> findByIsVisibleAndPostId(Integer isVisible, Integer postId);
 }
