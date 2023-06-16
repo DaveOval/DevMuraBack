@@ -108,8 +108,8 @@ create table notifications (
 DROP TABLE IF EXISTS comments;
 create table comments(
                          comment_id  integer not null auto_increment,
-                         content varchar (150),
-                         created_at date not null,
+                         content varchar (250),
+                         is_Visible integer not null,
                          user_id integer not null,
                          post_id integer not null,
                          primary key (comment_id),
