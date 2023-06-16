@@ -1,0 +1,1 @@
+web: java -Dfile.encoding=UTF-8 -jar -Dserver.port=$PORT target/DevMuraREST-0.0.1-SNAPSHOT.jar

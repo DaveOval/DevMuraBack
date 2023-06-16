@@ -22,7 +22,11 @@ public class User {
     @Column(name = "name",nullable = false, length = 150)
     private String name;
 
+<<<<<<< HEAD
     @Column(name = "last_name", nullable = false, length = 150)
+=======
+    @Column(name = "last_name", nullable = false, length =150)
+>>>>>>> e0637010370540c35e60b57348e35a3d7f65fa08
     private String lastName;
 
     @Column(name = "age", nullable = false)
@@ -37,7 +41,11 @@ public class User {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
+<<<<<<< HEAD
     @Column(name = "password", nullable = false, length = 150)
+=======
+    @Column(name = "password",nullable = false, length = 150)
+>>>>>>> e0637010370540c35e60b57348e35a3d7f65fa08
     private String password;
 
     @PrePersist

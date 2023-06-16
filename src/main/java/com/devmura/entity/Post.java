@@ -30,7 +30,11 @@ public class Post {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
+<<<<<<< HEAD
     @Column (name = "img_source", length = 300)
+=======
+    @Column (name = "img_source", nullable = false, length = 300)
+>>>>>>> e0637010370540c35e60b57348e35a3d7f65fa08
     private String imgSource;
 
     @Column(name = "counter", nullable = false)

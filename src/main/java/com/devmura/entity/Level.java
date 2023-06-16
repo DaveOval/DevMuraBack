@@ -18,7 +18,11 @@ public class Level {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "level_id", nullable = false)
     private Integer id;
+<<<<<<< HEAD
     @Column(name = "name", nullable = false, length = 100, unique = true)
+=======
+    @Column(name = "name", nullable = false, length = 100)
+>>>>>>> e0637010370540c35e60b57348e35a3d7f65fa08
     private String name;
 
     @Override
