@@ -11,7 +11,7 @@ create table auths (
 
 DROP TABLE IF EXISTS levels;
 create table levels (
-                        level_id	integer not null auto_increment,
+                        level_id integer not null auto_increment,
                         name	varchar(100) not null unique,
                         primary key(level_id)
 );
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `devmura`.`users` (
     username VARCHAR(150) NOT NULL unique,
     created_at DATETIME NOT NULL,
     gender_id INTEGER NOT NULL,
-    password VARCHAR(150),
+    password VARCHAR(150) NOT NULL,
     country_id  integer not null,
     PRIMARY KEY (`user_id`),
     FOREIGN KEY (gender_id) REFERENCES genders (gender_id),
@@ -68,7 +68,7 @@ DROP TABLE IF EXISTS posts;
 create table posts (
                        post_id		integer not null auto_increment,
                        post_body	varchar(250) not null,
-                       counter		varchar(100),
+                       counter		integer NOT NULL,
                        created_at DATETIME NOT NULL,
                        img_source	varchar(300),
                        user_id		integer not null,

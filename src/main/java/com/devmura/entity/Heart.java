@@ -31,9 +31,9 @@ public class Heart {
     @JsonIgnore
     private Post post;
 
-        @PrePersist
-        protected void onCreate() {
-            createdAt = LocalDateTime.now().withNano(0);
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now().withNano(0);
 
 
     }

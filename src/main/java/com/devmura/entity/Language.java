@@ -11,16 +11,12 @@ import java.util.*;
 @Entity
 @Table(name = "languages")
 public class Language {
-    @Id 
-    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "language_id", nullable = false)
     private Integer id;
 
-<<<<<<< HEAD
     @Column(name="language_name", nullable = false, length =100, unique = true)
-=======
-    @Column(name="language_name", nullable = false, length = 100, unique = true)
->>>>>>> e0637010370540c35e60b57348e35a3d7f65fa08
     private String languageName;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "language", fetch = FetchType.LAZY)

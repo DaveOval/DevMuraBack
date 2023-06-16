@@ -14,7 +14,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "countries")
 public class Country {
-    @Id 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "country_id", nullable = false)
     private Integer id;

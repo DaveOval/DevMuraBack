@@ -18,17 +18,10 @@ public class Profile {
     @Column(name = "birthday", nullable = true)
     private Date birthday;
 
-<<<<<<< HEAD
     @Column(name = "bio", length = 250)
     private String bio;
 
     @Column(name = "img_user", length = 300)
-=======
-    @Column(name = "bio", nullable = true, length = 250)
-    private String bio;
-
-    @Column(name = "img_user", nullable = true, length = 300)
->>>>>>> e0637010370540c35e60b57348e35a3d7f65fa08
     private String img;
 
     @Column(name = "github_username", length = 50)
@@ -37,17 +30,10 @@ public class Profile {
     @Column(name = "linkedin_username", length = 100)
     private String likedin;
 
-<<<<<<< HEAD
     @Column(name = "background_user", length = 300)
     private String background;
 
     @Column(name = "role", length = 100)
-=======
-    @Column(name = "background_user",nullable = true, length = 300)
-    private String background;
-
-    @Column(name = "role", nullable = true, length = 100)
->>>>>>> e0637010370540c35e60b57348e35a3d7f65fa08
     private String role;
 
     @ManyToOne
