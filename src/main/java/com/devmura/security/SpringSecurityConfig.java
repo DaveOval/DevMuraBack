@@ -63,7 +63,7 @@ public class SpringSecurityConfig {
     CorsConfigurationSource corsConfigurationSource() {
 
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList("https://devmuraback.up.railway.app/"));
+        config.setAllowedOrigins(Arrays.asList("https://dev-mura.vercel.app/"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
         config.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
         config.setAllowCredentials(true);
