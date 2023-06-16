@@ -2,6 +2,7 @@ package com.devmura.entity;
 
 import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.springframework.security.core.GrantedAuthority;
@@ -20,9 +21,11 @@ public class User {
     private Integer id;
 
     @Column(name = "name",nullable = false, length = 150)
+    @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
     private String name;
 
     @Column(name = "last_name", nullable = false, length =150)
+    @Size(min = 3, max = 50, message = "Lastname must be between 3 and 50 characters")
     private String lastName;
 
     @Column(name = "age", nullable = false)
@@ -32,6 +35,7 @@ public class User {
     private String email;
 
     @Column(name = "username", nullable = false, length = 150, unique = true)
+    @Size(min = 5, max = 50, message = "Username must be between 5 and 50 characters")
     private String username;
 
     @Column(name = "created_at", nullable = false)
