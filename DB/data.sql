@@ -534,6 +534,7 @@ INSERT INTO group_post(group_id, post_id) VALUES(4,5);
 INSERT INTO group_post(group_id, post_id) VALUES(4,9);
 
 INSERT INTO user_roles (user_id, auth_id) VALUES (1,1);
+<<<<<<< HEAD
 INSERT INTO user_roles (user_id, auth_id) VALUES (2,2);
 INSERT INTO user_roles (user_id, auth_id) VALUES (3,2);
 INSERT INTO user_roles (user_id, auth_id) VALUES (4,3);
@@ -542,6 +543,10 @@ INSERT INTO user_roles (user_id, auth_id) VALUES (6,3);
 INSERT INTO user_roles (user_id, auth_id) VALUES (7,2);
 INSERT INTO user_roles (user_id, auth_id) VALUES (8,2);
 INSERT INTO user_roles (user_id, auth_id) VALUES (9,2);
+=======
+INSERT INTO user_roles (user_id, auth_id) VALUES (1, 2);
+INSERT INTO user_roles (user_id, auth_id) VALUES (1, 3);
+>>>>>>> 22f6c6b578fd2df3110f0c3ed3b95083e337af41
 INSERT INTO user_roles (user_id, auth_id) VALUES (10,1);
 INSERT INTO user_roles (user_id, auth_id) VALUES (11,1);
 INSERT INTO user_roles (user_id, auth_id) VALUES (12,1);
