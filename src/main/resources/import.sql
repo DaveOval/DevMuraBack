@@ -358,6 +358,55 @@ insert into languages (language_name) VALUES ("NetBeans");
 
 
 
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id ) VALUES ("David", "Vazquez", 24, "dave@gmail.com", "dave_u", "2023-05-01", 2,"$2a$12$NFXPYctXO6JefCHi7dYsMOholC5dErCxF/sLIi9LFb6fVgDsAu6cu",161);
+
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id ) VALUES ("Michelle", "Trejo", 24 , "michelle@hotmail.com", "Error404", "2023-06-05", 2,"$2a$12$lzR0QfWl9g5UdeItjtE6TudquUAmtYML0cPmUGDKTAC7Z32srABZW", 161);
+
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id ) VALUES ("Patricia", "Matias", 22 , "ale@hotmail.com", "Tenshik0", "2023-06-05", 1,"$2a$12$/XkkGUHopjHFPoRdLNuzxunXxwiZljy8XDEuuScBZo7vbCY2nfsuK", 161);
+
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id ) VALUES ("Fatima", "Moreno", 23 , "faty@hotmail.com", "Faty", "2023-06-05", 1,"$2a$12$r9HvkpewFiyFxIWrnbAnBeNlAFeSYNCI9tnXJmqlpInBBt1IBzyy2", 161);
+
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id ) VALUES ("Omar", "Michaca", 24 , "omar@hotmail.com", "OmarMV", "2023-06-05", 2,"$2a$12$Z1J/fVtf2oKYxaf7M2wyguoUN0ZHj84qx6WNixpTtHR2dsUJi8536", 161);
+
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id ) VALUES ("Alvaro", "Gonzalez", 24 , "alvaro@hotmail.com", "Alv", "2023-06-05", 1,"$2a$12$V1OZT.mkH9NfiILMWjT3peuPWO0GxIW05IA1FD71qxgkJ11s288bK", 161);
+
+insert into users (name ,last_name, age, email, username, created_at, gender_id, password, country_id ) VALUES ("Sofi", "Gomez", 20 , "sofi@hotmail.com", "Sof_gm", "2023-06-05", 1,"$2a$12$f5Ggc9qCunnQbKkF.V1ERu0WZxvd6G.jVxjvEMGsCBEl8NFaxbsuu", 161);
+
+INSERT INTO `profiles` (birthday, bio, img_user, github_username, linkedin_username, background_user,role, level_id, user_id) VALUES("1999-01-08", "Hello there", "https://avatars.githubusercontent.com/u/112228738?s=400&u=cb45f8d1845468aa78303654a5d70703f372e7fe&v=4", "Dave", "David Vazquez" , "https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Fullstack Developer Java & React", 2,1);
+INSERT INTO `profiles` (birthday, bio, img_user, github_username, linkedin_username, background_user,role, level_id, user_id) VALUES("1999-10-10", "Hi there!", "https://avatars.githubusercontent.com/u/92353536?v=4", "Error404", "Michelle Trejo","https://images.pexels.com/photos/9504092/pexels-photo-9504092.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Java Developer", 1,2);
+INSERT INTO `profiles` (birthday, bio, img_user, github_username, linkedin_username, background_user,role, level_id, user_id) VALUES("1991-02-04", "Cuac", "https://avatars.githubusercontent.com/u/116323180?v=4", "Patito", "Patricia Matías", "https://images.pexels.com/photos/162140/duckling-birds-yellow-fluffy-162140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Fullstack Developer", 1,3);
+INSERT INTO `profiles` (birthday, bio, img_user, github_username, linkedin_username, background_user,role, level_id, user_id) VALUES("2000-11-03", "Hola!", "https://avatars.githubusercontent.com/u/129539914?v=4", "Faty", "Fatima Moreno","https://images.pexels.com/photos/1083807/pexels-photo-1083807.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Fullstack Trainee", 1,4);
+INSERT INTO `profiles` (birthday, bio, img_user, github_username, linkedin_username, background_user,role, level_id, user_id) VALUES("1999-07-08", "Let's talk", "https://images.pexels.com/photos/8107906/pexels-photo-8107906.jpeg?auto=compress&cs=tinysrgb&w=1600", "OmarMV", "Omar Michaca","https://images.pexels.com/photos/2129796/pexels-photo-2129796.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Java Developer", 1,5);
+INSERT INTO `profiles` (birthday, bio, img_user, github_username, linkedin_username, background_user,role, level_id, user_id) VALUES("1998-12-08", "Woo!", "https://images.pexels.com/photos/2389349/pexels-photo-2389349.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Alv", "Alvaro Gonzalez","https://images.pexels.com/photos/1080953/pexels-photo-1080953.jpeg?auto=compress&cs=tinysrgb&w=1600","Web Developer Trainee", 1,6);
+INSERT INTO `profiles` (birthday, bio, img_user, github_username, linkedin_username, background_user,role, level_id, user_id) VALUES("2003-12-08", "Holi!", "https://images.pexels.com/photos/8718387/pexels-photo-8718387.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Sofi_gm", "Sofi Gomez","https://images.pexels.com/photos/3389729/pexels-photo-3389729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Web Developer Trainee", 1,7);
+
+INSERT INTO user_roles (user_id, auth_id) VALUES (1,1);
+INSERT INTO user_roles (user_id, auth_id) VALUES (1,2);
+INSERT INTO user_roles (user_id, auth_id) VALUES (1,3);
+
+INSERT INTO user_roles (user_id, auth_id) VALUES (2,1);
+INSERT INTO user_roles (user_id, auth_id) VALUES (2,2);
+INSERT INTO user_roles (user_id, auth_id) VALUES (2,3);
+
+INSERT INTO user_roles (user_id, auth_id) VALUES (3,1);
+INSERT INTO user_roles (user_id, auth_id) VALUES (3,2);
+INSERT INTO user_roles (user_id, auth_id) VALUES (3,3);
+
+INSERT INTO user_roles (user_id, auth_id) VALUES (4,1);
+INSERT INTO user_roles (user_id, auth_id) VALUES (4,2);
+INSERT INTO user_roles (user_id, auth_id) VALUES (4,3);
+
+INSERT INTO user_roles (user_id, auth_id) VALUES (5,1);
+INSERT INTO user_roles (user_id, auth_id) VALUES (5,2);
+INSERT INTO user_roles (user_id, auth_id) VALUES (5,3);
+
+INSERT INTO user_roles (user_id, auth_id) VALUES (6,1);
+INSERT INTO user_roles (user_id, auth_id) VALUES (6,2);
+INSERT INTO user_roles (user_id, auth_id) VALUES (6,3);
+
+INSERT INTO user_roles (user_id, auth_id) VALUES (7,1);
+INSERT INTO user_roles (user_id, auth_id) VALUES (7,2);
+INSERT INTO user_roles (user_id, auth_id) VALUES (7,3);
 
 
 
