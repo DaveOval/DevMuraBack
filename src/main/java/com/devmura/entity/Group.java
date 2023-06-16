@@ -1,9 +1,11 @@
 package com.devmura.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -15,7 +17,7 @@ import java.util.Set;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "devmura.groups")
+@Table(name = "groupss")
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,18 +28,23 @@ public class Group {
     private String title;
 
     @Column(name = "created_at", nullable = false)
-    private String created;
+    private LocalDateTime createdAt;
 
     @Column(name ="description_group", nullable = false, length = 250)
     private String description;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    private User user;
 
-    @Column(name="user_id")
-    private Integer userId;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "group", fetch = FetchType.EAGER)
+    private List<Post> posts = new ArrayList<>();
 
-//    @ManyToMany
-//    @JoinTable(
-//        name = "group_post",
-//        joinColumns = @JoinColumn(name = "group_id"),
-//        inverseJoinColumns = @JoinColumn(name = "post_id"))
-//    private Set<Post> posts;
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now().withNano(0);
+    }
+    public void addPost(Post post) {
+        this.posts.add(post);
+    }
 }

@@ -44,14 +44,17 @@ public class Post {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post", fetch = FetchType.EAGER)
     private List<Heart> hearts = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post", fetch = FetchType.EAGER)
+    private List<Comment> comments = new ArrayList<>();
+
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now().withNano(0);
     }
 
-//    @OneToMany(mappedBy = "post")
-//    List<GroupPost> groupPosts = new ArrayList<>();
-
+    @ManyToOne
+    @JoinColumn(name = "group_id")
+    private Group group;
 
     public String getCreatedAt() {
         return createdAt.toString();
